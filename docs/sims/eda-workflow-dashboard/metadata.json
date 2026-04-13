@@ -1,0 +1,20 @@
+{
+  "title": "EDA Workflow Dashboard",
+  "description": "Interactive 7-stage EDA walkthrough on a sensor dataset: load, shape, stats, missing values, distribution, correlation, and insights.",
+  "subject": "Data Acquisition",
+  "topic": "Exploratory Data Analysis",
+  "bloom_level": "Understand",
+  "bloom_verb": "explain",
+  "library": "p5.js",
+  "sim_id": "eda-workflow-dashboard",
+  "chapter": "03-data-acquisition",
+  "iframe_height": 522,
+  "controls": [
+    {"type": "button", "label": "Prev", "description": "Go to previous EDA stage"},
+    {"type": "button", "label": "Next", "description": "Advance to next EDA stage"},
+    {"type": "progress_bar", "label": "Stage Progress", "description": "Shows current stage out of 7"}
+  ],
+  "author": "AI Systems Course",
+  "date": "2026-04-13",
+  "language": "en"
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Image Augmentation Gallery",
+  "description": "Real-time p5.js MicroSim applying 6 augmentation transforms (rotate, flip, scale, brightness, noise, crop) to a digit image with intensity slider.",
+  "subject": "Data Acquisition",
+  "topic": "Data Augmentation",
+  "bloom_level": "Apply",
+  "bloom_verb": "apply",
+  "library": "p5.js",
+  "sim_id": "image-augmentation-gallery",
+  "chapter": "03-data-acquisition",
+  "iframe_height": 537,
+  "controls": [
+    {"type": "select", "label": "Augmentation Type", "description": "Choose from 6 transform types"},
+    {"type": "slider", "label": "Intensity", "description": "Adjust transform strength"},
+    {"type": "button", "label": "Random Augment", "description": "Apply random transform at random intensity"},
+    {"type": "button", "label": "Reset", "description": "Return to original with no transform"}
+  ],
+  "author": "AI Systems Course",
+  "date": "2026-04-13",
+  "language": "en"
+}

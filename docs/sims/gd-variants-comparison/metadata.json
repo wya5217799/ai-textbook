@@ -1,0 +1,22 @@
+{
+  "title": "GD Variants Comparison",
+  "description": "Interactive 2D contour visualization showing Batch GD, SGD, and Mini-batch GD running simultaneously with adjustable learning rate and batch size, including a cost vs. iteration chart.",
+  "creator": "Dan McCreary",
+  "date": "2026-04-13",
+  "subject": ["Optimization", "Gradient Descent", "SGD", "Mini-batch", "Machine Learning"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "contributor": ["Claude Code"],
+  "identifier": "gd-variants-comparison",
+  "publisher": "AI Systems Textbook",
+  "educationalLevel": "Undergraduate",
+  "learningResourceType": "simulation",
+  "audience": "Students, Educators",
+  "version": "1.0.0",
+  "bloomLevel": ["Analyze"],
+  "concepts": ["Batch Gradient Descent", "SGD", "Mini-batch Gradient Descent", "Convergence", "Noise", "Batch Size"],
+  "prerequisites": ["Gradient descent basics", "Cost function", "Learning rate concept"],
+  "library": "p5.js"
+}

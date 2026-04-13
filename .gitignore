@@ -1,0 +1,36 @@
+# MkDocs build output - never commit to main branch
+site/
+
+# MkDocs cache directory
+.cache/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+logs/*.log
+logs/*.jsonl
+
+# Temporary files
+tmp/
+*.tmp

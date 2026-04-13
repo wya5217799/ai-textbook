@@ -1,0 +1,22 @@
+{
+  "title": "Sums of Squares Decomposition",
+  "description": "Interactive scatter plot where students click data points to see the geometric decomposition into SST (total), SSR (regression/explained), and SSE (error/unexplained) components.",
+  "creator": "Dan McCreary",
+  "date": "2026-04-13",
+  "subject": ["Linear Regression", "Statistics", "SST", "SSR", "SSE", "R-Squared"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "contributor": ["Claude Code"],
+  "identifier": "sums-of-squares-decomposition",
+  "publisher": "AI Systems Textbook",
+  "educationalLevel": "Undergraduate",
+  "learningResourceType": "simulation",
+  "audience": "Students, Educators",
+  "version": "1.0.0",
+  "bloomLevel": ["Analyze"],
+  "concepts": ["SST", "SSR", "SSE", "R-Squared", "Residuals", "Variance Decomposition"],
+  "prerequisites": ["Linear regression basics", "Concept of mean and variance"],
+  "library": "p5.js"
+}

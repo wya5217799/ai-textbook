@@ -1,0 +1,19 @@
+{
+  "title": "AI Landscape Overview",
+  "description": "Interactive radial concept map showing the major subfields of Artificial Intelligence with hover tooltips and click-to-expand ML sub-branches.",
+  "subject": "Artificial Intelligence",
+  "topic": "AI Subfields and Taxonomy",
+  "bloom_level": "Understand",
+  "bloom_verb": "classify",
+  "library": "p5.js",
+  "sim_id": "ai-landscape-overview",
+  "chapter": "01-intro-to-ai",
+  "iframe_height": 532,
+  "controls": [
+    {"type": "hover", "description": "Hover over subfield nodes to see tooltip definitions"},
+    {"type": "click", "description": "Click ML node to expand sub-branches; click any node to highlight"}
+  ],
+  "author": "AI Systems Course",
+  "date": "2026-04-13",
+  "language": "en"
+}

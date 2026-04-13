@@ -1,0 +1,210 @@
+site_name: Artificial Intelligence System - Intelligent Textbook
+site_description: An intelligent textbook for H63AIS Artificial Intelligence System course
+
+# ── Theme ──────────────────────────────────────────────────────────────────────
+theme:
+  name: material
+  features:
+    # Feature 7: Code copy button
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    # Feature 18: Search enhancements
+    - search.suggest
+    - search.highlight
+    - search.share
+    # Feature 19: Table of contents
+    - navigation.indexes
+    - toc.follow
+    - navigation.top
+    - navigation.footer
+
+# ── Plugins ────────────────────────────────────────────────────────────────────
+plugins:
+  # Feature 18: Search with suggestions
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+
+# ── Markdown Extensions ────────────────────────────────────────────────────────
+markdown_extensions:
+  # Feature 5: KaTeX math equations (currency-safe: use \(...\) for inline, $$...$$ for display)
+  - pymdownx.arithmatex:
+      generic: true
+      inline_syntax: ['round']
+      block_syntax: ['dollar', 'square']
+
+  # Feature 6: Code syntax highlighting
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      # Feature 13: Auto-append abbreviations glossary
+      auto_append:
+        - includes/abbreviations.md
+
+  # Feature 8: Mermaid diagrams
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  # Feature 13: Abbreviations & glossary tooltips
+  - abbr
+
+  # Admonitions (used by features 11, 27)
+  - admonition
+  - pymdownx.details
+
+  # Feature 19: Table of contents with permalinks
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+  # Additional useful extensions
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+
+# ── Extra JavaScript ────────────────────────────────────────────────────────────
+extra_javascript:
+  # Feature 5: KaTeX math rendering
+  - js/katex.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
+  # Feature 12: Interactive quizzes
+  - javascripts/quiz.js
+  # Feature 28: Prompt admonition copy button
+  - javascripts/extra.js
+
+# ── Extra CSS ───────────────────────────────────────────────────────────────────
+extra_css:
+  # Feature 5: KaTeX styles
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css
+  # Feature 12: Quiz styles
+  - css/quiz.css
+  # Features 27: Extra CSS (iframe, prompt admonition)
+  - css/extra.css
+
+nav:
+  - Home: index.md
+  - Course Description: course-description.md
+  - Chapters:
+    - List of Chapters: chapters/index.md
+    - 1. Introduction to Artificial Intelligence:
+      - Content: chapters/01-intro-to-ai/index.md
+      - Quiz: chapters/01-intro-to-ai/quiz.md
+      - Annotated References: chapters/01-intro-to-ai/references.md
+    - 2. Python Programming Tools for AI:
+      - Content: chapters/02-python-tools/index.md
+      - Quiz: chapters/02-python-tools/quiz.md
+      - Annotated References: chapters/02-python-tools/references.md
+    - 3. Data Acquisition and Exploration:
+      - Content: chapters/03-data-acquisition/index.md
+      - Quiz: chapters/03-data-acquisition/quiz.md
+      - Annotated References: chapters/03-data-acquisition/references.md
+    - 4. Data Preprocessing and Feature Engineering:
+      - Content: chapters/04-data-preprocessing/index.md
+      - Quiz: chapters/04-data-preprocessing/quiz.md
+      - Annotated References: chapters/04-data-preprocessing/references.md
+    - 5. Mathematical Foundations for Machine Learning:
+      - Content: chapters/05-math-foundations/index.md
+      - Quiz: chapters/05-math-foundations/quiz.md
+      - Annotated References: chapters/05-math-foundations/references.md
+    - 6. Linear Regression:
+      - Content: chapters/06-linear-regression/index.md
+      - Quiz: chapters/06-linear-regression/quiz.md
+      - Annotated References: chapters/06-linear-regression/references.md
+    - 7. Optimization and Gradient Descent:
+      - Content: chapters/07-optimization-gradient-descent/index.md
+      - Quiz: chapters/07-optimization-gradient-descent/quiz.md
+      - Annotated References: chapters/07-optimization-gradient-descent/references.md
+    - 8. Model Evaluation for Regression:
+      - Content: chapters/08-model-evaluation-regression/index.md
+      - Quiz: chapters/08-model-evaluation-regression/quiz.md
+      - Annotated References: chapters/08-model-evaluation-regression/references.md
+    - 9. Neural Network Foundations:
+      - Content: chapters/09-neural-network-foundations/index.md
+      - Quiz: chapters/09-neural-network-foundations/quiz.md
+      - Annotated References: chapters/09-neural-network-foundations/references.md
+    - 10. Classification and Logistic Regression:
+      - Content: chapters/10-classification-logistic-regression/index.md
+      - Quiz: chapters/10-classification-logistic-regression/quiz.md
+      - Annotated References: chapters/10-classification-logistic-regression/references.md
+    - 11. Classification Evaluation Metrics:
+      - Content: chapters/11-classification-evaluation/index.md
+      - Quiz: chapters/11-classification-evaluation/quiz.md
+      - Annotated References: chapters/11-classification-evaluation/references.md
+    - 12. K-Nearest Neighbor Algorithm:
+      - Content: chapters/12-k-nearest-neighbor/index.md
+      - Quiz: chapters/12-k-nearest-neighbor/quiz.md
+      - Annotated References: chapters/12-k-nearest-neighbor/references.md
+    - 13. Clustering and Unsupervised Learning Algorithms:
+      - Content: chapters/13-clustering-unsupervised-learning/index.md
+      - Quiz: chapters/13-clustering-unsupervised-learning/quiz.md
+      - Annotated References: chapters/13-clustering-unsupervised-learning/references.md
+    - 14. Training Neural Networks with Backpropagation:
+      - Content: chapters/14-backpropagation-training/index.md
+      - Quiz: chapters/14-backpropagation-training/quiz.md
+      - Annotated References: chapters/14-backpropagation-training/references.md
+    - 15. Convolutional Neural Networks:
+      - Content: chapters/15-convolutional-neural-networks/index.md
+      - Quiz: chapters/15-convolutional-neural-networks/quiz.md
+      - Annotated References: chapters/15-convolutional-neural-networks/references.md
+    - 16. Recurrent Neural Networks and the ML Workflow:
+      - Content: chapters/16-rnn-ml-workflow/index.md
+      - Quiz: chapters/16-rnn-ml-workflow/quiz.md
+      - Annotated References: chapters/16-rnn-ml-workflow/references.md
+  - Learning Graph:
+    - Introduction: learning-graph/index.md
+    - Course Description Assessment: learning-graph/course-description-assessment.md
+    - Concept Enumeration: learning-graph/concept-list.md
+    - Graph Quality Analysis: learning-graph/quality-metrics.md
+    - Concept Taxonomy: learning-graph/concept-taxonomy.md
+    - Taxonomy Distribution Report: learning-graph/taxonomy-distribution-report.md
+    - Quiz Generation Report: learning-graph/quiz-generation-report.md
+  - Glossary: glossary.md
+  - MicroSims:
+    - Learning Tools:
+      - Learning Graph Viewer: sims/graph-viewer/index.md
+      - AI Concept Classifier: sims/ai-concept-classifier/index.md
+      - Course Chapter Dependency Map: sims/course-chapter-dependency-map/index.md
+    - Chapter 1 - Introduction to AI:
+      - AI Landscape Overview: sims/ai-landscape-overview/index.md
+      - AI History Timeline: sims/ai-history-timeline/index.md
+      - AI Concept Hierarchy: sims/ai-concept-hierarchy/index.md
+      - Learning Paradigms Comparison: sims/learning-paradigms-comparison/index.md
+    - Chapter 2 - Python Programming Tools:
+      - Python AI Toolkit Stack: sims/python-ai-toolkit-stack/index.md
+      - Jupyter Notebook Workflow: sims/jupyter-notebook-workflow/index.md
+      - NumPy Array Operations Explorer: sims/numpy-array-operations/index.md
+      - Matplotlib Plot Gallery: sims/matplotlib-plot-gallery/index.md
+      - Scikit-learn vs PyTorch Decision Guide: sims/sklearn-vs-pytorch-guide/index.md
+    - Chapter 3 - Data Acquisition and Exploration:
+      - EDA Workflow Dashboard: sims/eda-workflow-dashboard/index.md
+      - Tabular vs Image Data Comparison: sims/tabular-vs-image-data/index.md
+      - Benchmark Dataset Explorer: sims/benchmark-dataset-explorer/index.md
+    - Chapter 5 - Mathematical Foundations:
+      - Gaussian Distribution Explorer: sims/gaussian-distribution-explorer/index.md
+      - Matrix Representation in ML: sims/matrix-representation-ml/index.md
+      - Matrix Operations Step-Through: sims/matrix-operations-step-through/index.md
+    - Chapter 6 - Linear Regression:
+      - Slope and Intercept Explorer: sims/slope-intercept-explorer/index.md
+      - Normal Equation Step-Through: sims/normal-equation-step-through/index.md
+      - Sums of Squares Decomposition: sims/sums-of-squares-decomposition/index.md
+    - Chapter 7 - Optimization and Gradient Descent:
+      - Gradient Descent on a 2D Surface: sims/gradient-descent-2d-surface/index.md
+      - Learning Rate Effect Explorer: sims/learning-rate-effect-explorer/index.md
+      - GD Variants Comparison: sims/gd-variants-comparison/index.md
+    - Chapter 8 - Model Evaluation:
+      - Model Complexity vs Fit Quality: sims/model-complexity-fit/index.md
+      - Overfitting vs Underfitting Visual: sims/overfitting-underfitting-visual/index.md
+      - Loss Function Comparison: sims/loss-function-comparison/index.md
+      - Regularization Effect Explorer: sims/regularization-effect-explorer/index.md
+      - K-Fold Cross-Validation Process: sims/k-fold-cross-validation/index.md
+    - Chapter 15 - Convolutional Neural Networks:
+      - Image Augmentation Gallery: sims/image-augmentation-gallery/index.md
+  - Feature Checklist: feature-checklist.md

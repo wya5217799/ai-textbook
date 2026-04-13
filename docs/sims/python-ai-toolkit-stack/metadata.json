@@ -1,0 +1,19 @@
+{
+  "title": "Python AI Toolkit Stack",
+  "description": "Layered stack diagram showing Python AI ecosystem dependency hierarchy with hover tooltips and click-to-highlight dependency chains.",
+  "subject": "Python for AI",
+  "topic": "Python Ecosystem and Library Dependencies",
+  "bloom_level": "Understand",
+  "bloom_verb": "classify",
+  "library": "p5.js",
+  "sim_id": "python-ai-toolkit-stack",
+  "chapter": "02-python-tools",
+  "iframe_height": 482,
+  "controls": [
+    {"type": "hover", "description": "Hover tool blocks to see one-line role description"},
+    {"type": "click", "description": "Click to highlight full dependency chain"}
+  ],
+  "author": "AI Systems Course",
+  "date": "2026-04-13",
+  "language": "en"
+}

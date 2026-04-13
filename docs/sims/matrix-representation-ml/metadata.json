@@ -1,0 +1,22 @@
+{
+  "title": "Matrix Representation in Machine Learning",
+  "description": "Interactive visualization showing how a tabular dataset maps to matrix notation, illustrating the feature matrix X, weight vector theta, and prediction vector y-hat.",
+  "creator": "Dan McCreary",
+  "date": "2026-04-13",
+  "subject": ["Linear Algebra", "Matrix Notation", "Machine Learning", "Data Representation"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "contributor": ["Claude Code"],
+  "identifier": "matrix-representation-ml",
+  "publisher": "AI Systems Textbook",
+  "educationalLevel": "Undergraduate",
+  "learningResourceType": "simulation",
+  "audience": "Students, Educators",
+  "version": "1.0.0",
+  "bloomLevel": ["Understand"],
+  "concepts": ["Matrix", "Feature Matrix", "Weight Vector", "Prediction Vector", "Dataset"],
+  "prerequisites": ["Basic algebra", "Understanding of tables and rows/columns"],
+  "library": "p5.js"
+}

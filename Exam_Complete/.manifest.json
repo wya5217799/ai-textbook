@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "files": {
+    "exam.pdf": {
+      "mtime": 1776076783.1412854,
+      "size": 316612,
+      "sha256": "dc0891de83cac6d6675b689121978b273362fcbd759f59388e2a9162edd45bb5",
+      "fragment": "exam.pdf.md",
+      "images": [
+        "exam__page_2_Figure_6.jpeg"
+      ]
+    }
+  }
+}

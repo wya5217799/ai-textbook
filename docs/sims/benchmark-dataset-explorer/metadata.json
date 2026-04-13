@@ -1,0 +1,21 @@
+{
+  "title": "Benchmark Dataset Explorer",
+  "description": "Side-by-side p5.js MicroSim with shuffleable MNIST digit grids (with pixel value overlay) and ImageNet category placeholders, plus statistics cards.",
+  "subject": "Data Acquisition",
+  "topic": "Benchmark Datasets: MNIST and ImageNet",
+  "bloom_level": "Remember",
+  "bloom_verb": "identify",
+  "library": "p5.js",
+  "sim_id": "benchmark-dataset-explorer",
+  "chapter": "03-data-acquisition",
+  "iframe_height": 522,
+  "controls": [
+    {"type": "button", "label": "Shuffle MNIST", "description": "Regenerate MNIST digit examples"},
+    {"type": "button", "label": "Shuffle ImageNet", "description": "Cycle through ImageNet categories"},
+    {"type": "checkbox", "label": "Show MNIST pixel values", "description": "Overlay numerical grayscale values on MNIST grid"},
+    {"type": "hover", "description": "Hover any image to see its label"}
+  ],
+  "author": "AI Systems Course",
+  "date": "2026-04-13",
+  "language": "en"
+}

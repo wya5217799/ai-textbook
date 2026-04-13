@@ -1,0 +1,22 @@
+{
+  "title": "Overfitting vs. Underfitting Visual",
+  "description": "Interactive polynomial degree slider showing training and validation MSE, with labeled transitions from underfitting through good fit to overfitting on a noisy cubic dataset.",
+  "creator": "Dan McCreary",
+  "date": "2026-04-13",
+  "subject": ["Machine Learning", "Overfitting", "Underfitting", "Model Evaluation", "Polynomial Regression"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "contributor": ["Claude Code"],
+  "identifier": "overfitting-underfitting-visual",
+  "publisher": "AI Systems Textbook",
+  "educationalLevel": "Undergraduate",
+  "learningResourceType": "simulation",
+  "audience": "Students, Educators",
+  "version": "1.0.0",
+  "bloomLevel": ["Understand"],
+  "concepts": ["Overfitting", "Underfitting", "Training MSE", "Validation MSE", "Generalization", "Model Complexity"],
+  "prerequisites": ["Basic regression concepts", "Understanding of model complexity"],
+  "library": "p5.js"
+}
