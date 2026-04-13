@@ -1,5 +1,6 @@
 site_name: Artificial Intelligence System - Intelligent Textbook
 site_description: An intelligent textbook for H63AIS Artificial Intelligence System course
+site_url: https://wya5217799.github.io/ai-textbook/
 
 # ── Theme ──────────────────────────────────────────────────────────────────────
 theme:
