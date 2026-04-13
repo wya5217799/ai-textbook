@@ -4417,7 +4417,7 @@ Learning Objective: Classify prediction outcomes into true positives, true negat
 <h3 id="accuracy">Accuracy（准确率）<a class="headerlink" href="#accuracy" title="Permanent link">&para;</a></h3>
 <p><strong>Accuracy（准确率）</strong> 是所有预测中正确预测所占的比例：</p>
 <h4 id="accuracy-formula">Accuracy Formula<a class="headerlink" href="#accuracy-formula" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}\)</span></p>
+<div class="arithmatex">\[\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}\]</div>
 <p>其中：</p>
 <ul>
 <li>分子统计所有正确预测的数量</li>
@@ -4427,7 +4427,7 @@ Learning Objective: Classify prediction outcomes into true positives, true negat
 <h3 id="precision">Precision（精确率）<a class="headerlink" href="#precision" title="Permanent link">&para;</a></h3>
 <p><strong>Precision（精确率）</strong> 回答的问题是："在模型预测为正类的所有样本中，有多少实际上是正类？"</p>
 <h4 id="precision-formula">Precision Formula<a class="headerlink" href="#precision-formula" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\text{Precision} = \frac{TP}{TP + FP}\)</span></p>
+<div class="arithmatex">\[\text{Precision} = \frac{TP}{TP + FP}\]</div>
 <p>其中：</p>
 <ul>
 <li>分母是正类预测的总数</li>
@@ -4436,7 +4436,7 @@ Learning Objective: Classify prediction outcomes into true positives, true negat
 <h3 id="recall">Recall（召回率）<a class="headerlink" href="#recall" title="Permanent link">&para;</a></h3>
 <p><strong>Recall（召回率）</strong>（也称为 sensitivity 或 true positive rate）回答的问题是："在所有实际为正类的样本中，模型正确识别了多少？"</p>
 <h4 id="recall-formula">Recall Formula<a class="headerlink" href="#recall-formula" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\text{Recall} = \frac{TP}{TP + FN}\)</span></p>
+<div class="arithmatex">\[\text{Recall} = \frac{TP}{TP + FN}\]</div>
 <p>其中：</p>
 <ul>
 <li>分母是实际正类的总数</li>
@@ -4473,7 +4473,7 @@ Learning Objective: Classify prediction outcomes into true positives, true negat
 <h3 id="f1-score">F1 Score<a class="headerlink" href="#f1-score" title="Permanent link">&para;</a></h3>
 <p><strong>F1 score</strong> 是 precision 和 recall 的调和平均值（harmonic mean），提供了一个平衡两者的综合指标：</p>
 <h4 id="f1-score-formula">F1 Score Formula<a class="headerlink" href="#f1-score-formula" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}\)</span></p>
+<div class="arithmatex">\[F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(F1\)</span> 范围从 0（最差）到 1（完美）</li>
@@ -4519,7 +4519,7 @@ Learning Objective: Calculate precision, recall, and F1 score from confusion mat
 <h2 id="roc-roc-curve">ROC 曲线（ROC Curve）<a class="headerlink" href="#roc-roc-curve" title="Permanent link">&para;</a></h2>
 <p><strong>ROC curve（ROC 曲线，Receiver Operating Characteristic curve）</strong> 是评估二元分类器在所有可能分类阈值下表现的图形工具。它在阈值从 1（最保守）变化到 0（最激进）的过程中，绘制 True Positive Rate（TPR，即 recall）与 False Positive Rate（FPR）之间的关系曲线。</p>
 <h4 id="roc-roc-curve-axes">ROC 曲线坐标轴（ROC Curve Axes）<a class="headerlink" href="#roc-roc-curve-axes" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(TPR = \frac{TP}{TP + FN} \quad\quad FPR = \frac{FP}{FP + TN}\)</span></p>
+<div class="arithmatex">\[TPR = \frac{TP}{TP + FN} \quad\quad FPR = \frac{FP}{FP + TN}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(TPR\)</span> 是真正例率（true positive rate，即 recall）</li>

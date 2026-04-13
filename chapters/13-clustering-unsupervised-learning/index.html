@@ -4387,7 +4387,7 @@
 <h3 id="centroid">Centroid（质心）<a class="headerlink" href="#centroid" title="Permanent link">&para;</a></h3>
 <p><strong>Centroid（质心）</strong> 是所有分配给某个 cluster 的数据点的几何中心（均值）。对于包含 <span class="arithmatex">\(n_k\)</span> 个点的 cluster <span class="arithmatex">\(C_k\)</span>：</p>
 <h4 id="centroid_1">Centroid 计算公式<a class="headerlink" href="#centroid_1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\mu_k = \frac{1}{n_k}\sum_{x_i \in C_k} x_i\)</span></p>
+<div class="arithmatex">\[\mu_k = \frac{1}{n_k}\sum_{x_i \in C_k} x_i\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\mu_k\)</span> 为第 <span class="arithmatex">\(k\)</span> 个 cluster 的 centroid</li>
@@ -4398,7 +4398,7 @@
 <h3 id="clustering-objective">Clustering Objective（聚类目标函数）<a class="headerlink" href="#clustering-objective" title="Permanent link">&para;</a></h3>
 <p><strong>Clustering objective</strong>（也称为 inertia 或 within-cluster sum of squares，簇内平方和）是 K-Means 所要最小化的函数：</p>
 <h4 id="k-means">K-Means 目标函数<a class="headerlink" href="#k-means" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(J = \sum_{k=1}^{K}\sum_{x_i \in C_k} \|x_i - \mu_k\|^2\)</span></p>
+<div class="arithmatex">\[J = \sum_{k=1}^{K}\sum_{x_i \in C_k} \|x_i - \mu_k\|^2\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(J\)</span> 为总的簇内距离</li>
@@ -4452,7 +4452,7 @@ Stage 5+: Continue until convergence, with the objective function <span class="a
 <h3 id="cosine-similarity">Cosine Similarity（余弦相似度）<a class="headerlink" href="#cosine-similarity" title="Permanent link">&para;</a></h3>
 <p>虽然 K-Means 通常使用 Euclidean distance，但某些应用场景更适合使用 <strong>cosine similarity（余弦相似度）</strong>，它衡量两个向量之间夹角的余弦值：</p>
 <h4 id="cosine-similarity_1">Cosine Similarity 计算公式<a class="headerlink" href="#cosine-similarity_1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\text{cos}(a, b) = \frac{a \cdot b}{\|a\| \cdot \|b\|} = \frac{\sum_{j=1}^{n} a_j b_j}{\sqrt{\sum_{j=1}^{n} a_j^2} \cdot \sqrt{\sum_{j=1}^{n} b_j^2}}\)</span></p>
+<div class="arithmatex">\[\text{cos}(a, b) = \frac{a \cdot b}{\|a\| \cdot \|b\|} = \frac{\sum_{j=1}^{n} a_j b_j}{\sqrt{\sum_{j=1}^{n} a_j^2} \cdot \sqrt{\sum_{j=1}^{n} b_j^2}}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(a \cdot b\)</span> 为点积（dot product）</li>
@@ -4492,7 +4492,7 @@ Stage 5+: Continue until convergence, with the objective function <span class="a
 <li><strong>MinPts</strong>：在 <span class="arithmatex">\(\varepsilon\)</span>-邻域内被认为是高密度区域所需的最小点数</li>
 </ul>
 <p>点 <span class="arithmatex">\(p\)</span> 的 <strong>epsilon neighborhood（ε 邻域）</strong> 是所有与 <span class="arithmatex">\(p\)</span> 距离不超过 <span class="arithmatex">\(\varepsilon\)</span> 的点的集合：</p>
-<p><span class="arithmatex">\(N_\varepsilon(p) = \{q \in D : d(p, q) \leq \varepsilon\}\)</span></p>
+<div class="arithmatex">\[N_\varepsilon(p) = \{q \in D : d(p, q) \leq \varepsilon\}\]</div>
 <p>根据邻域密度，每个点被分类为以下三种类型之一：</p>
 <ul>
 <li><strong>Core object（核心对象）</strong>：其 <span class="arithmatex">\(\varepsilon\)</span>-邻域中至少包含 MinPts 个点的点。Core object 构成 cluster 的"内部"。</li>

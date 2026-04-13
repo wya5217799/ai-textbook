@@ -4415,7 +4415,7 @@
 <h3 id="matrix-representation">Matrix Representation（矩阵表示）<a class="headerlink" href="#matrix-representation" title="Permanent link">&para;</a></h3>
 <p><strong>Matrix（矩阵）</strong>是按行和列排列的数字矩形阵列。在机器学习中，矩阵用于表示数据集、模型参数和变换。具有 <span class="arithmatex">\(m\)</span> 行 <span class="arithmatex">\(n\)</span> 列的矩阵称为 <span class="arithmatex">\(m \times n\)</span> 矩阵。</p>
 <h4 id="_7">矩阵记号<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(A = \begin{bmatrix} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} \end{bmatrix}\)</span></p>
+<div class="arithmatex">\[A = \begin{bmatrix} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} \end{bmatrix}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(A\)</span> 是矩阵名称（按惯例用大写粗体）</li>
@@ -4485,7 +4485,7 @@ Learning Objective: Interpret how datasets, parameters, and predictions map to m
 <p><strong>Matrix multiplication（矩阵乘法）</strong>是机器学习计算中最基础的运算。无论是神经网络计算输出、线性回归进行预测，还是对数据集进行变换，矩阵乘法都是驱动计算的核心引擎。</p>
 <p>对于矩阵 <span class="arithmatex">\(A\)</span>（大小为 <span class="arithmatex">\(m \times p\)</span>）和矩阵 <span class="arithmatex">\(B\)</span>（大小为 <span class="arithmatex">\(p \times n\)</span>），其乘积 <span class="arithmatex">\(C = AB\)</span> 是一个 <span class="arithmatex">\(m \times n\)</span> 的矩阵，每个元素的计算方式为：</p>
 <h4 id="_8">矩阵乘积公式<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(c_{ij} = \sum_{k=1}^{p} a_{ik} b_{kj}\)</span></p>
+<div class="arithmatex">\[c_{ij} = \sum_{k=1}^{p} a_{ik} b_{kj}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(c_{ij}\)</span> 是 <span class="arithmatex">\(C\)</span> 中第 <span class="arithmatex">\(i\)</span> 行第 <span class="arithmatex">\(j\)</span> 列的元素</li>
@@ -4504,7 +4504,7 @@ Learning Objective: Interpret how datasets, parameters, and predictions map to m
 <h3 id="matrix-transpose">Matrix Transpose（矩阵转置）<a class="headerlink" href="#matrix-transpose" title="Permanent link">&para;</a></h3>
 <p><strong>Matrix transpose（矩阵转置）</strong>是沿对角线翻转矩阵的运算，将行变为列，列变为行。若 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(m \times n\)</span> 矩阵，则其转置 <span class="arithmatex">\(A^T\)</span> 是 <span class="arithmatex">\(n \times m\)</span> 矩阵。</p>
 <h4 id="_9">转置定义<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\((A^T)_{ij} = A_{ji}\)</span></p>
+<div class="arithmatex">\[(A^T)_{ij} = A_{ji}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\((A^T)_{ij}\)</span> 是转置矩阵中第 <span class="arithmatex">\(i\)</span> 行第 <span class="arithmatex">\(j\)</span> 列的元素</li>
@@ -4520,7 +4520,7 @@ Learning Objective: Interpret how datasets, parameters, and predictions map to m
 <h3 id="matrix-inverse">Matrix Inverse（矩阵求逆）<a class="headerlink" href="#matrix-inverse" title="Permanent link">&para;</a></h3>
 <p>方阵 <span class="arithmatex">\(A\)</span> 的<strong>matrix inverse（矩阵逆）</strong>是矩阵 <span class="arithmatex">\(A^{-1}\)</span>，使得二者的乘积为单位矩阵：</p>
 <h4 id="_10">逆矩阵定义<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(A A^{-1} = A^{-1} A = I\)</span></p>
+<div class="arithmatex">\[A A^{-1} = A^{-1} A = I\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(A\)</span> 是方阵（<span class="arithmatex">\(n \times n\)</span>）</li>
@@ -4606,7 +4606,7 @@ Stage 5 (Inverse): Show 2x2 matrix, compute determinant, show adjugate, divide b
 <h3 id="gaussian-distribution">Gaussian Distribution（高斯分布）<a class="headerlink" href="#gaussian-distribution" title="Permanent link">&para;</a></h3>
 <p><strong>Gaussian distribution（高斯分布）</strong>（也称正态分布）可以说是统计学和机器学习中最重要的分布。它由两个参数定义：均值 <span class="arithmatex">\(\mu\)</span>（中心）和方差 <span class="arithmatex">\(\sigma^2\)</span>（扩散程度）。</p>
 <h4 id="gaussian-probability-density-function">Gaussian Probability Density Function（高斯概率密度函数）<a class="headerlink" href="#gaussian-probability-density-function" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)\)</span></p>
+<div class="arithmatex">\[f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(x\)</span> 是随机变量</li>
@@ -4652,7 +4652,7 @@ Learning Objective: Demonstrate how changing the mean and variance parameters of
 <h3 id="bernoulli-distribution">Bernoulli Distribution（伯努利分布）<a class="headerlink" href="#bernoulli-distribution" title="Permanent link">&para;</a></h3>
 <p><strong>Bernoulli distribution（伯努利分布）</strong>对恰好有两种可能结果的随机变量进行建模：成功（1）或失败（0）。它由单个参数 <span class="arithmatex">\(p\)</span>（成功概率）刻画。</p>
 <h4 id="bernoulli-probability-mass-function">Bernoulli Probability Mass Function（伯努利概率质量函数）<a class="headerlink" href="#bernoulli-probability-mass-function" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(P(X = x) = p^x (1 - p)^{1-x}\)</span></p>
+<div class="arithmatex">\[P(X = x) = p^x (1 - p)^{1-x}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(x \in \{0, 1\}\)</span> 是结果</li>
@@ -4688,7 +4688,7 @@ Learning Objective: Demonstrate how changing the mean and variance parameters of
 <p><strong>Maximum likelihood estimation（最大似然估计，MLE）</strong>是一种有原则地选择模型参数的方法。其思想直接明了：给定观测数据和统计模型，选择使观测数据出现概率最大的参数值。</p>
 <p>形式上，给定 <span class="arithmatex">\(m\)</span> 个独立观测值 <span class="arithmatex">\(\{x_1, x_2, \ldots, x_m\}\)</span> 的数据集和参数为 <span class="arithmatex">\(\theta\)</span> 的参数化模型，<strong>likelihood function（似然函数）</strong>为：</p>
 <h4 id="_12">似然函数<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(L(\theta) = \prod_{i=1}^{m} P(x_i \mid \theta)\)</span></p>
+<div class="arithmatex">\[L(\theta) = \prod_{i=1}^{m} P(x_i \mid \theta)\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(L(\theta)\)</span> 是参数 <span class="arithmatex">\(\theta\)</span> 的似然</li>
@@ -4699,7 +4699,7 @@ Learning Objective: Demonstrate how changing the mean and variance parameters of
 <h3 id="log-likelihood">Log-likelihood（对数似然）<a class="headerlink" href="#log-likelihood" title="Permanent link">&para;</a></h3>
 <p><strong>Log-likelihood（对数似然）</strong>是似然函数的自然对数。由于对数是单调递增函数，最大化 log-likelihood 与最大化 likelihood 给出相同的参数估计，但数值性质要好得多。</p>
 <h4 id="log-likelihood_1">Log-likelihood 函数<a class="headerlink" href="#log-likelihood_1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\ell(\theta) = \log L(\theta) = \sum_{i=1}^{m} \log P(x_i \mid \theta)\)</span></p>
+<div class="arithmatex">\[\ell(\theta) = \log L(\theta) = \sum_{i=1}^{m} \log P(x_i \mid \theta)\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\ell(\theta)\)</span> 是 log-likelihood</li>
@@ -4729,7 +4729,7 @@ Learning Objective: Demonstrate how changing the mean and variance parameters of
 <h3 id="objective-function">Objective Function（目标函数）<a class="headerlink" href="#objective-function" title="Permanent link">&para;</a></h3>
 <p><strong>Objective function（目标函数）</strong>是优化算法试图最小化（或最大化）的函数。在机器学习中，目标函数通常将 loss function 与正则化惩罚等附加项结合起来。</p>
 <h4 id="objective-function_1">通用 Objective Function<a class="headerlink" href="#objective-function_1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(J(\theta) = \frac{1}{m}\sum_{i=1}^{m} L(y_i, f(x_i; \theta)) + \lambda R(\theta)\)</span></p>
+<div class="arithmatex">\[J(\theta) = \frac{1}{m}\sum_{i=1}^{m} L(y_i, f(x_i; \theta)) + \lambda R(\theta)\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(J(\theta)\)</span> 是目标函数</li>
@@ -4741,7 +4741,7 @@ Learning Objective: Demonstrate how changing the mean and variance parameters of
 <h3 id="cost-function">Cost Function（代价函数）<a class="headerlink" href="#cost-function" title="Permanent link">&para;</a></h3>
 <p><strong>Cost function（代价函数）</strong>是整个训练数据集上的平均损失。"Loss function"指单个样本上的误差，而"cost function"聚合了所有样本的损失。</p>
 <h4 id="cost-function_1">Cost Function 定义<a class="headerlink" href="#cost-function_1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(C(\theta) = \frac{1}{m}\sum_{i=1}^{m} L(y_i, \hat{y}_i)\)</span></p>
+<div class="arithmatex">\[C(\theta) = \frac{1}{m}\sum_{i=1}^{m} L(y_i, \hat{y}_i)\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(C(\theta)\)</span> 是代价（平均损失）</li>

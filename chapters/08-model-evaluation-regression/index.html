@@ -4416,7 +4416,7 @@ Stage 3: Same data with degree-15 polynomial that passes through nearly every po
 <h2 id="regularization">Regularization（正则化）：控制模型复杂度<a class="headerlink" href="#regularization" title="Permanent link">&para;</a></h2>
 <p><strong>Regularization（正则化）</strong>是通过在目标函数中添加对模型复杂度的惩罚来防止 overfitting 的一组技术。正则化模型不仅最小化 cost function <span class="arithmatex">\(C(\theta)\)</span>，还要最小化代价与正则化项之和：</p>
 <h4 id="_5">正则化目标函数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(J(\theta) = C(\theta) + \lambda R(\theta)\)</span></p>
+<div class="arithmatex">\[J(\theta) = C(\theta) + \lambda R(\theta)\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(C(\theta)\)</span> 是 cost function（如 MSE）</li>
@@ -4427,7 +4427,7 @@ Stage 3: Same data with degree-15 polynomial that passes through nearly every po
 <h3 id="l1-regularizationl1-lasso">L1 Regularization（L1 正则化，Lasso）<a class="headerlink" href="#l1-regularizationl1-lasso" title="Permanent link">&para;</a></h3>
 <p><strong>L1 regularization（L1 正则化）</strong>在目标函数中加入参数绝对值之和：</p>
 <h4 id="l1">L1 正则化项<a class="headerlink" href="#l1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(R(\theta) = \sum_{j=1}^{n} |\theta_j|\)</span></p>
+<div class="arithmatex">\[R(\theta) = \sum_{j=1}^{n} |\theta_j|\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\theta_j\)</span> 是模型参数（不含 bias term）</li>
@@ -4437,7 +4437,7 @@ Stage 3: Same data with degree-15 polynomial that passes through nearly every po
 <h3 id="l2-regularizationl2-ridge">L2 Regularization（L2 正则化，Ridge）<a class="headerlink" href="#l2-regularizationl2-ridge" title="Permanent link">&para;</a></h3>
 <p><strong>L2 regularization（L2 正则化）</strong>在目标函数中加入参数平方值之和：</p>
 <h4 id="l2">L2 正则化项<a class="headerlink" href="#l2" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(R(\theta) = \sum_{j=1}^{n} \theta_j^2\)</span></p>
+<div class="arithmatex">\[R(\theta) = \sum_{j=1}^{n} \theta_j^2\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\theta_j\)</span> 是模型参数（不含 bias term）</li>
@@ -4570,7 +4570,7 @@ Stage 6: Show all 5 fold errors and the average cross-validation score.</p>
 <h2 id="bias-variance-tradeoff-">Bias-Variance Tradeoff（偏差-方差权衡）<a class="headerlink" href="#bias-variance-tradeoff-" title="Permanent link">&para;</a></h2>
 <p><strong>Bias-variance tradeoff（偏差-方差权衡）</strong>是解释为何没有任何模型能实现完美泛化的基本概念。任何模型的预期预测误差都可以分解为三个分量：</p>
 <h4 id="bias-variance">Bias-Variance 分解<a class="headerlink" href="#bias-variance" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\text{Expected Error} = \text{Bias}^2 + \text{Variance} + \text{Irreducible Error}\)</span></p>
+<div class="arithmatex">\[\text{Expected Error} = \text{Bias}^2 + \text{Variance} + \text{Irreducible Error}\]</div>
 <p>其中：</p>
 <ul>
 <li><strong>Bias（偏差）</strong>衡量模型中错误假设导致的系统性误差。高 bias 的模型持续错过真实规律（underfitting）。</li>

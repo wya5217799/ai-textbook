@@ -4458,7 +4458,7 @@ Stage 3: Show the activation function graph with the current <span class="arithm
 <p><strong>Weight（权重）</strong> 是决定输入与神经元之间连接强度的参数。每个输入 <span class="arithmatex">\(x_j\)</span> 都有对应的权重 <span class="arithmatex">\(w_j\)</span>。较大的正权重表示该输入对输出有强烈的激励作用；较大的负权重表示强烈的抑制作用；接近零的权重意味着该输入几乎没有影响。</p>
 <p>加权求和（也称为预激活值或 logit）的计算公式如下：</p>
 <h4 id="weighted-sum">加权求和（Weighted Sum）<a class="headerlink" href="#weighted-sum" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(z = \sum_{j=1}^{n} w_j x_j + b = w_1 x_1 + w_2 x_2 + \cdots + w_n x_n + b\)</span></p>
+<div class="arithmatex">\[z = \sum_{j=1}^{n} w_j x_j + b = w_1 x_1 + w_2 x_2 + \cdots + w_n x_n + b\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(z\)</span> 是加权求和（预激活值）</li>
@@ -4476,7 +4476,7 @@ Stage 3: Show the activation function graph with the current <span class="arithm
 <h3 id="sigmoid-the-sigmoid-function">Sigmoid 函数（The Sigmoid Function）<a class="headerlink" href="#sigmoid-the-sigmoid-function" title="Permanent link">&para;</a></h3>
 <p><strong>Sigmoid function</strong> 将任意实数映射到 0 到 1 之间，形成光滑的 S 形曲线：</p>
 <h4 id="sigmoid-function">Sigmoid Function<a class="headerlink" href="#sigmoid-function" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\sigma(z) = \frac{1}{1 + e^{-z}}\)</span></p>
+<div class="arithmatex">\[\sigma(z) = \frac{1}{1 + e^{-z}}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(z\)</span> 是输入（加权求和）</li>
@@ -4487,7 +4487,7 @@ Stage 3: Show the activation function graph with the current <span class="arithm
 <h3 id="tanh-the-tanh-activation">Tanh 激活（The Tanh Activation）<a class="headerlink" href="#tanh-the-tanh-activation" title="Permanent link">&para;</a></h3>
 <p><strong>Tanh activation</strong>（双曲正切，hyperbolic tangent）与 sigmoid 类似，但将输入映射到 <span class="arithmatex">\((-1, 1)\)</span> 范围内：</p>
 <h4 id="tanh-function">Tanh Function<a class="headerlink" href="#tanh-function" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}\)</span></p>
+<div class="arithmatex">\[\tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(z\)</span> 是输入</li>
@@ -4497,7 +4497,7 @@ Stage 3: Show the activation function graph with the current <span class="arithm
 <h3 id="relu-the-relu-activation">ReLU 激活（The ReLU Activation）<a class="headerlink" href="#relu-the-relu-activation" title="Permanent link">&para;</a></h3>
 <p><strong>ReLU activation</strong>（Rectified Linear Unit，线性整流单元）是现代深度学习中使用最广泛的激活函数：</p>
 <h4 id="relu-function">ReLU Function<a class="headerlink" href="#relu-function" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\text{ReLU}(z) = \max(0, z)\)</span></p>
+<div class="arithmatex">\[\text{ReLU}(z) = \max(0, z)\]</div>
 <p>其中：</p>
 <ul>
 <li>若 <span class="arithmatex">\(z &gt; 0\)</span>，输出等于 <span class="arithmatex">\(z\)</span>（恒等映射）</li>
@@ -4588,7 +4588,7 @@ Learning Objective: Compare the shape, range, and gradient properties of sigmoid
 <li>第 <span class="arithmatex">\(L\)</span> 层：输出层，含 <span class="arithmatex">\(n_L\)</span> 个神经元</li>
 </ul>
 <p>全连接网络的可学习参数总数为：</p>
-<p><span class="arithmatex">\(\text{Parameters} = \sum_{l=1}^{L} (n_{l-1} \times n_l + n_l)\)</span></p>
+<div class="arithmatex">\[\text{Parameters} = \sum_{l=1}^{L} (n_{l-1} \times n_l + n_l)\]</div>
 <p>其中 <span class="arithmatex">\(n_{l-1} \times n_l\)</span> 计算每层的权重数，<span class="arithmatex">\(n_l\)</span> 计算每层的偏置数。</p>
 <h4 id="diagram-fully-connected-network-architecture">图示：全连接网络架构（Diagram: Fully Connected Network Architecture）<a class="headerlink" href="#diagram-fully-connected-network-architecture" title="Permanent link">&para;</a></h4>
 <iframe src="../../sims/fully-connected-network-arch/main.html" width="100%" height="500px" scrolling="no"></iframe>
@@ -4636,10 +4636,10 @@ Learning Objective: Explain how neurons are organized into input, hidden, and ou
 <p>微积分中的<strong>chain rule（链式法则）</strong> 是使神经网络训练成为可能的数学工具。它告诉我们如何计算复合函数（composite function）的导数。</p>
 <p>若 <span class="arithmatex">\(y = f(g(x))\)</span>，则 <span class="arithmatex">\(y\)</span> 关于 <span class="arithmatex">\(x\)</span> 的导数为：</p>
 <h4 id="chain-rule">Chain Rule（链式法则）<a class="headerlink" href="#chain-rule" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\frac{dy}{dx} = \frac{dy}{dg} \cdot \frac{dg}{dx}\)</span></p>
+<div class="arithmatex">\[\frac{dy}{dx} = \frac{dy}{dg} \cdot \frac{dg}{dx}\]</div>
 <p>在神经网络中，输出是一长串函数复合：输入 -&gt; 第 1 层变换 -&gt; 第 2 层变换 -&gt; ... -&gt; 输出 -&gt; 损失（loss）。为了计算损失函数关于网络深处某个权重的依赖关系，我们使用链式法则将每一层的导数"链"在一起。这一过程称为<strong>反向传播（backpropagation）</strong>，我们将在第 14 章详细学习。</p>
 <p>链式法则可推广到多变量情形。对于函数 <span class="arithmatex">\(f(g_1(x), g_2(x))\)</span>，全导数是各链式法则贡献之和：</p>
-<p><span class="arithmatex">\(\frac{df}{dx} = \frac{\partial f}{\partial g_1}\frac{dg_1}{dx} + \frac{\partial f}{\partial g_2}\frac{dg_2}{dx}\)</span></p>
+<div class="arithmatex">\[\frac{df}{dx} = \frac{\partial f}{\partial g_1}\frac{dg_1}{dx} + \frac{\partial f}{\partial g_2}\frac{dg_2}{dx}\]</div>
 <p>这个多变量链式法则非常关键，因为每个神经元的输出通常会输入到下一层的多个神经元中。</p>
 <h4 id="diagram-chain-rule-in-neural-networks">图示：神经网络中的链式法则（Diagram: Chain Rule in Neural Networks）<a class="headerlink" href="#diagram-chain-rule-in-neural-networks" title="Permanent link">&para;</a></h4>
 <iframe src="../../sims/chain-rule-neural-networks/main.html" width="100%" height="500px" scrolling="no"></iframe>

@@ -4487,7 +4487,7 @@
 </ul>
 <h3 id="feature-vector">Feature Vector（特征向量）<a class="headerlink" href="#feature-vector" title="Permanent link">&para;</a></h3>
 <p><strong>Feature vector</strong>（特征向量）是单个数据点所有 features 的有序集合，表示为数值数组。如果一个数据点有 <span class="arithmatex">\(d\)</span> 个 features，其 feature vector 是一个 <span class="arithmatex">\(d\)</span> 维向量：</p>
-<p><span class="arithmatex">\(\mathbf{x} = [x_1, x_2, \ldots, x_d]\)</span></p>
+<div class="arithmatex">\[\mathbf{x} = [x_1, x_2, \ldots, x_d]\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\mathbf{x}\)</span> 是 feature vector</li>
@@ -4699,7 +4699,7 @@ Color coding: Red for errors, yellow for warnings, green for clean values</p>
 <p>考虑两个 features：房屋建筑面积（范围：500-5000）和卧室数量（范围：1-6）。若不归一化，建筑面积 feature 将在距离计算中占主导地位，仅仅因为其值较大，而非因为它更具信息量。</p>
 <p>常见的归一化方法：</p>
 <h4 id="min-max">Min-Max 归一化<a class="headerlink" href="#min-max" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(x_{normalized} = \frac{x - x_{min}}{x_{max} - x_{min}}\)</span></p>
+<div class="arithmatex">\[x_{normalized} = \frac{x - x_{min}}{x_{max} - x_{min}}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(x\)</span> 是原始 feature 值</li>
@@ -4708,7 +4708,7 @@ Color coding: Red for errors, yellow for warnings, green for clean values</p>
 </ul>
 <p>这将所有值缩放到 [0, 1] 范围内。</p>
 <h4 id="z-score">Z-Score 标准化<a class="headerlink" href="#z-score" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(x_{standardized} = \frac{x - \mu}{\sigma}\)</span></p>
+<div class="arithmatex">\[x_{standardized} = \frac{x - \mu}{\sigma}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(x\)</span> 是原始 feature 值</li>

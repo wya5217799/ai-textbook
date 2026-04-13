@@ -4346,7 +4346,7 @@
 <h3 id="hidden-state">Hidden State（隐藏状态）<a class="headerlink" href="#hidden-state" title="Permanent link">&para;</a></h3>
 <p><strong>Hidden state（隐藏状态）</strong> <span class="arithmatex">\(h_t\)</span> 是一个向量，作为网络在时间步 <span class="arithmatex">\(t\)</span> 的记忆。它编码了网络迄今为止处理的所有输入的摘要。在每个时间步，hidden state 根据两个输入更新：当前输入 <span class="arithmatex">\(x_t\)</span> 和上一时间步的 hidden state <span class="arithmatex">\(h_{t-1}\)</span>。</p>
 <h4 id="rnn-hidden-state">RNN Hidden State 更新<a class="headerlink" href="#rnn-hidden-state" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(h_t = g(W_{hh} h_{t-1} + W_{xh} x_t + b_h)\)</span></p>
+<div class="arithmatex">\[h_t = g(W_{hh} h_{t-1} + W_{xh} x_t + b_h)\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(h_t\)</span> 为时间步 <span class="arithmatex">\(t\)</span> 的 hidden state</li>
@@ -4358,7 +4358,7 @@
 <li><span class="arithmatex">\(g\)</span> 为 activation function（通常为 tanh）</li>
 </ul>
 <p>每个时间步的输出可从 hidden state 计算得出：</p>
-<p><span class="arithmatex">\(y_t = W_{hy} h_t + b_y\)</span></p>
+<div class="arithmatex">\[y_t = W_{hy} h_t + b_y\]</div>
 <p>关键洞察在于：相同的 weight matrix（<span class="arithmatex">\(W_{hh}\)</span>、<span class="arithmatex">\(W_{xh}\)</span>）在所有时间步上共享。这种权重共享意味着无论序列长度如何，每一步都应用相同的变换，使 RNN 能够处理任意长度的序列。</p>
 <h4 id="rnn-unrolled-through-time">图示：RNN 按时间展开（Unrolled Through Time）<a class="headerlink" href="#rnn-unrolled-through-time" title="Permanent link">&para;</a></h4>
 <iframe src="../../sims/rnn-unrolled-through-time/main.html" width="100%" height="500px" scrolling="no"></iframe>
@@ -4398,20 +4398,20 @@ Stage 5: Highlight how <span class="arithmatex">\(h_3\)</span> contains informat
 <ul>
 <li><strong>Forget gate（遗忘门）</strong> (<span class="arithmatex">\(f_t\)</span>)：决定从 cell state 中丢弃哪些信息</li>
 </ul>
-<p><span class="arithmatex">\(f_t = \sigma(W_f [h_{t-1}, x_t] + b_f)\)</span></p>
+<div class="arithmatex">\[f_t = \sigma(W_f [h_{t-1}, x_t] + b_f)\]</div>
 <ul>
 <li><strong>Input gate（输入门）</strong> (<span class="arithmatex">\(i_t\)</span>)：决定向 cell state 添加哪些新信息</li>
 </ul>
-<p><span class="arithmatex">\(i_t = \sigma(W_i [h_{t-1}, x_t] + b_i)\)</span></p>
-<p><span class="arithmatex">\(\tilde{c}_t = \tanh(W_c [h_{t-1}, x_t] + b_c)\)</span></p>
+<div class="arithmatex">\[i_t = \sigma(W_i [h_{t-1}, x_t] + b_i)\]</div>
+<div class="arithmatex">\[\tilde{c}_t = \tanh(W_c [h_{t-1}, x_t] + b_c)\]</div>
 <ul>
 <li><strong>Output gate（输出门）</strong> (<span class="arithmatex">\(o_t\)</span>)：根据 cell state 决定输出什么</li>
 </ul>
-<p><span class="arithmatex">\(o_t = \sigma(W_o [h_{t-1}, x_t] + b_o)\)</span></p>
+<div class="arithmatex">\[o_t = \sigma(W_o [h_{t-1}, x_t] + b_o)\]</div>
 <p>Cell state 与 hidden state 的更新公式为：</p>
 <h4 id="lstm-cell-state">LSTM Cell State 更新<a class="headerlink" href="#lstm-cell-state" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t\)</span></p>
-<p><span class="arithmatex">\(h_t = o_t \odot \tanh(c_t)\)</span></p>
+<div class="arithmatex">\[c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t\]</div>
+<div class="arithmatex">\[h_t = o_t \odot \tanh(c_t)\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\odot\)</span> 为逐元素相乘（element-wise multiplication）</li>

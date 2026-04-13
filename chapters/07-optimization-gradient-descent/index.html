@@ -4341,7 +4341,7 @@
 <h2 id="gradient">Gradient（梯度）<a class="headerlink" href="#gradient" title="Permanent link">&para;</a></h2>
 <p>函数的<strong>gradient（梯度）</strong>是一个向量，指向该函数增长最快的方向。对于参数为 <span class="arithmatex">\(\theta = [\theta_0, \theta_1, \ldots, \theta_n]\)</span> 的 cost function <span class="arithmatex">\(J(\theta)\)</span>，梯度是所有偏导数构成的向量：</p>
 <h4 id="gradient_1">Gradient 定义<a class="headerlink" href="#gradient_1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\nabla J(\theta) = \begin{bmatrix} \frac{\partial J}{\partial \theta_0} \\ \frac{\partial J}{\partial \theta_1} \\ \vdots \\ \frac{\partial J}{\partial \theta_n} \end{bmatrix}\)</span></p>
+<div class="arithmatex">\[\nabla J(\theta) = \begin{bmatrix} \frac{\partial J}{\partial \theta_0} \\ \frac{\partial J}{\partial \theta_1} \\ \vdots \\ \frac{\partial J}{\partial \theta_n} \end{bmatrix}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\nabla J(\theta)\)</span> 是梯度向量</li>
@@ -4359,7 +4359,7 @@
 <h3 id="parameter-update-rule">Parameter Update Rule（参数更新规则）<a class="headerlink" href="#parameter-update-rule" title="Permanent link">&para;</a></h3>
 <p><strong>Parameter update rule（参数更新规则）</strong>精确定义了每次迭代中参数的变化方式：</p>
 <h4 id="gradient-descent_2">Gradient Descent 更新规则<a class="headerlink" href="#gradient-descent_2" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\theta_{j}^{(t+1)} = \theta_{j}^{(t)} - \alpha \frac{\partial J}{\partial \theta_j}\)</span></p>
+<div class="arithmatex">\[\theta_{j}^{(t+1)} = \theta_{j}^{(t)} - \alpha \frac{\partial J}{\partial \theta_j}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\theta_j^{(t)}\)</span> 是迭代 <span class="arithmatex">\(t\)</span> 时参数 <span class="arithmatex">\(j\)</span> 的值</li>
@@ -4368,7 +4368,7 @@
 <li><span class="arithmatex">\(\frac{\partial J}{\partial \theta_j}\)</span> 是 cost function 对 <span class="arithmatex">\(\theta_j\)</span> 的偏导数</li>
 </ul>
 <p>用向量形式同时更新所有参数：</p>
-<p><span class="arithmatex">\(\theta^{(t+1)} = \theta^{(t)} - \alpha \nabla J(\theta^{(t)})\)</span></p>
+<div class="arithmatex">\[\theta^{(t+1)} = \theta^{(t)} - \alpha \nabla J(\theta^{(t)})\]</div>
 <p>算法从初始参数值（通常为随机值或零）出发，计算梯度，迈出一步，反复执行直到满足某个停止准则。</p>
 <h4 id="gradient-descent_3">图示：Gradient Descent 在二维曲面上<a class="headerlink" href="#gradient-descent_3" title="Permanent link">&para;</a></h4>
 <iframe src="../../sims/gradient-descent-2d-surface/main.html" width="100%" height="500px" scrolling="no"></iframe>
@@ -4486,7 +4486,7 @@ Stage 3: After multiple steps, the comparison chart reveals convergence, slow co
 <h3 id="batch-gradient-descent">Batch Gradient Descent（批量梯度下降）<a class="headerlink" href="#batch-gradient-descent" title="Permanent link">&para;</a></h3>
 <p><strong>Batch gradient descent（批量梯度下降）</strong>（也称 vanilla gradient descent）在每次迭代中使用整个训练数据集计算梯度：</p>
 <h4 id="batch-gradient-descent_1">Batch Gradient Descent 更新<a class="headerlink" href="#batch-gradient-descent_1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\theta^{(t+1)} = \theta^{(t)} - \alpha \frac{1}{m}\sum_{i=1}^{m} \nabla L(y_i, f(x_i; \theta^{(t)}))\)</span></p>
+<div class="arithmatex">\[\theta^{(t+1)} = \theta^{(t)} - \alpha \frac{1}{m}\sum_{i=1}^{m} \nabla L(y_i, f(x_i; \theta^{(t)}))\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(m\)</span> 是训练样本总数</li>
@@ -4507,7 +4507,7 @@ Stage 3: After multiple steps, the comparison chart reveals convergence, slow co
 <h3 id="stochastic-gradient-descentsgd">Stochastic Gradient Descent（随机梯度下降，SGD）<a class="headerlink" href="#stochastic-gradient-descentsgd" title="Permanent link">&para;</a></h3>
 <p><strong>Stochastic gradient descent（随机梯度下降，SGD）</strong>在每次迭代中使用一个随机选取的训练样本计算梯度：</p>
 <h4 id="sgd">SGD 更新<a class="headerlink" href="#sgd" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\theta^{(t+1)} = \theta^{(t)} - \alpha \nabla L(y_i, f(x_i; \theta^{(t)}))\)</span></p>
+<div class="arithmatex">\[\theta^{(t+1)} = \theta^{(t)} - \alpha \nabla L(y_i, f(x_i; \theta^{(t)}))\]</div>
 <p>其中：</p>
 <ul>
 <li>每步随机选取单个样本 <span class="arithmatex">\((x_i, y_i)\)</span></li>
@@ -4527,7 +4527,7 @@ Stage 3: After multiple steps, the comparison chart reveals convergence, slow co
 <h3 id="mini-batch-gradient-descent">Mini-batch Gradient Descent（小批量梯度下降）<a class="headerlink" href="#mini-batch-gradient-descent" title="Permanent link">&para;</a></h3>
 <p><strong>Mini-batch gradient descent（小批量梯度下降）</strong>是 batch 和 stochastic gradient descent 之间实用的折中方案。它在每次迭代中使用训练数据的一个小随机子集（mini-batch）计算梯度：</p>
 <h4 id="mini-batch">Mini-batch 更新<a class="headerlink" href="#mini-batch" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\theta^{(t+1)} = \theta^{(t)} - \alpha \frac{1}{B}\sum_{i \in \mathcal{B}} \nabla L(y_i, f(x_i; \theta^{(t)}))\)</span></p>
+<div class="arithmatex">\[\theta^{(t+1)} = \theta^{(t)} - \alpha \frac{1}{B}\sum_{i \in \mathcal{B}} \nabla L(y_i, f(x_i; \theta^{(t)}))\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\mathcal{B}\)</span> 是随机选取的包含 <span class="arithmatex">\(B\)</span> 个样本的 mini-batch</li>

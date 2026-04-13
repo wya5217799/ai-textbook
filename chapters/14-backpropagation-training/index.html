@@ -4368,8 +4368,8 @@
 <h2 id="forward-pass">Forward Pass 回顾<a class="headerlink" href="#forward-pass" title="Permanent link">&para;</a></h2>
 <p><strong>Forward pass（前向传播）</strong> 通过将输入数据逐层传播来计算网络的预测结果。对于含 <span class="arithmatex">\(L\)</span> 层的网络，第 <span class="arithmatex">\(l\)</span> 层的计算为：</p>
 <h4 id="forward-pass_1">Forward Pass 方程<a class="headerlink" href="#forward-pass_1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(z^{[l]} = W^{[l]} a^{[l-1]} + b^{[l]}\)</span></p>
-<p><span class="arithmatex">\(a^{[l]} = g^{[l]}(z^{[l]})\)</span></p>
+<div class="arithmatex">\[z^{[l]} = W^{[l]} a^{[l-1]} + b^{[l]}\]</div>
+<div class="arithmatex">\[a^{[l]} = g^{[l]}(z^{[l]})\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(a^{[0]} = x\)</span> 为输入数据</li>
@@ -4382,7 +4382,7 @@
 </ul>
 <p>在 forward pass 过程中，必须存储所有中间值（每层的 <span class="arithmatex">\(z^{[l]}\)</span> 和 <span class="arithmatex">\(a^{[l]}\)</span>），因为 backpropagation 阶段需要用到它们。</p>
 <p>计算 <span class="arithmatex">\(\hat{y}\)</span> 后，计算 loss（损失）：</p>
-<p><span class="arithmatex">\(L = \mathcal{L}(y, \hat{y})\)</span></p>
+<div class="arithmatex">\[L = \mathcal{L}(y, \hat{y})\]</div>
 <p>其中 <span class="arithmatex">\(\mathcal{L}\)</span> 为 loss function（损失函数）：回归问题使用 MSE，分类问题使用 cross-entropy（交叉熵）。</p>
 <h2 id="backpropagation_1">Backpropagation：高效计算梯度<a class="headerlink" href="#backpropagation_1" title="Permanent link">&para;</a></h2>
 <p><strong>Backpropagation</strong>（"backward propagation of errors"，误差的反向传播）计算 loss function 对网络中每个 weight 和 bias 的梯度。它通过从 output layer 到 input layer 系统地应用 chain rule 来实现这一点。</p>
@@ -4390,7 +4390,7 @@
 <p>第 <span class="arithmatex">\(l\)</span> 层的 <strong>error signal</strong>（也称为 delta 或局部梯度）量化了该层中每个神经元对总 loss 的贡献程度。它是 backpropagation 中的关键中间量。</p>
 <p>对于任意第 <span class="arithmatex">\(l\)</span> 层，error signal 为：</p>
 <h4 id="error-signal_1">Error Signal 定义<a class="headerlink" href="#error-signal_1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\delta^{[l]} = \frac{\partial L}{\partial z^{[l]}}\)</span></p>
+<div class="arithmatex">\[\delta^{[l]} = \frac{\partial L}{\partial z^{[l]}}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\delta^{[l]}\)</span> 为第 <span class="arithmatex">\(l\)</span> 层的 error signal</li>
@@ -4400,7 +4400,7 @@
 <h3 id="output-layer-error">Output Layer Error（输出层误差）<a class="headerlink" href="#output-layer-error" title="Permanent link">&para;</a></h3>
 <p><strong>Output layer error</strong> 首先被计算，因为 output layer 直接与 loss function 相连。对于 output layer <span class="arithmatex">\(L\)</span>：</p>
 <h4 id="output-layer-error_1">Output Layer Error<a class="headerlink" href="#output-layer-error_1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\delta^{[L]} = \frac{\partial L}{\partial a^{[L]}} \odot g'^{[L]}(z^{[L]})\)</span></p>
+<div class="arithmatex">\[\delta^{[L]} = \frac{\partial L}{\partial a^{[L]}} \odot g'^{[L]}(z^{[L]})\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\frac{\partial L}{\partial a^{[L]}}\)</span> 为 loss 对网络输出的导数</li>
@@ -4413,7 +4413,7 @@
 <h3 id="hidden-layer-error">Hidden Layer Error（隐藏层误差）<a class="headerlink" href="#hidden-layer-error" title="Permanent link">&para;</a></h3>
 <p><strong>Hidden layer error</strong> 通过将误差从后一层向前传播来计算。对于任意 hidden layer <span class="arithmatex">\(l\)</span>：</p>
 <h4 id="hidden-layer-error_1">Hidden Layer Error<a class="headerlink" href="#hidden-layer-error_1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\delta^{[l]} = (W^{[l+1]})^T \delta^{[l+1]} \odot g'^{[l]}(z^{[l]})\)</span></p>
+<div class="arithmatex">\[\delta^{[l]} = (W^{[l+1]})^T \delta^{[l+1]} \odot g'^{[l]}(z^{[l]})\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\((W^{[l+1]})^T\)</span> 为后一层 weight matrix 的转置</li>
@@ -4455,14 +4455,14 @@ Stage 6 (Update): Show weight update: <span class="arithmatex">\(W^{[l]} \leftar
 <h3 id="weight-update">Weight Update（权重更新）<a class="headerlink" href="#weight-update" title="Permanent link">&para;</a></h3>
 <p>第 <span class="arithmatex">\(l\)</span> 层 loss 关于 weight 的梯度为：</p>
 <h4 id="weight">Weight 梯度<a class="headerlink" href="#weight" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\frac{\partial L}{\partial W^{[l]}} = \delta^{[l]} (a^{[l-1]})^T\)</span></p>
+<div class="arithmatex">\[\frac{\partial L}{\partial W^{[l]}} = \delta^{[l]} (a^{[l-1]})^T\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\delta^{[l]}\)</span> 为第 <span class="arithmatex">\(l\)</span> 层的 error signal</li>
 <li><span class="arithmatex">\(a^{[l-1]}\)</span> 为前一层的 activation</li>
 </ul>
 <p><strong>Weight update（权重更新）</strong> 规则应用 gradient descent：</p>
-<p><span class="arithmatex">\(W^{[l]} \leftarrow W^{[l]} - \alpha \frac{\partial L}{\partial W^{[l]}}\)</span></p>
+<div class="arithmatex">\[W^{[l]} \leftarrow W^{[l]} - \alpha \frac{\partial L}{\partial W^{[l]}}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\alpha\)</span> 为 learning rate（学习率）</li>
@@ -4470,9 +4470,9 @@ Stage 6 (Update): Show weight update: <span class="arithmatex">\(W^{[l]} \leftar
 <h3 id="bias-update">Bias Update（偏置更新）<a class="headerlink" href="#bias-update" title="Permanent link">&para;</a></h3>
 <p>关于 bias 的梯度即为 error signal 本身：</p>
 <h4 id="bias">Bias 梯度<a class="headerlink" href="#bias" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\frac{\partial L}{\partial b^{[l]}} = \delta^{[l]}\)</span></p>
+<div class="arithmatex">\[\frac{\partial L}{\partial b^{[l]}} = \delta^{[l]}\]</div>
 <p><strong>Bias update（偏置更新）</strong> 规则为：</p>
-<p><span class="arithmatex">\(b^{[l]} \leftarrow b^{[l]} - \alpha \delta^{[l]}\)</span></p>
+<div class="arithmatex">\[b^{[l]} \leftarrow b^{[l]} - \alpha \delta^{[l]}\]</div>
 <p>这些更新规则应用于每一层，从 output layer 一直追溯到第一个 hidden layer。所有参数更新完成后，下一次 forward pass 将使用改进后的参数。</p>
 <h2 id="training-loop-epoch">Training Loop 与 Epoch<a class="headerlink" href="#training-loop-epoch" title="Permanent link">&para;</a></h2>
 <h3 id="training-loop">Training Loop（训练循环）<a class="headerlink" href="#training-loop" title="Permanent link">&para;</a></h3>

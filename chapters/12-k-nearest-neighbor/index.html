@@ -4374,7 +4374,7 @@
 <h3 id="euclidean-distance">欧氏距离（Euclidean Distance）<a class="headerlink" href="#euclidean-distance" title="Permanent link">&para;</a></h3>
 <p><strong>Euclidean distance（欧氏距离）</strong>（也称 L2 distance）是空间中两点之间的直线距离。对于两点 <span class="arithmatex">\(a = (a_1, a_2, \ldots, a_n)\)</span> 和 <span class="arithmatex">\(b = (b_1, b_2, \ldots, b_n)\)</span>：</p>
 <h4 id="euclidean-distance-formula">Euclidean Distance Formula（欧氏距离公式）<a class="headerlink" href="#euclidean-distance-formula" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(d_{\text{Euclidean}}(a, b) = \sqrt{\sum_{j=1}^{n}(a_j - b_j)^2}\)</span></p>
+<div class="arithmatex">\[d_{\text{Euclidean}}(a, b) = \sqrt{\sum_{j=1}^{n}(a_j - b_j)^2}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(a_j\)</span> 和 <span class="arithmatex">\(b_j\)</span> 是点 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 的第 <span class="arithmatex">\(j\)</span> 个特征值</li>
@@ -4384,7 +4384,7 @@
 <h3 id="l1-l1-distance">L1 距离（L1 Distance）<a class="headerlink" href="#l1-l1-distance" title="Permanent link">&para;</a></h3>
 <p><strong>L1 distance</strong>（也称 Manhattan distance 或 taxicab distance，曼哈顿距离）沿轴对齐路径测量距离，就像在城市街区网格中导航一样：</p>
 <h4 id="l1-distance-formulal1">L1 Distance Formula（L1 距离公式）<a class="headerlink" href="#l1-distance-formulal1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(d_{L1}(a, b) = \sum_{j=1}^{n}|a_j - b_j|\)</span></p>
+<div class="arithmatex">\[d_{L1}(a, b) = \sum_{j=1}^{n}|a_j - b_j|\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(|a_j - b_j|\)</span> 是第 <span class="arithmatex">\(j\)</span> 个特征的绝对差值</li>
@@ -4452,12 +4452,12 @@ Learning Objective: Compare Euclidean distance and L1 distance by visualizing th
 <h3 id="similarity-functions">相似度函数（Similarity Functions）<a class="headerlink" href="#similarity-functions" title="Permanent link">&para;</a></h3>
 <p><strong>Similarity function（相似度函数）</strong> 衡量两个数据点的"相似程度"，在概念上是距离度量的逆：距离函数对不相似的点赋予较高的值，而相似度函数对相似的点赋予较高的值。</p>
 <p>一种简单的距离到相似度转换方式为：</p>
-<p><span class="arithmatex">\(S(a, b) = \frac{1}{1 + d(a, b)}\)</span></p>
+<div class="arithmatex">\[S(a, b) = \frac{1}{1 + d(a, b)}\]</div>
 <p>相似度函数用于实现 <strong>weighted KNN（加权 KNN）</strong> 变体。</p>
 <h3 id="knnweighted-knn">加权 KNN（Weighted KNN）<a class="headerlink" href="#knnweighted-knn" title="Permanent link">&para;</a></h3>
 <p>在标准 KNN 中，所有 <span class="arithmatex">\(K\)</span> 个邻居对投票的贡献是相等的。在 <strong>weighted KNN（加权 KNN）</strong> 中，更近的邻居贡献更大的权重。每个邻居的权重通常取其距离的倒数：</p>
 <h4 id="distance-weighted-vote">距离加权投票（Distance-Weighted Vote）<a class="headerlink" href="#distance-weighted-vote" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(w_i = \frac{1}{d(x_q, x_i)}\)</span></p>
+<div class="arithmatex">\[w_i = \frac{1}{d(x_q, x_i)}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(w_i\)</span> 是邻居 <span class="arithmatex">\(i\)</span> 的投票权重</li>

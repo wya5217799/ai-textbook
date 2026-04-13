@@ -4380,7 +4380,7 @@
 <p><strong>Linear model（线性模型）</strong>假设 dependent variable 是 independent variable 的加权求和加上一个常数项。这是机器学习中最简单的参数化模型，尽管简单，却对许多实际问题效果出色。</p>
 <p>对于单个特征，线性模型采用熟悉的直线方程：</p>
 <h4 id="simple-linear-regression">Simple Linear Regression（简单线性回归）方程<a class="headerlink" href="#simple-linear-regression" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\hat{y} = \theta_1 x + \theta_0\)</span></p>
+<div class="arithmatex">\[\hat{y} = \theta_1 x + \theta_0\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\hat{y}\)</span> 是预测值</li>
@@ -4390,7 +4390,7 @@
 </ul>
 <p>对于多个特征，模型推广为：</p>
 <h4 id="multiple-linear-regression">Multiple Linear Regression（多元线性回归）方程<a class="headerlink" href="#multiple-linear-regression" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\hat{y} = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \cdots + \theta_n x_n\)</span></p>
+<div class="arithmatex">\[\hat{y} = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \cdots + \theta_n x_n\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(x_1, x_2, \ldots, x_n\)</span> 是 <span class="arithmatex">\(n\)</span> 个 independent variable</li>
@@ -4430,7 +4430,7 @@ Learning Objective: Demonstrate how adjusting the slope and intercept of a linea
 <h3 id="parameter-vector">Parameter Vector（参数向量）与矩阵表述<a class="headerlink" href="#parameter-vector" title="Permanent link">&para;</a></h3>
 <p>使用第 5 章中的矩阵记号，我们可以紧凑地表达线性模型。定义<strong>parameter vector（参数向量）</strong> <span class="arithmatex">\(\theta\)</span> 为包含所有模型参数的列向量：</p>
 <h4 id="parameter-vector_1">Parameter Vector<a class="headerlink" href="#parameter-vector_1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_n \end{bmatrix}\)</span></p>
+<div class="arithmatex">\[\theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_n \end{bmatrix}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\theta_0\)</span> 是 bias term（截距）</li>
@@ -4438,7 +4438,7 @@ Learning Objective: Demonstrate how adjusting the slope and intercept of a linea
 </ul>
 <p>通过在特征矩阵 <span class="arithmatex">\(X\)</span> 前面添加一列 1（以处理截距），所有 <span class="arithmatex">\(m\)</span> 个训练样本的预测可以简化为一次矩阵乘法：</p>
 <h4 id="_5">线性回归的矩阵形式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\hat{y} = X\theta\)</span></p>
+<div class="arithmatex">\[\hat{y} = X\theta\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(X\)</span> 是 <span class="arithmatex">\(m \times (n+1)\)</span> 的设计矩阵（design matrix，首列为全 1）</li>
@@ -4451,7 +4451,7 @@ Learning Objective: Demonstrate how adjusting the slope and intercept of a linea
 <h3 id="squared-loss-mean-squared-error">Squared Loss 与 Mean Squared Error<a class="headerlink" href="#squared-loss-mean-squared-error" title="Permanent link">&para;</a></h3>
 <p>单个预测的<strong>squared loss（平方损失）</strong>是实际值与预测值之差的平方：</p>
 <h4 id="squared-loss">Squared Loss<a class="headerlink" href="#squared-loss" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(L(y_i, \hat{y}_i) = (y_i - \hat{y}_i)^2\)</span></p>
+<div class="arithmatex">\[L(y_i, \hat{y}_i) = (y_i - \hat{y}_i)^2\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(y_i\)</span> 是样本 <span class="arithmatex">\(i\)</span> 的实际值</li>
@@ -4460,7 +4460,7 @@ Learning Objective: Demonstrate how adjusting the slope and intercept of a linea
 <p>平方有两个作用：使所有误差为正（正负误差不会相互抵消），并对大误差的惩罚比小误差更重。</p>
 <p><strong>Mean Squared Error（均方误差，MSE）</strong>对整个训练集的 squared loss 取平均：</p>
 <h4 id="mean-squared-error">Mean Squared Error<a class="headerlink" href="#mean-squared-error" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(MSE = \frac{1}{m}\sum_{i=1}^{m}(y_i - \hat{y}_i)^2\)</span></p>
+<div class="arithmatex">\[MSE = \frac{1}{m}\sum_{i=1}^{m}(y_i - \hat{y}_i)^2\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(m\)</span> 是训练样本数</li>
@@ -4469,7 +4469,7 @@ Learning Objective: Demonstrate how adjusting the slope and intercept of a linea
 <h3 id="residuals-predicted-values">Residuals（残差）与 Predicted Values（预测值）<a class="headerlink" href="#residuals-predicted-values" title="Permanent link">&para;</a></h3>
 <p><strong>Residual（残差）</strong>是观测值与模型预测值之差：</p>
 <h4 id="residual">Residual 定义<a class="headerlink" href="#residual" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(e_i = y_i - \hat{y}_i\)</span></p>
+<div class="arithmatex">\[e_i = y_i - \hat{y}_i\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(e_i\)</span> 是样本 <span class="arithmatex">\(i\)</span> 的残差</li>
@@ -4480,24 +4480,24 @@ Learning Objective: Demonstrate how adjusting the slope and intercept of a linea
 <h3 id="sums-of-squares-decomposition">平方和分解（Sums of Squares Decomposition）<a class="headerlink" href="#sums-of-squares-decomposition" title="Permanent link">&para;</a></h3>
 <p>为了理解回归模型在多大程度上解释了数据的变异性，我们使用平方和将总变异性分解为两个分量。</p>
 <h4 id="sum-of-squares-totalsst">Sum of Squares Total（总平方和，SST）<a class="headerlink" href="#sum-of-squares-totalsst" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(SST = \sum_{i=1}^{m}(y_i - \bar{y})^2\)</span></p>
+<div class="arithmatex">\[SST = \sum_{i=1}^{m}(y_i - \bar{y})^2\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\bar{y}\)</span> 是所有观测值的均值</li>
 </ul>
 <p>SST 衡量 dependent variable 的总变异性，回答：实际值围绕均值有多分散？</p>
 <h4 id="sum-of-squares-errorsse">Sum of Squares Error（误差平方和，SSE）<a class="headerlink" href="#sum-of-squares-errorsse" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(SSE = \sum_{i=1}^{m}(y_i - \hat{y}_i)^2\)</span></p>
+<div class="arithmatex">\[SSE = \sum_{i=1}^{m}(y_i - \hat{y}_i)^2\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\hat{y}_i\)</span> 是模型对样本 <span class="arithmatex">\(i\)</span> 的预测值</li>
 </ul>
 <p>SSE 衡量模型未能解释的变异性——即残差变异性。</p>
 <h4 id="sum-of-squares-regressionssr">Sum of Squares Regression（回归平方和，SSR）<a class="headerlink" href="#sum-of-squares-regressionssr" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(SSR = \sum_{i=1}^{m}(\hat{y}_i - \bar{y})^2\)</span></p>
+<div class="arithmatex">\[SSR = \sum_{i=1}^{m}(\hat{y}_i - \bar{y})^2\]</div>
 <p>SSR 衡量模型能够解释的变异性——即预测值偏离均值的程度。</p>
 <p>连接这三个量的基本恒等式为：</p>
-<p><span class="arithmatex">\(SST = SSR + SSE\)</span></p>
+<div class="arithmatex">\[SST = SSR + SSE\]</div>
 <p>这种分解将总变异性划分为"已解释"（SSR）和"未解释"（SSE）两个部分。</p>
 <h4 id="sums-of-squares">图示：Sums of Squares 分解<a class="headerlink" href="#sums-of-squares" title="Permanent link">&para;</a></h4>
 <iframe src="../../sims/sums-of-squares-decomposition/main.html" width="100%" height="500px" scrolling="no"></iframe>
@@ -4533,7 +4533,7 @@ Stage 3: Show running sums SST, SSR, SSE across all points with a stacked bar ch
 <h3 id="r-squared">R-Squared（决定系数）<a class="headerlink" href="#r-squared" title="Permanent link">&para;</a></h3>
 <p><strong>R-Squared（<span class="arithmatex">\(R^2\)</span>，决定系数）</strong>是评估回归模型拟合优度最广泛使用的指标。它表示模型解释的 dependent variable 总变异性的比例。</p>
 <h4 id="r-squared_1">R-Squared 公式<a class="headerlink" href="#r-squared_1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(R^2 = \frac{SSR}{SST} = 1 - \frac{SSE}{SST}\)</span></p>
+<div class="arithmatex">\[R^2 = \frac{SSR}{SST} = 1 - \frac{SSE}{SST}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(R^2\)</span> 的范围为 0 到 1（对于包含截距的模型）</li>
@@ -4570,14 +4570,14 @@ Stage 3: Show running sums SST, SSR, SSE across all points with a stacked bar ch
 <h3 id="_7">其他误差指标<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>除 MSE 和 R-squared 外，实践中还常用两种误差指标。</p>
 <h4 id="root-mean-squared-error">Root Mean Squared Error（均方根误差）<a class="headerlink" href="#root-mean-squared-error" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(RMSE = \sqrt{\frac{1}{m}\sum_{i=1}^{m}(y_i - \hat{y}_i)^2}\)</span></p>
+<div class="arithmatex">\[RMSE = \sqrt{\frac{1}{m}\sum_{i=1}^{m}(y_i - \hat{y}_i)^2}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(RMSE\)</span> 与 dependent variable 的单位相同，比 MSE 更易解读</li>
 </ul>
 <p>RMSE 就是 MSE 的平方根。它的优势在于可解读性：若预测的是房价（单位：美元），RMSE 告诉我们典型误差是多少美元，而 MSE 给出的误差单位是"美元的平方"。</p>
 <h4 id="mean-absolute-error">Mean Absolute Error（平均绝对误差）<a class="headerlink" href="#mean-absolute-error" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(MAE = \frac{1}{m}\sum_{i=1}^{m}|y_i - \hat{y}_i|\)</span></p>
+<div class="arithmatex">\[MAE = \frac{1}{m}\sum_{i=1}^{m}|y_i - \hat{y}_i|\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(|y_i - \hat{y}_i|\)</span> 是残差的绝对值</li>
@@ -4623,7 +4623,7 @@ Stage 3: Show running sums SST, SSR, SSE across all points with a stacked bar ch
 <p>对于线性回归，存在一个闭式解（closed-form solution），可以直接计算最优 parameter vector，无需迭代。这个解称为<strong>normal equation（正规方程）</strong>。</p>
 <p>从最小化 MSE（或等价地最小化 SSE）的目标出发，对 <span class="arithmatex">\(\theta\)</span> 求 cost function 的导数，令其等于零并求解，结果为：</p>
 <h4 id="normal-equation_1">Normal Equation<a class="headerlink" href="#normal-equation_1" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\theta = (X^T X)^{-1} X^T y\)</span></p>
+<div class="arithmatex">\[\theta = (X^T X)^{-1} X^T y\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(X\)</span> 是 <span class="arithmatex">\(m \times (n+1)\)</span> 的设计矩阵（design matrix）</li>

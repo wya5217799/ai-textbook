@@ -4321,7 +4321,7 @@
 <p>尽管名称中带有"regression（回归）"，<strong>logistic regression</strong> 实际上是一种分类算法。这个名称有其历史渊源——该算法使用类似回归的数学来建模类别归属的对数几率（log-odds）。</p>
 <p>Logistic regression 建立在第 6 章线性模型的基础上，通过将线性输出传入 sigmoid function（第 9 章已介绍）来实现分类：</p>
 <h4 id="logistic-regression-logistic-regression-model">Logistic Regression 模型（Logistic Regression Model）<a class="headerlink" href="#logistic-regression-logistic-regression-model" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\hat{y} = \sigma(\theta^T x) = \frac{1}{1 + e^{-\theta^T x}}\)</span></p>
+<div class="arithmatex">\[\hat{y} = \sigma(\theta^T x) = \frac{1}{1 + e^{-\theta^T x}}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(\theta^T x = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \cdots + \theta_n x_n\)</span> 是特征的线性组合</li>
@@ -4362,7 +4362,7 @@
 </table>
 <h2 id="the-decision-boundary">决策边界（The Decision Boundary）<a class="headerlink" href="#the-decision-boundary" title="Permanent link">&para;</a></h2>
 <p><strong>Decision boundary（决策边界）</strong> 是特征空间中模型预测概率等于 0.5 的边界面，标志着预测类别 0 和类别 1 之间的过渡区域。对于 logistic regression，决策边界通过将线性部分设为零来确定：</p>
-<p><span class="arithmatex">\(\theta^T x = 0\)</span></p>
+<div class="arithmatex">\[\theta^T x = 0\]</div>
 <p>在二维空间（两个特征）中，决策边界是一条直线；在三维空间中是一个平面；在更高维空间中是一个超平面（hyperplane）。由于 logistic regression 的决策边界始终是线性的（超平面），因此 logistic regression 被称为<strong>线性分类器（linear classifier）</strong>。</p>
 <h4 id="diagram-decision-boundary-visualization">图示：决策边界可视化（Diagram: Decision Boundary Visualization）<a class="headerlink" href="#diagram-decision-boundary-visualization" title="Permanent link">&para;</a></h4>
 <iframe src="../../sims/decision-boundary-visualization/main.html" width="100%" height="500px" scrolling="no"></iframe>
@@ -4396,7 +4396,7 @@ Learning Objective: Demonstrate how the logistic regression decision boundary se
 <h2 id="cross-entropy-loss">交叉熵损失（Cross Entropy Loss）<a class="headerlink" href="#cross-entropy-loss" title="Permanent link">&para;</a></h2>
 <p>我们不能将 MSE 用作 logistic regression 的损失函数，因为当 sigmoid function 与 MSE 配合使用时，会产生非凸（non-convex）的优化问题，使梯度下降（gradient descent）不可靠。分类任务使用<strong>cross entropy loss（交叉熵损失）</strong>（也称为 log loss 或 binary cross entropy），它来源于对 Bernoulli 分布标签（Bernoulli-distributed labels）应用最大似然原理（maximum likelihood principle）。</p>
 <h4 id="binary-cross-entropy-loss">二元交叉熵损失（Binary Cross Entropy Loss）<a class="headerlink" href="#binary-cross-entropy-loss" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(L(y, \hat{y}) = -[y \log(\hat{y}) + (1 - y) \log(1 - \hat{y})]\)</span></p>
+<div class="arithmatex">\[L(y, \hat{y}) = -[y \log(\hat{y}) + (1 - y) \log(1 - \hat{y})]\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(y \in \{0, 1\}\)</span> 是真实标签</li>
@@ -4412,7 +4412,7 @@ Learning Objective: Demonstrate how the logistic regression decision boundary se
 </ul>
 <p>整个数据集的代价函数（cost function）是平均交叉熵：</p>
 <h4 id="cross-entropy-cost-function">交叉熵代价函数（Cross Entropy Cost Function）<a class="headerlink" href="#cross-entropy-cost-function" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}[y_i \log(\hat{y}_i) + (1 - y_i)\log(1 - \hat{y}_i)]\)</span></p>
+<div class="arithmatex">\[J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}[y_i \log(\hat{y}_i) + (1 - y_i)\log(1 - \hat{y}_i)]\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(m\)</span> 是训练样本数量</li>
@@ -4495,7 +4495,7 @@ Stage 3: Movable vertical cursor showing the exact loss value for a given <span 
 <h3 id="softmax-the-softmax-function">Softmax 函数（The Softmax Function）<a class="headerlink" href="#softmax-the-softmax-function" title="Permanent link">&para;</a></h3>
 <p><strong>Softmax function</strong> 将 sigmoid function 推广到多个类别。给定网络输出层的原始分数（logits）<span class="arithmatex">\(z_1, z_2, \ldots, z_K\)</span>（每类一个分数），softmax 将其转换为概率分布（probability distribution）：</p>
 <h4 id="softmax-function">Softmax Function<a class="headerlink" href="#softmax-function" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(\text{softmax}(z_j) = \frac{e^{z_j}}{\sum_{k=1}^{K} e^{z_k}}\)</span></p>
+<div class="arithmatex">\[\text{softmax}(z_j) = \frac{e^{z_j}}{\sum_{k=1}^{K} e^{z_k}}\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(z_j\)</span> 是类别 <span class="arithmatex">\(j\)</span> 的原始分数</li>
@@ -4506,7 +4506,7 @@ Stage 3: Movable vertical cursor showing the exact loss value for a given <span 
 <p>预测类别是 softmax 概率最高的那个：<span class="arithmatex">\(\hat{y} = \arg\max_j \text{softmax}(z_j)\)</span>。</p>
 <p>对于多分类问题，交叉熵损失推广为：</p>
 <h4 id="multi-class-cross-entropy-loss">多分类交叉熵损失（Multi-class Cross Entropy Loss）<a class="headerlink" href="#multi-class-cross-entropy-loss" title="Permanent link">&para;</a></h4>
-<p><span class="arithmatex">\(L = -\sum_{k=1}^{K} y_k \log(\hat{y}_k)\)</span></p>
+<div class="arithmatex">\[L = -\sum_{k=1}^{K} y_k \log(\hat{y}_k)\]</div>
 <p>其中：</p>
 <ul>
 <li><span class="arithmatex">\(y_k\)</span> 是真实标签（one-hot encoded），因此求和中只有一项非零</li>
