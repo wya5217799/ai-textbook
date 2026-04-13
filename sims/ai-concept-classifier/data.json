@@ -1,0 +1,314 @@
+{
+  "title": "AI Concept Classifier Quiz",
+  "description": "Test your ability to classify Artificial Intelligence and Machine Learning concepts into the correct category. Covers the full H63AIS curriculum from data preprocessing to deep learning architectures.",
+  "config": {
+    "questionsPerQuiz": 10,
+    "pointsCorrect": 10,
+    "pointsWithHint": 5,
+    "scenarioLabel": "CONCEPT",
+    "instructionText": "Select the correct category for this concept",
+    "correctAnswerField": "correctAnswer"
+  },
+  "scenarios": [
+    {
+      "id": 1,
+      "scenario": "A technique that computes the partial derivatives of the loss function with respect to each weight by propagating errors backward from the output layer through hidden layers using the chain rule.",
+      "correctAnswer": "Neural Networks",
+      "options": ["Optimization", "Neural Networks", "Deep Learning Architectures", "Model Evaluation"],
+      "explanation": "Backpropagation is a core neural network training mechanism. While it involves optimization concepts (gradient computation), it is fundamentally a neural network algorithm that computes error signals layer by layer using the chain rule.",
+      "hint": "Think about which layer-by-layer process is unique to training multi-layer networks."
+    },
+    {
+      "id": 2,
+      "scenario": "You split your dataset into three parts: 70% for training the model, 15% for tuning hyperparameters, and 15% for final performance assessment on unseen data.",
+      "correctAnswer": "Data Preprocessing",
+      "options": ["Data Preprocessing", "Model Evaluation", "Data Acquisition", "Optimization"],
+      "explanation": "Data splitting into training, validation, and test sets is a data preprocessing step. It happens before model training begins and determines how data flows through the ML pipeline.",
+      "hint": "This step prepares data before any model is trained."
+    },
+    {
+      "id": 3,
+      "scenario": "An algorithm that classifies a new data point by finding the K closest data points in the training set and assigning the class that appears most frequently among those neighbors.",
+      "correctAnswer": "Classification",
+      "options": ["Classification", "Clustering", "Neural Networks", "Optimization"],
+      "explanation": "K-Nearest Neighbor (KNN) is a classification algorithm. It uses distance metrics and majority voting among the K nearest training examples to predict the class of a new instance. Unlike clustering, it requires labeled training data.",
+      "hint": "This is a supervised method that uses labeled data and distance measurements."
+    },
+    {
+      "id": 4,
+      "scenario": "A specialized neural network layer that slides a small matrix (e.g., 3x3) across an input image, computing element-wise multiplications and summing the results to produce a feature map.",
+      "correctAnswer": "Deep Learning Architectures",
+      "options": ["Neural Networks", "Deep Learning Architectures", "Linear Algebra and Math", "Model Evaluation"],
+      "explanation": "The convolution operation with filters/kernels is a defining component of Convolutional Neural Networks (CNNs), which fall under Deep Learning Architectures. While it involves matrix operations, the concept is specific to CNN architecture design.",
+      "hint": "This operation is the defining component of a specific deep learning architecture for images."
+    },
+    {
+      "id": 5,
+      "scenario": "Instead of computing the gradient over the entire training set, you randomly select a single training example at each step to compute the gradient and update the parameters.",
+      "correctAnswer": "Optimization",
+      "options": ["Optimization", "Neural Networks", "Linear Regression", "Model Evaluation"],
+      "explanation": "Stochastic Gradient Descent (SGD) is an optimization algorithm. It is a variant of gradient descent that uses one random sample per iteration, trading accuracy of the gradient estimate for faster computation per step.",
+      "hint": "This is a variant of a well-known parameter update strategy."
+    },
+    {
+      "id": 6,
+      "scenario": "A table that shows four counts: how many positive examples were correctly predicted (TP), how many were missed (FN), how many negatives were incorrectly flagged (FP), and how many negatives were correctly identified (TN).",
+      "correctAnswer": "Model Evaluation",
+      "options": ["Model Evaluation", "Classification", "Data Preprocessing", "Optimization"],
+      "explanation": "The confusion matrix is a model evaluation tool. It summarizes classification performance by counting true positives, true negatives, false positives, and false negatives, forming the basis for metrics like precision, recall, and F1 score.",
+      "hint": "This is a tool for measuring how well a trained model performs."
+    },
+    {
+      "id": 7,
+      "scenario": "An unsupervised algorithm that partitions data into K groups by iteratively assigning each point to the nearest center, then recalculating centers as the mean of assigned points until convergence.",
+      "correctAnswer": "Clustering",
+      "options": ["Classification", "Clustering", "Optimization", "Data Preprocessing"],
+      "explanation": "K-Means is a clustering algorithm. It groups unlabeled data into K clusters by minimizing the distance between points and their assigned centroids. Unlike classification, it discovers structure in data without predefined labels.",
+      "hint": "This algorithm works with unlabeled data to discover natural groupings."
+    },
+    {
+      "id": 8,
+      "scenario": "A model that predicts a continuous output value y by computing y = w1*x1 + w2*x2 + ... + wn*xn + b, where the parameters w and b are learned by minimizing the sum of squared differences between predictions and actual values.",
+      "correctAnswer": "Linear Regression",
+      "options": ["Linear Regression", "Classification", "Neural Networks", "Optimization"],
+      "explanation": "This describes linear regression: a model that fits a linear equation to data by minimizing squared loss. The normal equation or gradient descent can solve for the optimal parameters w and b.",
+      "hint": "This model predicts continuous values using a weighted sum of features."
+    },
+    {
+      "id": 9,
+      "scenario": "A collection of over 14 million labeled images spanning more than 20,000 categories, created by Li Fei-Fei's team and widely used as a benchmark for training and evaluating computer vision models.",
+      "correctAnswer": "Data Acquisition",
+      "options": ["Data Acquisition", "Deep Learning Architectures", "Model Evaluation", "Data Preprocessing"],
+      "explanation": "ImageNet is a benchmark dataset, which falls under Data Acquisition. It is a resource for obtaining labeled training data, not a model architecture or evaluation technique. Its creation was a data collection and annotation effort.",
+      "hint": "Think about where datasets themselves fit in the ML pipeline."
+    },
+    {
+      "id": 10,
+      "scenario": "A function that squashes any real-valued input into the range (0, 1), computed as f(x) = 1 / (1 + e^(-x)). It is used to convert raw model outputs into probabilities for binary classification.",
+      "correctAnswer": "Classification",
+      "options": ["Classification", "Neural Networks", "Optimization", "Linear Regression"],
+      "explanation": "The sigmoid function is central to logistic regression and binary classification. While it also appears as a neural network activation function, its primary conceptual role in this course is converting linear outputs into class probabilities for classification tasks.",
+      "hint": "This function converts outputs into probabilities for a two-class problem."
+    },
+    {
+      "id": 11,
+      "scenario": "The process of detecting and handling records with empty fields in a dataset, using strategies such as deletion of incomplete rows, mean/median imputation, or model-based imputation before training.",
+      "correctAnswer": "Data Preprocessing",
+      "options": ["Data Preprocessing", "Data Acquisition", "Model Evaluation", "Feature Engineering"],
+      "explanation": "Handling missing values is a core data preprocessing task. It involves cleaning the dataset so that models can be trained effectively, occurring after data acquisition but before model training.",
+      "hint": "This happens after you have the data but before you train any model."
+    },
+    {
+      "id": 12,
+      "scenario": "When a model performs very well on training data (low training error) but poorly on new, unseen data (high validation error), indicating it has memorized noise rather than learning the underlying pattern.",
+      "correctAnswer": "Model Evaluation",
+      "options": ["Model Evaluation", "Optimization", "Neural Networks", "Data Preprocessing"],
+      "explanation": "Overfitting is a model evaluation concept. It describes a gap between training and validation performance, indicating poor generalization. Detecting and addressing overfitting is fundamental to evaluating model quality.",
+      "hint": "This describes a discrepancy between training and validation performance."
+    },
+    {
+      "id": 13,
+      "scenario": "An operation where each element in one matrix row is multiplied with the corresponding element in a matrix column, and the results are summed to produce a single entry in the output matrix.",
+      "correctAnswer": "Linear Algebra and Math",
+      "options": ["Linear Algebra and Math", "Linear Regression", "Neural Networks", "Optimization"],
+      "explanation": "Matrix multiplication is a fundamental linear algebra operation. While it underpins many ML algorithms (regression, neural networks), the concept itself belongs to the mathematical foundations category.",
+      "hint": "This is a pure mathematical operation that many ML algorithms depend on."
+    },
+    {
+      "id": 14,
+      "scenario": "A density-based algorithm that groups together points in high-density regions and marks points in low-density regions as noise. It requires two parameters: epsilon (neighborhood radius) and MinPts (minimum points).",
+      "correctAnswer": "Clustering",
+      "options": ["Clustering", "Classification", "Data Preprocessing", "Model Evaluation"],
+      "explanation": "DBSCAN (Density-Based Spatial Clustering of Applications with Noise) is a clustering algorithm. Unlike K-Means, it can find arbitrarily shaped clusters and automatically identifies noise points without requiring the number of clusters in advance.",
+      "hint": "This unsupervised algorithm discovers groups based on point density."
+    },
+    {
+      "id": 15,
+      "scenario": "A technique that adds a penalty term (lambda times the sum of squared weights) to the loss function, discouraging large parameter values to prevent the model from fitting noise in the training data.",
+      "correctAnswer": "Optimization",
+      "options": ["Optimization", "Model Evaluation", "Linear Regression", "Neural Networks"],
+      "explanation": "L2 regularization (Ridge) is an optimization technique. By adding a penalty term to the objective function, it constrains the optimization process to prefer simpler models, helping prevent overfitting during training.",
+      "hint": "This modifies the loss function to control model complexity during training."
+    },
+    {
+      "id": 16,
+      "scenario": "A type of neural network that processes sequential data by maintaining a hidden state vector that is updated at each time step, allowing information from earlier inputs to influence later predictions.",
+      "correctAnswer": "Deep Learning Architectures",
+      "options": ["Deep Learning Architectures", "Neural Networks", "Classification", "Optimization"],
+      "explanation": "Recurrent Neural Networks (RNNs) are a deep learning architecture designed for sequential data. They extend basic neural network concepts with recurrent connections that maintain temporal information across time steps.",
+      "hint": "This architecture is specifically designed for data that has a temporal or sequential order."
+    },
+    {
+      "id": 17,
+      "scenario": "A neuron that takes multiple weighted inputs, sums them with a bias, and applies an activation function. If the result exceeds a threshold, it outputs 1; otherwise it outputs 0. This is the simplest model of a biological neuron.",
+      "correctAnswer": "Neural Networks",
+      "options": ["Neural Networks", "Classification", "Linear Regression", "Deep Learning Architectures"],
+      "explanation": "The perceptron is a foundational neural network concept. It is the simplest artificial neuron model, consisting of weighted inputs, a bias, and a step activation function. It forms the building block of all neural networks.",
+      "hint": "This is the most basic building block that all neural networks are made of."
+    },
+    {
+      "id": 18,
+      "scenario": "You have a set of features with very different scales: age ranges from 0-100, salary from 20000-200000, and rating from 1-5. You transform all features to the range [0, 1] before feeding them into a model.",
+      "correctAnswer": "Data Preprocessing",
+      "options": ["Data Preprocessing", "Optimization", "Linear Regression", "Data Acquisition"],
+      "explanation": "Data normalization (min-max scaling) is a data preprocessing step. Rescaling features to a common range prevents features with larger magnitudes from dominating the learning process.",
+      "hint": "This transformation is applied to data before training to ensure fair treatment of all features."
+    },
+    {
+      "id": 19,
+      "scenario": "A plot that shows the trade-off between the True Positive Rate and the False Positive Rate at various classification thresholds. The area under this curve summarizes overall classifier performance.",
+      "correctAnswer": "Model Evaluation",
+      "options": ["Model Evaluation", "Classification", "Data Preprocessing", "Optimization"],
+      "explanation": "The ROC curve and AUC are model evaluation tools. They provide a threshold-independent way to assess classifier performance, showing how sensitivity and specificity trade off across all possible decision thresholds.",
+      "hint": "This visualization is used to assess and compare trained classifiers."
+    },
+    {
+      "id": 20,
+      "scenario": "A probability distribution that describes the likelihood of a continuous random variable, characterized by its mean (mu) and standard deviation (sigma), forming the familiar bell-shaped curve.",
+      "correctAnswer": "Linear Algebra and Math",
+      "options": ["Linear Algebra and Math", "Model Evaluation", "Optimization", "Data Preprocessing"],
+      "explanation": "The Gaussian (normal) distribution is a mathematical foundation concept. It is a probability distribution used throughout ML for assumptions about data, noise, and maximum likelihood estimation.",
+      "hint": "This is a mathematical concept from probability theory, not a specific ML algorithm."
+    },
+    {
+      "id": 21,
+      "scenario": "The process of manually or programmatically assigning correct labels (such as 'cat' or 'dog') to raw data samples so they can be used to train supervised learning models.",
+      "correctAnswer": "Data Acquisition",
+      "options": ["Data Acquisition", "Data Preprocessing", "Classification", "Model Evaluation"],
+      "explanation": "Data annotation is a data acquisition activity. It involves creating the labels that supervised learning requires. This happens during the data collection phase, before any preprocessing or model training begins.",
+      "hint": "This creates the ground truth labels needed before any model can learn."
+    },
+    {
+      "id": 22,
+      "scenario": "A layer in a CNN that reduces the spatial dimensions of feature maps by selecting the maximum value in each local region (e.g., 2x2 window), decreasing computation while retaining important features.",
+      "correctAnswer": "Deep Learning Architectures",
+      "options": ["Deep Learning Architectures", "Neural Networks", "Data Preprocessing", "Optimization"],
+      "explanation": "Max pooling is a component of CNN architecture (Deep Learning Architectures). It is a downsampling operation specific to convolutional neural networks that reduces spatial dimensions while preserving the most prominent features.",
+      "hint": "This is a specific operation within a particular deep learning architecture for images."
+    },
+    {
+      "id": 23,
+      "scenario": "A hyperparameter that controls how large each step is when updating model parameters in the direction of the negative gradient. If too large, the model may overshoot; if too small, training is very slow.",
+      "correctAnswer": "Optimization",
+      "options": ["Optimization", "Neural Networks", "Linear Regression", "Model Evaluation"],
+      "explanation": "The learning rate is an optimization concept. It controls the step size during gradient descent, directly affecting whether and how quickly the optimization converges to a good solution.",
+      "hint": "This controls the size of parameter updates during the training process."
+    },
+    {
+      "id": 24,
+      "scenario": "A function that takes a vector of real numbers and normalizes it into a probability distribution where all outputs sum to 1, commonly used in the final layer for multi-class classification problems.",
+      "correctAnswer": "Classification",
+      "options": ["Classification", "Neural Networks", "Optimization", "Linear Algebra and Math"],
+      "explanation": "The softmax function is a classification concept. It generalizes the sigmoid function to multiple classes, converting raw scores into class probabilities. It is the standard output transformation for multi-class classification tasks.",
+      "hint": "This function produces probabilities for problems with more than two classes."
+    },
+    {
+      "id": 25,
+      "scenario": "An advanced RNN architecture that uses three gates (input, forget, and output) to control information flow, solving the vanishing gradient problem and enabling the network to learn long-range dependencies in sequences.",
+      "correctAnswer": "Deep Learning Architectures",
+      "options": ["Deep Learning Architectures", "Neural Networks", "Optimization", "Classification"],
+      "explanation": "Long Short-Term Memory (LSTM) is a deep learning architecture. It extends the basic RNN with gating mechanisms that control what information to remember, forget, and output, enabling learning from long sequences.",
+      "hint": "This is a specialized variant of a sequential deep learning model with gating mechanisms."
+    },
+    {
+      "id": 26,
+      "scenario": "You use a Python library to create a scatter plot of two features from your dataset, colored by class label, to visually check whether the classes are separable before building a classifier.",
+      "correctAnswer": "Data Preprocessing",
+      "options": ["Data Preprocessing", "Data Acquisition", "Model Evaluation", "Classification"],
+      "explanation": "Exploratory Data Analysis (EDA) is part of data preprocessing. Visualizing feature distributions and class separability helps understand the data before selecting and training a model. It informs preprocessing and modeling decisions.",
+      "hint": "This visual exploration happens before model training to understand the data."
+    },
+    {
+      "id": 27,
+      "scenario": "A closed-form solution that directly computes the optimal weight vector for a linear model by solving w = (X^T X)^(-1) X^T y, avoiding the need for iterative optimization.",
+      "correctAnswer": "Linear Regression",
+      "options": ["Linear Regression", "Optimization", "Linear Algebra and Math", "Neural Networks"],
+      "explanation": "The normal equation is a linear regression concept. It provides a direct analytical solution for the optimal parameters of a linear regression model, as opposed to using iterative methods like gradient descent.",
+      "hint": "This formula gives the exact optimal solution for a specific type of model."
+    },
+    {
+      "id": 28,
+      "scenario": "A metric that measures the proportion of positive predictions that were actually correct. It answers: of all the items the model labeled as positive, how many truly were positive?",
+      "correctAnswer": "Model Evaluation",
+      "options": ["Model Evaluation", "Classification", "Optimization", "Data Preprocessing"],
+      "explanation": "Precision is a model evaluation metric. It measures the accuracy of positive predictions (TP / (TP + FP)). Along with recall and F1 score, it provides a nuanced view of classifier performance beyond simple accuracy.",
+      "hint": "This is a metric computed after training to judge prediction quality."
+    },
+    {
+      "id": 29,
+      "scenario": "A nonlinear activation function defined as f(x) = max(0, x) that outputs zero for negative inputs and passes positive inputs unchanged. It is the most widely used activation in modern deep networks.",
+      "correctAnswer": "Neural Networks",
+      "options": ["Neural Networks", "Deep Learning Architectures", "Classification", "Optimization"],
+      "explanation": "ReLU (Rectified Linear Unit) is a neural network activation function. It is a fundamental building block used across all types of neural networks, from simple fully connected networks to deep CNNs and RNNs.",
+      "hint": "This is a core component used inside neurons across many network types."
+    },
+    {
+      "id": 30,
+      "scenario": "Applying random transformations such as rotation, flipping, cropping, and color jittering to existing training images to artificially increase the size and diversity of the training dataset.",
+      "correctAnswer": "Data Acquisition",
+      "options": ["Data Acquisition", "Data Preprocessing", "Deep Learning Architectures", "Optimization"],
+      "explanation": "Data augmentation is a data acquisition technique. It generates new training samples from existing ones through transformations, effectively expanding the dataset. This addresses the challenge of limited training data availability.",
+      "hint": "This technique creates more training data from what you already have."
+    }
+  ],
+  "encouragingMessages": {
+    "correct": [
+      "Excellent!",
+      "Well done!",
+      "Great job!",
+      "You got it!",
+      "Perfect!",
+      "Spot on!"
+    ],
+    "incorrect": [
+      "Not quite -- now you know for next time!",
+      "Good try! This one is tricky.",
+      "Learning from mistakes makes us better!",
+      "Keep practicing!",
+      "Almost! Now you'll remember it.",
+      "A common confusion -- now you know the difference!"
+    ]
+  },
+  "categoryDescriptions": {
+    "Neural Networks": "Perceptron, activation functions, fully connected networks, forward pass, backpropagation, and training loop concepts",
+    "Deep Learning Architectures": "CNN layers and operations, RNN/LSTM, advanced architectures, and model deployment",
+    "Optimization": "Gradient descent variants, learning rate, convergence, regularization, and parameter update strategies",
+    "Model Evaluation": "Regression and classification metrics, confusion matrix, ROC/AUC, overfitting, and model selection",
+    "Classification": "Logistic regression, sigmoid/softmax, KNN, binary and multi-class classification, and decision boundaries",
+    "Clustering": "K-Means, DBSCAN, centroids, density concepts, and unsupervised grouping algorithms",
+    "Data Preprocessing": "Data cleaning, normalization, feature engineering, splitting, and exploratory analysis",
+    "Data Acquisition": "Dataset collection, annotation, benchmark datasets, data augmentation, and data sources",
+    "Linear Regression": "Linear models, loss functions, normal equation, slope, intercept, and residuals",
+    "Linear Algebra and Math": "Matrix operations, probability distributions, and statistical foundations"
+  },
+  "endScreen": {
+    "tipsTitle": "Tips for Better AI Concept Classification:",
+    "tips": [
+      "Ask whether the concept is about preparing data, building a model, or evaluating results.",
+      "Distinguish between general neural network concepts and specific deep learning architectures (CNN, RNN, LSTM).",
+      "Remember: optimization is about HOW parameters are updated; evaluation is about HOW WELL the model performs."
+    ],
+    "performanceMessages": {
+      "excellent": {
+        "threshold": 90,
+        "message": "Outstanding!",
+        "subMessage": "You have an excellent understanding of AI/ML concept categories."
+      },
+      "good": {
+        "threshold": 70,
+        "message": "Great Job!",
+        "subMessage": "You classified most AI concepts correctly. Review the explanations for the ones you missed."
+      },
+      "fair": {
+        "threshold": 50,
+        "message": "Good Progress!",
+        "subMessage": "Keep studying the relationships between AI/ML topics to improve."
+      },
+      "needsWork": {
+        "threshold": 0,
+        "message": "Keep Learning!",
+        "subMessage": "Review the course taxonomy and try again. Practice makes perfect."
+      }
+    }
+  }
+}

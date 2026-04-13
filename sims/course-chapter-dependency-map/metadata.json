@@ -1,0 +1,19 @@
+{
+  "title": "Course Chapter Dependency Map",
+  "description": "vis-network directed acyclic graph of 16 course chapters with click-to-highlight prerequisite and dependent chains.",
+  "subject": "Artificial Intelligence",
+  "topic": "Course Structure and Prerequisites",
+  "bloom_level": "Understand",
+  "bloom_verb": "summarize",
+  "library": "vis-network",
+  "sim_id": "course-chapter-dependency-map",
+  "chapter": "01-intro-to-ai",
+  "iframe_height": 542,
+  "controls": [
+    {"type": "click", "description": "Click chapter nodes to highlight prerequisites and dependents"},
+    {"type": "scroll/drag", "description": "Zoom and pan the network graph"}
+  ],
+  "author": "AI Systems Course",
+  "date": "2026-04-13",
+  "language": "en"
+}

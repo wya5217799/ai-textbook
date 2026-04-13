@@ -1,0 +1,19 @@
+{
+  "title": "AI Concept Hierarchy",
+  "description": "Interactive nested-ellipse diagram (Venn-like) showing AI ⊃ ML ⊃ Deep Learning, with ML paradigm branches and peripheral AI subfields.",
+  "subject": "Artificial Intelligence",
+  "topic": "AI Taxonomy and Hierarchy",
+  "bloom_level": "Understand",
+  "bloom_verb": "classify",
+  "library": "p5.js",
+  "sim_id": "ai-concept-hierarchy",
+  "chapter": "01-intro-to-ai",
+  "iframe_height": 492,
+  "controls": [
+    {"type": "hover", "description": "Hover ellipse regions or branch nodes to see tooltip definitions"},
+    {"type": "click", "description": "Click to lock/unlock highlight and keep tooltip visible"}
+  ],
+  "author": "AI Systems Course",
+  "date": "2026-04-13",
+  "language": "en"
+}

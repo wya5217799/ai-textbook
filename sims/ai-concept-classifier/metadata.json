@@ -1,0 +1,30 @@
+{
+  "dc.title": "AI Concept Classifier Quiz",
+  "dc.description": "An interactive classification quiz where students identify which taxonomy category AI and Machine Learning concepts belong to, covering the full H63AIS curriculum from data preprocessing to deep learning architectures.",
+  "dc.subject": "Artificial Intelligence, Machine Learning, Classification Quiz, Concept Taxonomy",
+  "dc.creator": "H63AIS Course Team",
+  "dc.date": "2026-04-13",
+  "dc.type": "InteractiveResource",
+  "dc.format": "text/html",
+  "dc.language": "en",
+  "dc.rights": "Creative Commons Attribution 4.0",
+  "dc.source": "H63AIS Artificial Intelligence System Course, University of Nottingham Ningbo China",
+  "dc.relation": "concept-classifier-microsim-v1",
+  "microsim.type": "concept-classifier",
+  "microsim.framework": "p5.js 1.11.10",
+  "microsim.bloomsLevel": "Application (Level 3)",
+  "microsim.questionCount": 30,
+  "microsim.questionsPerSession": 10,
+  "microsim.categories": [
+    "Neural Networks",
+    "Deep Learning Architectures",
+    "Optimization",
+    "Model Evaluation",
+    "Classification",
+    "Clustering",
+    "Data Preprocessing",
+    "Data Acquisition",
+    "Linear Regression",
+    "Linear Algebra and Math"
+  ]
+}

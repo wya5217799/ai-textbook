@@ -1,0 +1,20 @@
+{
+  "title": "Learning Paradigms Comparison",
+  "description": "Step-through p5.js MicroSim comparing Supervised, Unsupervised, and Reinforcement Learning with embedded quiz questions at each stage.",
+  "subject": "Machine Learning",
+  "topic": "Learning Paradigms",
+  "bloom_level": "Understand",
+  "bloom_verb": "compare",
+  "library": "p5.js",
+  "sim_id": "learning-paradigms-comparison",
+  "chapter": "01-intro-to-ai",
+  "iframe_height": 502,
+  "controls": [
+    {"type": "button", "label": "Previous", "description": "Go to previous paradigm"},
+    {"type": "button", "label": "Next", "description": "Go to next paradigm"},
+    {"type": "click", "description": "Click quiz answer options to check understanding"}
+  ],
+  "author": "AI Systems Course",
+  "date": "2026-04-13",
+  "language": "en"
+}

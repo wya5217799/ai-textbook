@@ -1,0 +1,19 @@
+{
+  "title": "Scikit-learn vs PyTorch Decision Guide",
+  "description": "Click-through decision tree routing students to Scikit-learn or PyTorch based on neural network need, GPU, autograd, and dataset size criteria.",
+  "subject": "Python for AI",
+  "topic": "ML Framework Selection",
+  "bloom_level": "Analyze",
+  "bloom_verb": "differentiate",
+  "library": "p5.js",
+  "sim_id": "sklearn-vs-pytorch-guide",
+  "chapter": "02-python-tools",
+  "iframe_height": 492,
+  "controls": [
+    {"type": "button", "label": "Yes / No", "description": "Click canvas Yes/No buttons to follow decision tree"},
+    {"type": "button", "label": "Start Over", "description": "Reset to root of decision tree"}
+  ],
+  "author": "AI Systems Course",
+  "date": "2026-04-13",
+  "language": "en"
+}

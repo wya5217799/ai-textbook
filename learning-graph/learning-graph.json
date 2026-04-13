@@ -1,0 +1,2753 @@
+{
+  "metadata": {
+    "title": "H63AIS - Artificial Intelligence System",
+    "description": "A comprehensive learning graph for the H63AIS Artificial Intelligence System course at the University of Nottingham Ningbo China, covering data preprocessing, machine learning fundamentals, supervised and unsupervised learning, neural networks, and deep learning architectures.",
+    "creator": "Dr. Qianyu Liu, University of Nottingham Ningbo China",
+    "date": "2026-04-13",
+    "version": "1.0",
+    "format": "Learning Graph JSON v1.0",
+    "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+    "license": "CC BY-NC-SA 4.0 DEED"
+  },
+  "groups": {
+    "CLSF": {
+      "classifierName": "Classification",
+      "color": "MistyRose",
+      "font": {
+        "color": "black"
+      }
+    },
+    "EVAL": {
+      "classifierName": "Model Evaluation",
+      "color": "PeachPuff",
+      "font": {
+        "color": "black"
+      }
+    },
+    "DEEP": {
+      "classifierName": "Deep Learning Architectures",
+      "color": "LightYellow",
+      "font": {
+        "color": "black"
+      }
+    },
+    "DPRE": {
+      "classifierName": "Data Preprocessing",
+      "color": "Honeydew",
+      "font": {
+        "color": "black"
+      }
+    },
+    "OPTM": {
+      "classifierName": "Optimization",
+      "color": "PaleTurquoise",
+      "font": {
+        "color": "black"
+      }
+    },
+    "FOUND": {
+      "classifierName": "Foundation Concepts",
+      "color": "SteelBlue",
+      "font": {
+        "color": "black"
+      }
+    },
+    "DACQ": {
+      "classifierName": "Data Acquisition",
+      "color": "Lavender",
+      "font": {
+        "color": "black"
+      }
+    },
+    "CLST": {
+      "classifierName": "Clustering",
+      "color": "LavenderBlush",
+      "font": {
+        "color": "black"
+      }
+    },
+    "MATH": {
+      "classifierName": "Linear Algebra and Math",
+      "color": "Thistle",
+      "font": {
+        "color": "black"
+      }
+    },
+    "NEUR": {
+      "classifierName": "Neural Networks",
+      "color": "MintCream",
+      "font": {
+        "color": "black"
+      }
+    },
+    "LREG": {
+      "classifierName": "Linear Regression",
+      "color": "LightCoral",
+      "font": {
+        "color": "black"
+      }
+    },
+    "TOOL": {
+      "classifierName": "Programming Tools",
+      "color": "Plum",
+      "font": {
+        "color": "black"
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "label": "Artificial Intelligence",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 2,
+      "label": "Machine Learning",
+      "group": "FOUND"
+    },
+    {
+      "id": 3,
+      "label": "Deep Learning",
+      "group": "FOUND"
+    },
+    {
+      "id": 4,
+      "label": "Supervised Learning",
+      "group": "FOUND"
+    },
+    {
+      "id": 5,
+      "label": "Unsupervised Learning",
+      "group": "FOUND"
+    },
+    {
+      "id": 6,
+      "label": "Reinforcement Learning",
+      "group": "FOUND"
+    },
+    {
+      "id": 7,
+      "label": "Turing Test",
+      "group": "FOUND"
+    },
+    {
+      "id": 8,
+      "label": "Dartmouth Conference",
+      "group": "FOUND"
+    },
+    {
+      "id": 9,
+      "label": "AI History",
+      "group": "FOUND"
+    },
+    {
+      "id": 10,
+      "label": "Expert Systems",
+      "group": "FOUND"
+    },
+    {
+      "id": 11,
+      "label": "Computer Vision",
+      "group": "FOUND"
+    },
+    {
+      "id": 12,
+      "label": "Natural Language Processing",
+      "group": "FOUND"
+    },
+    {
+      "id": 13,
+      "label": "Business Intelligence",
+      "group": "FOUND"
+    },
+    {
+      "id": 14,
+      "label": "Python Programming",
+      "group": "TOOL",
+      "shape": "box"
+    },
+    {
+      "id": 15,
+      "label": "Jupyter Notebook",
+      "group": "TOOL"
+    },
+    {
+      "id": 16,
+      "label": "NumPy",
+      "group": "TOOL"
+    },
+    {
+      "id": 17,
+      "label": "Pandas",
+      "group": "TOOL"
+    },
+    {
+      "id": 18,
+      "label": "Matplotlib",
+      "group": "TOOL"
+    },
+    {
+      "id": 19,
+      "label": "PyTorch",
+      "group": "TOOL"
+    },
+    {
+      "id": 20,
+      "label": "Scikit-learn",
+      "group": "TOOL"
+    },
+    {
+      "id": 21,
+      "label": "Data Acquisition",
+      "group": "DACQ"
+    },
+    {
+      "id": 22,
+      "label": "Data Annotation",
+      "group": "DACQ"
+    },
+    {
+      "id": 23,
+      "label": "Data Exploration",
+      "group": "DACQ"
+    },
+    {
+      "id": 24,
+      "label": "Data Cleaning",
+      "group": "DPRE"
+    },
+    {
+      "id": 25,
+      "label": "Feature Engineering",
+      "group": "DPRE"
+    },
+    {
+      "id": 26,
+      "label": "Dataset",
+      "group": "DACQ"
+    },
+    {
+      "id": 27,
+      "label": "Benchmark Dataset",
+      "group": "DACQ"
+    },
+    {
+      "id": 28,
+      "label": "MNIST Dataset",
+      "group": "DACQ"
+    },
+    {
+      "id": 29,
+      "label": "ImageNet Dataset",
+      "group": "DACQ"
+    },
+    {
+      "id": 30,
+      "label": "Synthetic Data",
+      "group": "DACQ"
+    },
+    {
+      "id": 31,
+      "label": "Data Augmentation",
+      "group": "DACQ"
+    },
+    {
+      "id": 32,
+      "label": "Data Integration",
+      "group": "DACQ"
+    },
+    {
+      "id": 33,
+      "label": "Exploratory Data Analysis",
+      "group": "DPRE"
+    },
+    {
+      "id": 34,
+      "label": "Data Errors",
+      "group": "DPRE"
+    },
+    {
+      "id": 35,
+      "label": "Outlier Detection",
+      "group": "DPRE"
+    },
+    {
+      "id": 36,
+      "label": "Rule-based Detection",
+      "group": "DPRE"
+    },
+    {
+      "id": 37,
+      "label": "Pattern-based Detection",
+      "group": "DPRE"
+    },
+    {
+      "id": 38,
+      "label": "Missing Values",
+      "group": "DPRE"
+    },
+    {
+      "id": 39,
+      "label": "Data Preprocessing",
+      "group": "DPRE"
+    },
+    {
+      "id": 40,
+      "label": "Feature Selection",
+      "group": "DPRE"
+    },
+    {
+      "id": 41,
+      "label": "Data Normalization",
+      "group": "DPRE"
+    },
+    {
+      "id": 42,
+      "label": "Data Splitting",
+      "group": "DPRE"
+    },
+    {
+      "id": 43,
+      "label": "Training Set",
+      "group": "DPRE"
+    },
+    {
+      "id": 44,
+      "label": "Validation Set",
+      "group": "DPRE"
+    },
+    {
+      "id": 45,
+      "label": "Test Set",
+      "group": "DPRE"
+    },
+    {
+      "id": 46,
+      "label": "Label",
+      "group": "DPRE"
+    },
+    {
+      "id": 47,
+      "label": "Feature",
+      "group": "DPRE"
+    },
+    {
+      "id": 48,
+      "label": "Feature Vector",
+      "group": "DPRE"
+    },
+    {
+      "id": 49,
+      "label": "Dimensionality",
+      "group": "DPRE"
+    },
+    {
+      "id": 50,
+      "label": "Tabular Data",
+      "group": "DACQ"
+    },
+    {
+      "id": 51,
+      "label": "Image Data",
+      "group": "DACQ"
+    },
+    {
+      "id": 52,
+      "label": "Linear Regression",
+      "group": "LREG"
+    },
+    {
+      "id": 53,
+      "label": "Regression",
+      "group": "LREG"
+    },
+    {
+      "id": 54,
+      "label": "Dependent Variable",
+      "group": "LREG"
+    },
+    {
+      "id": 55,
+      "label": "Independent Variable",
+      "group": "LREG"
+    },
+    {
+      "id": 56,
+      "label": "Slope",
+      "group": "LREG"
+    },
+    {
+      "id": 57,
+      "label": "Intercept",
+      "group": "LREG"
+    },
+    {
+      "id": 58,
+      "label": "Linear Model",
+      "group": "LREG"
+    },
+    {
+      "id": 59,
+      "label": "Objective Function",
+      "group": "OPTM"
+    },
+    {
+      "id": 60,
+      "label": "Loss Function",
+      "group": "OPTM"
+    },
+    {
+      "id": 61,
+      "label": "Squared Loss",
+      "group": "LREG"
+    },
+    {
+      "id": 62,
+      "label": "Mean Squared Error",
+      "group": "EVAL"
+    },
+    {
+      "id": 63,
+      "label": "Root Mean Squared Error",
+      "group": "EVAL"
+    },
+    {
+      "id": 64,
+      "label": "Mean Absolute Error",
+      "group": "EVAL"
+    },
+    {
+      "id": 65,
+      "label": "R-Squared",
+      "group": "EVAL"
+    },
+    {
+      "id": 66,
+      "label": "Sum of Squares Error",
+      "group": "EVAL"
+    },
+    {
+      "id": 67,
+      "label": "Sum of Squares Regression",
+      "group": "EVAL"
+    },
+    {
+      "id": 68,
+      "label": "Sum of Squares Total",
+      "group": "EVAL"
+    },
+    {
+      "id": 69,
+      "label": "Residual",
+      "group": "LREG"
+    },
+    {
+      "id": 70,
+      "label": "Normal Equation",
+      "group": "LREG"
+    },
+    {
+      "id": 71,
+      "label": "Matrix Representation",
+      "group": "MATH"
+    },
+    {
+      "id": 72,
+      "label": "Matrix Multiplication",
+      "group": "MATH"
+    },
+    {
+      "id": 73,
+      "label": "Matrix Transpose",
+      "group": "MATH"
+    },
+    {
+      "id": 74,
+      "label": "Matrix Inverse",
+      "group": "MATH"
+    },
+    {
+      "id": 75,
+      "label": "Predicted Value",
+      "group": "LREG"
+    },
+    {
+      "id": 76,
+      "label": "Bias Term",
+      "group": "LREG"
+    },
+    {
+      "id": 77,
+      "label": "Parameter Vector",
+      "group": "LREG"
+    },
+    {
+      "id": 78,
+      "label": "Gradient",
+      "group": "OPTM"
+    },
+    {
+      "id": 79,
+      "label": "Gradient Descent",
+      "group": "OPTM"
+    },
+    {
+      "id": 80,
+      "label": "Learning Rate",
+      "group": "OPTM"
+    },
+    {
+      "id": 81,
+      "label": "Batch Gradient Descent",
+      "group": "OPTM"
+    },
+    {
+      "id": 82,
+      "label": "Stochastic Gradient Descent",
+      "group": "OPTM"
+    },
+    {
+      "id": 83,
+      "label": "Mini-batch Gradient Descent",
+      "group": "OPTM"
+    },
+    {
+      "id": 84,
+      "label": "Convergence",
+      "group": "OPTM"
+    },
+    {
+      "id": 85,
+      "label": "Divergence",
+      "group": "OPTM"
+    },
+    {
+      "id": 86,
+      "label": "Parameter Update Rule",
+      "group": "OPTM"
+    },
+    {
+      "id": 87,
+      "label": "Optimization",
+      "group": "OPTM"
+    },
+    {
+      "id": 88,
+      "label": "Cost Function",
+      "group": "OPTM"
+    },
+    {
+      "id": 89,
+      "label": "Maximum Likelihood",
+      "group": "MATH"
+    },
+    {
+      "id": 90,
+      "label": "Gaussian Distribution",
+      "group": "MATH"
+    },
+    {
+      "id": 91,
+      "label": "Probability Distribution",
+      "group": "MATH",
+      "shape": "box"
+    },
+    {
+      "id": 92,
+      "label": "Log-likelihood",
+      "group": "MATH"
+    },
+    {
+      "id": 93,
+      "label": "Overfitting",
+      "group": "EVAL"
+    },
+    {
+      "id": 94,
+      "label": "Underfitting",
+      "group": "EVAL"
+    },
+    {
+      "id": 95,
+      "label": "Regularization",
+      "group": "OPTM"
+    },
+    {
+      "id": 96,
+      "label": "L1 Regularization",
+      "group": "OPTM"
+    },
+    {
+      "id": 97,
+      "label": "L2 Regularization",
+      "group": "OPTM"
+    },
+    {
+      "id": 98,
+      "label": "Early Stopping",
+      "group": "OPTM"
+    },
+    {
+      "id": 99,
+      "label": "Cross-validation",
+      "group": "EVAL"
+    },
+    {
+      "id": 100,
+      "label": "Model Complexity",
+      "group": "EVAL"
+    },
+    {
+      "id": 101,
+      "label": "Generalization",
+      "group": "EVAL"
+    },
+    {
+      "id": 102,
+      "label": "Training Error",
+      "group": "EVAL"
+    },
+    {
+      "id": 103,
+      "label": "Validation Error",
+      "group": "EVAL"
+    },
+    {
+      "id": 104,
+      "label": "Bias-Variance Tradeoff",
+      "group": "EVAL"
+    },
+    {
+      "id": 105,
+      "label": "Logistic Regression",
+      "group": "CLSF"
+    },
+    {
+      "id": 106,
+      "label": "Binary Classification",
+      "group": "CLSF"
+    },
+    {
+      "id": 107,
+      "label": "Sigmoid Function",
+      "group": "CLSF"
+    },
+    {
+      "id": 108,
+      "label": "Decision Boundary",
+      "group": "CLSF"
+    },
+    {
+      "id": 109,
+      "label": "Cross Entropy Loss",
+      "group": "CLSF"
+    },
+    {
+      "id": 110,
+      "label": "Bernoulli Distribution",
+      "group": "MATH"
+    },
+    {
+      "id": 111,
+      "label": "Softmax Function",
+      "group": "CLSF"
+    },
+    {
+      "id": 112,
+      "label": "Multiple Classification",
+      "group": "CLSF"
+    },
+    {
+      "id": 113,
+      "label": "One-hot Encoding",
+      "group": "CLSF"
+    },
+    {
+      "id": 114,
+      "label": "Classification Threshold",
+      "group": "EVAL"
+    },
+    {
+      "id": 115,
+      "label": "Confusion Matrix",
+      "group": "EVAL"
+    },
+    {
+      "id": 116,
+      "label": "True Positive",
+      "group": "EVAL"
+    },
+    {
+      "id": 117,
+      "label": "True Negative",
+      "group": "EVAL"
+    },
+    {
+      "id": 118,
+      "label": "False Positive",
+      "group": "EVAL"
+    },
+    {
+      "id": 119,
+      "label": "False Negative",
+      "group": "EVAL"
+    },
+    {
+      "id": 120,
+      "label": "Accuracy",
+      "group": "EVAL"
+    },
+    {
+      "id": 121,
+      "label": "Precision",
+      "group": "EVAL"
+    },
+    {
+      "id": 122,
+      "label": "Recall",
+      "group": "EVAL"
+    },
+    {
+      "id": 123,
+      "label": "F1 Score",
+      "group": "EVAL"
+    },
+    {
+      "id": 124,
+      "label": "ROC Curve",
+      "group": "EVAL"
+    },
+    {
+      "id": 125,
+      "label": "AUC",
+      "group": "EVAL"
+    },
+    {
+      "id": 126,
+      "label": "Evaluation Metric",
+      "group": "EVAL"
+    },
+    {
+      "id": 127,
+      "label": "K-Nearest Neighbor",
+      "group": "CLSF"
+    },
+    {
+      "id": 128,
+      "label": "Distance Metric",
+      "group": "CLSF"
+    },
+    {
+      "id": 129,
+      "label": "Euclidean Distance",
+      "group": "CLSF"
+    },
+    {
+      "id": 130,
+      "label": "L1 Distance",
+      "group": "CLSF"
+    },
+    {
+      "id": 131,
+      "label": "Majority Voting",
+      "group": "CLSF"
+    },
+    {
+      "id": 132,
+      "label": "Nonparametric Method",
+      "group": "CLSF"
+    },
+    {
+      "id": 133,
+      "label": "Similarity Function",
+      "group": "CLSF"
+    },
+    {
+      "id": 134,
+      "label": "Weighted KNN",
+      "group": "CLSF"
+    },
+    {
+      "id": 135,
+      "label": "K Value Selection",
+      "group": "CLSF"
+    },
+    {
+      "id": 136,
+      "label": "K-Means Clustering",
+      "group": "CLST"
+    },
+    {
+      "id": 137,
+      "label": "Centroid",
+      "group": "CLST"
+    },
+    {
+      "id": 138,
+      "label": "Cluster",
+      "group": "CLST"
+    },
+    {
+      "id": 139,
+      "label": "Clustering Objective",
+      "group": "CLST"
+    },
+    {
+      "id": 140,
+      "label": "Euclidean Distance Metric",
+      "group": "CLST"
+    },
+    {
+      "id": 141,
+      "label": "Cosine Similarity",
+      "group": "CLST"
+    },
+    {
+      "id": 142,
+      "label": "K-Means Workflow",
+      "group": "CLST"
+    },
+    {
+      "id": 143,
+      "label": "DBSCAN",
+      "group": "CLST"
+    },
+    {
+      "id": 144,
+      "label": "Core Object",
+      "group": "CLST"
+    },
+    {
+      "id": 145,
+      "label": "Epsilon Neighborhood",
+      "group": "CLST"
+    },
+    {
+      "id": 146,
+      "label": "Density Reachable",
+      "group": "CLST"
+    },
+    {
+      "id": 147,
+      "label": "Density Connected",
+      "group": "CLST"
+    },
+    {
+      "id": 148,
+      "label": "Boundary Point",
+      "group": "CLST"
+    },
+    {
+      "id": 149,
+      "label": "Noise Point",
+      "group": "CLST"
+    },
+    {
+      "id": 150,
+      "label": "DBSCAN Parameters",
+      "group": "CLST"
+    },
+    {
+      "id": 151,
+      "label": "Perceptron",
+      "group": "NEUR"
+    },
+    {
+      "id": 152,
+      "label": "Neuron",
+      "group": "NEUR"
+    },
+    {
+      "id": 153,
+      "label": "Artificial Neural Network",
+      "group": "NEUR"
+    },
+    {
+      "id": 154,
+      "label": "Weight",
+      "group": "NEUR",
+      "shape": "box"
+    },
+    {
+      "id": 155,
+      "label": "Bias",
+      "group": "NEUR",
+      "shape": "box"
+    },
+    {
+      "id": 156,
+      "label": "Activation Function",
+      "group": "NEUR"
+    },
+    {
+      "id": 157,
+      "label": "Sigmoid Activation",
+      "group": "NEUR"
+    },
+    {
+      "id": 158,
+      "label": "Tanh Activation",
+      "group": "NEUR"
+    },
+    {
+      "id": 159,
+      "label": "ReLU Activation",
+      "group": "NEUR"
+    },
+    {
+      "id": 160,
+      "label": "Input Layer",
+      "group": "NEUR"
+    },
+    {
+      "id": 161,
+      "label": "Hidden Layer",
+      "group": "NEUR"
+    },
+    {
+      "id": 162,
+      "label": "Output Layer",
+      "group": "NEUR"
+    },
+    {
+      "id": 163,
+      "label": "Fully Connected Network",
+      "group": "NEUR"
+    },
+    {
+      "id": 164,
+      "label": "Forward Pass",
+      "group": "NEUR"
+    },
+    {
+      "id": 165,
+      "label": "Backpropagation",
+      "group": "NEUR"
+    },
+    {
+      "id": 166,
+      "label": "Chain Rule",
+      "group": "NEUR",
+      "shape": "box"
+    },
+    {
+      "id": 167,
+      "label": "Error Signal",
+      "group": "NEUR"
+    },
+    {
+      "id": 168,
+      "label": "Weight Update",
+      "group": "NEUR"
+    },
+    {
+      "id": 169,
+      "label": "Bias Update",
+      "group": "NEUR"
+    },
+    {
+      "id": 170,
+      "label": "Output Layer Error",
+      "group": "NEUR"
+    },
+    {
+      "id": 171,
+      "label": "Hidden Layer Error",
+      "group": "NEUR"
+    },
+    {
+      "id": 172,
+      "label": "Learning Rate Selection",
+      "group": "OPTM"
+    },
+    {
+      "id": 173,
+      "label": "Epoch",
+      "group": "NEUR"
+    },
+    {
+      "id": 174,
+      "label": "Training Loop",
+      "group": "NEUR"
+    },
+    {
+      "id": 175,
+      "label": "Loss Landscape",
+      "group": "OPTM"
+    },
+    {
+      "id": 176,
+      "label": "Convolutional Neural Network",
+      "group": "DEEP"
+    },
+    {
+      "id": 177,
+      "label": "Convolution Operation",
+      "group": "DEEP"
+    },
+    {
+      "id": 178,
+      "label": "Filter",
+      "group": "DEEP"
+    },
+    {
+      "id": 179,
+      "label": "Kernel Size",
+      "group": "DEEP"
+    },
+    {
+      "id": 180,
+      "label": "Stride",
+      "group": "DEEP"
+    },
+    {
+      "id": 181,
+      "label": "Padding",
+      "group": "DEEP"
+    },
+    {
+      "id": 182,
+      "label": "Feature Map",
+      "group": "DEEP"
+    },
+    {
+      "id": 183,
+      "label": "Max Pooling",
+      "group": "DEEP"
+    },
+    {
+      "id": 184,
+      "label": "Pooling Layer",
+      "group": "DEEP"
+    },
+    {
+      "id": 185,
+      "label": "Flatten Layer",
+      "group": "DEEP"
+    },
+    {
+      "id": 186,
+      "label": "CNN Architecture",
+      "group": "DEEP"
+    },
+    {
+      "id": 187,
+      "label": "LeNet-5",
+      "group": "DEEP"
+    },
+    {
+      "id": 188,
+      "label": "Image Classification",
+      "group": "DEEP"
+    },
+    {
+      "id": 189,
+      "label": "Object Detection",
+      "group": "DEEP"
+    },
+    {
+      "id": 190,
+      "label": "Image Segmentation",
+      "group": "DEEP"
+    },
+    {
+      "id": 191,
+      "label": "Recurrent Neural Network",
+      "group": "DEEP"
+    },
+    {
+      "id": 192,
+      "label": "Sequence Data",
+      "group": "DEEP"
+    },
+    {
+      "id": 193,
+      "label": "Hidden State",
+      "group": "DEEP"
+    },
+    {
+      "id": 194,
+      "label": "Long Short-Term Memory",
+      "group": "DEEP"
+    },
+    {
+      "id": 195,
+      "label": "Dropout",
+      "group": "NEUR"
+    },
+    {
+      "id": 196,
+      "label": "Model Deployment",
+      "group": "DEEP"
+    },
+    {
+      "id": 197,
+      "label": "ML Workflow",
+      "group": "DEEP"
+    },
+    {
+      "id": 198,
+      "label": "Hyperparameter Tuning",
+      "group": "EVAL"
+    },
+    {
+      "id": 199,
+      "label": "Principal Component Analysis",
+      "group": "DEEP"
+    },
+    {
+      "id": 200,
+      "label": "Dimensionality Reduction",
+      "group": "DEEP"
+    }
+  ],
+  "edges": [
+    {
+      "from": 2,
+      "to": 1,
+      "type": "is_part_of"
+    },
+    {
+      "from": 3,
+      "to": 2,
+      "type": "is_part_of"
+    },
+    {
+      "from": 4,
+      "to": 2,
+      "type": "is_part_of"
+    },
+    {
+      "from": 5,
+      "to": 2,
+      "type": "is_part_of"
+    },
+    {
+      "from": 6,
+      "to": 2,
+      "type": "is_part_of"
+    },
+    {
+      "from": 7,
+      "to": 1,
+      "type": "prerequisite"
+    },
+    {
+      "from": 8,
+      "to": 1,
+      "type": "prerequisite"
+    },
+    {
+      "from": 9,
+      "to": 7,
+      "type": "prerequisite"
+    },
+    {
+      "from": 9,
+      "to": 8,
+      "type": "prerequisite"
+    },
+    {
+      "from": 10,
+      "to": 9,
+      "type": "prerequisite"
+    },
+    {
+      "from": 11,
+      "to": 1,
+      "type": "prerequisite"
+    },
+    {
+      "from": 12,
+      "to": 1,
+      "type": "prerequisite"
+    },
+    {
+      "from": 13,
+      "to": 1,
+      "type": "prerequisite"
+    },
+    {
+      "from": 15,
+      "to": 14,
+      "type": "prerequisite"
+    },
+    {
+      "from": 16,
+      "to": 14,
+      "type": "prerequisite"
+    },
+    {
+      "from": 17,
+      "to": 14,
+      "type": "prerequisite"
+    },
+    {
+      "from": 18,
+      "to": 14,
+      "type": "prerequisite"
+    },
+    {
+      "from": 19,
+      "to": 14,
+      "type": "prerequisite"
+    },
+    {
+      "from": 19,
+      "to": 16,
+      "type": "prerequisite"
+    },
+    {
+      "from": 20,
+      "to": 14,
+      "type": "prerequisite"
+    },
+    {
+      "from": 20,
+      "to": 16,
+      "type": "prerequisite"
+    },
+    {
+      "from": 21,
+      "to": 2,
+      "type": "prerequisite"
+    },
+    {
+      "from": 22,
+      "to": 21,
+      "type": "prerequisite"
+    },
+    {
+      "from": 23,
+      "to": 21,
+      "type": "prerequisite"
+    },
+    {
+      "from": 24,
+      "to": 21,
+      "type": "prerequisite"
+    },
+    {
+      "from": 25,
+      "to": 23,
+      "type": "prerequisite"
+    },
+    {
+      "from": 25,
+      "to": 24,
+      "type": "prerequisite"
+    },
+    {
+      "from": 26,
+      "to": 21,
+      "type": "prerequisite"
+    },
+    {
+      "from": 27,
+      "to": 26,
+      "type": "prerequisite"
+    },
+    {
+      "from": 28,
+      "to": 27,
+      "type": "prerequisite"
+    },
+    {
+      "from": 29,
+      "to": 27,
+      "type": "prerequisite"
+    },
+    {
+      "from": 30,
+      "to": 26,
+      "type": "prerequisite"
+    },
+    {
+      "from": 31,
+      "to": 26,
+      "type": "prerequisite"
+    },
+    {
+      "from": 31,
+      "to": 30,
+      "type": "prerequisite"
+    },
+    {
+      "from": 32,
+      "to": 21,
+      "type": "prerequisite"
+    },
+    {
+      "from": 33,
+      "to": 23,
+      "type": "prerequisite"
+    },
+    {
+      "from": 33,
+      "to": 17,
+      "type": "prerequisite"
+    },
+    {
+      "from": 33,
+      "to": 18,
+      "type": "prerequisite"
+    },
+    {
+      "from": 34,
+      "to": 24,
+      "type": "prerequisite"
+    },
+    {
+      "from": 35,
+      "to": 34,
+      "type": "prerequisite"
+    },
+    {
+      "from": 36,
+      "to": 34,
+      "type": "prerequisite"
+    },
+    {
+      "from": 37,
+      "to": 34,
+      "type": "prerequisite"
+    },
+    {
+      "from": 38,
+      "to": 34,
+      "type": "prerequisite"
+    },
+    {
+      "from": 39,
+      "to": 24,
+      "type": "prerequisite"
+    },
+    {
+      "from": 39,
+      "to": 25,
+      "type": "prerequisite"
+    },
+    {
+      "from": 40,
+      "to": 25,
+      "type": "prerequisite"
+    },
+    {
+      "from": 40,
+      "to": 47,
+      "type": "prerequisite"
+    },
+    {
+      "from": 41,
+      "to": 39,
+      "type": "prerequisite"
+    },
+    {
+      "from": 42,
+      "to": 26,
+      "type": "prerequisite"
+    },
+    {
+      "from": 43,
+      "to": 42,
+      "type": "prerequisite"
+    },
+    {
+      "from": 44,
+      "to": 42,
+      "type": "prerequisite"
+    },
+    {
+      "from": 45,
+      "to": 42,
+      "type": "prerequisite"
+    },
+    {
+      "from": 46,
+      "to": 4,
+      "type": "prerequisite"
+    },
+    {
+      "from": 47,
+      "to": 21,
+      "type": "prerequisite"
+    },
+    {
+      "from": 48,
+      "to": 47,
+      "type": "prerequisite"
+    },
+    {
+      "from": 48,
+      "to": 16,
+      "type": "prerequisite"
+    },
+    {
+      "from": 49,
+      "to": 48,
+      "type": "prerequisite"
+    },
+    {
+      "from": 50,
+      "to": 26,
+      "type": "prerequisite"
+    },
+    {
+      "from": 51,
+      "to": 26,
+      "type": "prerequisite"
+    },
+    {
+      "from": 52,
+      "to": 58,
+      "type": "prerequisite"
+    },
+    {
+      "from": 52,
+      "to": 60,
+      "type": "prerequisite"
+    },
+    {
+      "from": 53,
+      "to": 4,
+      "type": "prerequisite"
+    },
+    {
+      "from": 54,
+      "to": 53,
+      "type": "prerequisite"
+    },
+    {
+      "from": 55,
+      "to": 53,
+      "type": "prerequisite"
+    },
+    {
+      "from": 56,
+      "to": 52,
+      "type": "prerequisite"
+    },
+    {
+      "from": 57,
+      "to": 52,
+      "type": "prerequisite"
+    },
+    {
+      "from": 58,
+      "to": 53,
+      "type": "prerequisite"
+    },
+    {
+      "from": 58,
+      "to": 54,
+      "type": "prerequisite"
+    },
+    {
+      "from": 58,
+      "to": 55,
+      "type": "prerequisite"
+    },
+    {
+      "from": 59,
+      "to": 60,
+      "type": "prerequisite"
+    },
+    {
+      "from": 60,
+      "to": 2,
+      "type": "prerequisite"
+    },
+    {
+      "from": 61,
+      "to": 60,
+      "type": "prerequisite"
+    },
+    {
+      "from": 62,
+      "to": 61,
+      "type": "prerequisite"
+    },
+    {
+      "from": 63,
+      "to": 62,
+      "type": "prerequisite"
+    },
+    {
+      "from": 64,
+      "to": 60,
+      "type": "prerequisite"
+    },
+    {
+      "from": 65,
+      "to": 66,
+      "type": "prerequisite"
+    },
+    {
+      "from": 65,
+      "to": 67,
+      "type": "prerequisite"
+    },
+    {
+      "from": 65,
+      "to": 68,
+      "type": "prerequisite"
+    },
+    {
+      "from": 66,
+      "to": 61,
+      "type": "prerequisite"
+    },
+    {
+      "from": 67,
+      "to": 61,
+      "type": "prerequisite"
+    },
+    {
+      "from": 68,
+      "to": 61,
+      "type": "prerequisite"
+    },
+    {
+      "from": 69,
+      "to": 52,
+      "type": "prerequisite"
+    },
+    {
+      "from": 69,
+      "to": 61,
+      "type": "prerequisite"
+    },
+    {
+      "from": 70,
+      "to": 52,
+      "type": "prerequisite"
+    },
+    {
+      "from": 70,
+      "to": 74,
+      "type": "prerequisite"
+    },
+    {
+      "from": 71,
+      "to": 16,
+      "type": "prerequisite"
+    },
+    {
+      "from": 72,
+      "to": 71,
+      "type": "prerequisite"
+    },
+    {
+      "from": 73,
+      "to": 71,
+      "type": "prerequisite"
+    },
+    {
+      "from": 74,
+      "to": 71,
+      "type": "prerequisite"
+    },
+    {
+      "from": 75,
+      "to": 52,
+      "type": "prerequisite"
+    },
+    {
+      "from": 76,
+      "to": 52,
+      "type": "prerequisite"
+    },
+    {
+      "from": 77,
+      "to": 52,
+      "type": "prerequisite"
+    },
+    {
+      "from": 77,
+      "to": 71,
+      "type": "prerequisite"
+    },
+    {
+      "from": 78,
+      "to": 59,
+      "type": "prerequisite"
+    },
+    {
+      "from": 78,
+      "to": 79,
+      "type": "prerequisite"
+    },
+    {
+      "from": 79,
+      "to": 59,
+      "type": "prerequisite"
+    },
+    {
+      "from": 80,
+      "to": 79,
+      "type": "prerequisite"
+    },
+    {
+      "from": 81,
+      "to": 79,
+      "type": "prerequisite"
+    },
+    {
+      "from": 82,
+      "to": 79,
+      "type": "prerequisite"
+    },
+    {
+      "from": 83,
+      "to": 81,
+      "type": "prerequisite"
+    },
+    {
+      "from": 83,
+      "to": 82,
+      "type": "prerequisite"
+    },
+    {
+      "from": 84,
+      "to": 79,
+      "type": "prerequisite"
+    },
+    {
+      "from": 84,
+      "to": 80,
+      "type": "prerequisite"
+    },
+    {
+      "from": 85,
+      "to": 79,
+      "type": "prerequisite"
+    },
+    {
+      "from": 85,
+      "to": 80,
+      "type": "prerequisite"
+    },
+    {
+      "from": 86,
+      "to": 79,
+      "type": "prerequisite"
+    },
+    {
+      "from": 86,
+      "to": 78,
+      "type": "prerequisite"
+    },
+    {
+      "from": 87,
+      "to": 59,
+      "type": "prerequisite"
+    },
+    {
+      "from": 87,
+      "to": 79,
+      "type": "prerequisite"
+    },
+    {
+      "from": 88,
+      "to": 60,
+      "type": "prerequisite"
+    },
+    {
+      "from": 89,
+      "to": 90,
+      "type": "prerequisite"
+    },
+    {
+      "from": 89,
+      "to": 92,
+      "type": "prerequisite"
+    },
+    {
+      "from": 90,
+      "to": 91,
+      "type": "prerequisite"
+    },
+    {
+      "from": 92,
+      "to": 91,
+      "type": "prerequisite"
+    },
+    {
+      "from": 93,
+      "to": 43,
+      "type": "prerequisite"
+    },
+    {
+      "from": 93,
+      "to": 44,
+      "type": "prerequisite"
+    },
+    {
+      "from": 93,
+      "to": 101,
+      "type": "prerequisite"
+    },
+    {
+      "from": 94,
+      "to": 93,
+      "type": "prerequisite"
+    },
+    {
+      "from": 94,
+      "to": 100,
+      "type": "prerequisite"
+    },
+    {
+      "from": 95,
+      "to": 93,
+      "type": "prerequisite"
+    },
+    {
+      "from": 95,
+      "to": 60,
+      "type": "prerequisite"
+    },
+    {
+      "from": 96,
+      "to": 95,
+      "type": "prerequisite"
+    },
+    {
+      "from": 97,
+      "to": 95,
+      "type": "prerequisite"
+    },
+    {
+      "from": 98,
+      "to": 93,
+      "type": "prerequisite"
+    },
+    {
+      "from": 98,
+      "to": 44,
+      "type": "prerequisite"
+    },
+    {
+      "from": 99,
+      "to": 42,
+      "type": "prerequisite"
+    },
+    {
+      "from": 99,
+      "to": 93,
+      "type": "prerequisite"
+    },
+    {
+      "from": 100,
+      "to": 2,
+      "type": "prerequisite"
+    },
+    {
+      "from": 101,
+      "to": 43,
+      "type": "prerequisite"
+    },
+    {
+      "from": 101,
+      "to": 45,
+      "type": "prerequisite"
+    },
+    {
+      "from": 102,
+      "to": 43,
+      "type": "prerequisite"
+    },
+    {
+      "from": 102,
+      "to": 60,
+      "type": "prerequisite"
+    },
+    {
+      "from": 103,
+      "to": 44,
+      "type": "prerequisite"
+    },
+    {
+      "from": 103,
+      "to": 60,
+      "type": "prerequisite"
+    },
+    {
+      "from": 104,
+      "to": 93,
+      "type": "prerequisite"
+    },
+    {
+      "from": 104,
+      "to": 94,
+      "type": "prerequisite"
+    },
+    {
+      "from": 105,
+      "to": 52,
+      "type": "prerequisite"
+    },
+    {
+      "from": 105,
+      "to": 107,
+      "type": "prerequisite"
+    },
+    {
+      "from": 105,
+      "to": 106,
+      "type": "prerequisite"
+    },
+    {
+      "from": 106,
+      "to": 4,
+      "type": "prerequisite"
+    },
+    {
+      "from": 106,
+      "to": 46,
+      "type": "prerequisite"
+    },
+    {
+      "from": 107,
+      "to": 156,
+      "type": "prerequisite"
+    },
+    {
+      "from": 108,
+      "to": 105,
+      "type": "prerequisite"
+    },
+    {
+      "from": 109,
+      "to": 105,
+      "type": "prerequisite"
+    },
+    {
+      "from": 109,
+      "to": 60,
+      "type": "prerequisite"
+    },
+    {
+      "from": 110,
+      "to": 91,
+      "type": "prerequisite"
+    },
+    {
+      "from": 111,
+      "to": 112,
+      "type": "prerequisite"
+    },
+    {
+      "from": 111,
+      "to": 91,
+      "type": "prerequisite"
+    },
+    {
+      "from": 112,
+      "to": 106,
+      "type": "prerequisite"
+    },
+    {
+      "from": 113,
+      "to": 112,
+      "type": "prerequisite"
+    },
+    {
+      "from": 114,
+      "to": 106,
+      "type": "prerequisite"
+    },
+    {
+      "from": 114,
+      "to": 121,
+      "type": "prerequisite"
+    },
+    {
+      "from": 115,
+      "to": 106,
+      "type": "prerequisite"
+    },
+    {
+      "from": 115,
+      "to": 46,
+      "type": "prerequisite"
+    },
+    {
+      "from": 116,
+      "to": 115,
+      "type": "prerequisite"
+    },
+    {
+      "from": 117,
+      "to": 115,
+      "type": "prerequisite"
+    },
+    {
+      "from": 118,
+      "to": 115,
+      "type": "prerequisite"
+    },
+    {
+      "from": 119,
+      "to": 115,
+      "type": "prerequisite"
+    },
+    {
+      "from": 120,
+      "to": 116,
+      "type": "prerequisite"
+    },
+    {
+      "from": 120,
+      "to": 117,
+      "type": "prerequisite"
+    },
+    {
+      "from": 120,
+      "to": 118,
+      "type": "prerequisite"
+    },
+    {
+      "from": 120,
+      "to": 119,
+      "type": "prerequisite"
+    },
+    {
+      "from": 121,
+      "to": 116,
+      "type": "prerequisite"
+    },
+    {
+      "from": 121,
+      "to": 118,
+      "type": "prerequisite"
+    },
+    {
+      "from": 122,
+      "to": 116,
+      "type": "prerequisite"
+    },
+    {
+      "from": 122,
+      "to": 119,
+      "type": "prerequisite"
+    },
+    {
+      "from": 123,
+      "to": 121,
+      "type": "prerequisite"
+    },
+    {
+      "from": 123,
+      "to": 122,
+      "type": "prerequisite"
+    },
+    {
+      "from": 124,
+      "to": 115,
+      "type": "prerequisite"
+    },
+    {
+      "from": 124,
+      "to": 114,
+      "type": "prerequisite"
+    },
+    {
+      "from": 125,
+      "to": 124,
+      "type": "prerequisite"
+    },
+    {
+      "from": 126,
+      "to": 120,
+      "type": "prerequisite"
+    },
+    {
+      "from": 126,
+      "to": 123,
+      "type": "prerequisite"
+    },
+    {
+      "from": 126,
+      "to": 125,
+      "type": "prerequisite"
+    },
+    {
+      "from": 127,
+      "to": 4,
+      "type": "prerequisite"
+    },
+    {
+      "from": 127,
+      "to": 129,
+      "type": "prerequisite"
+    },
+    {
+      "from": 128,
+      "to": 48,
+      "type": "prerequisite"
+    },
+    {
+      "from": 129,
+      "to": 128,
+      "type": "prerequisite"
+    },
+    {
+      "from": 130,
+      "to": 128,
+      "type": "prerequisite"
+    },
+    {
+      "from": 131,
+      "to": 127,
+      "type": "prerequisite"
+    },
+    {
+      "from": 132,
+      "to": 127,
+      "type": "prerequisite"
+    },
+    {
+      "from": 133,
+      "to": 128,
+      "type": "prerequisite"
+    },
+    {
+      "from": 134,
+      "to": 127,
+      "type": "prerequisite"
+    },
+    {
+      "from": 134,
+      "to": 133,
+      "type": "prerequisite"
+    },
+    {
+      "from": 135,
+      "to": 127,
+      "type": "prerequisite"
+    },
+    {
+      "from": 136,
+      "to": 5,
+      "type": "prerequisite"
+    },
+    {
+      "from": 136,
+      "to": 137,
+      "type": "prerequisite"
+    },
+    {
+      "from": 136,
+      "to": 140,
+      "type": "prerequisite"
+    },
+    {
+      "from": 137,
+      "to": 48,
+      "type": "prerequisite"
+    },
+    {
+      "from": 138,
+      "to": 5,
+      "type": "prerequisite"
+    },
+    {
+      "from": 139,
+      "to": 136,
+      "type": "prerequisite"
+    },
+    {
+      "from": 139,
+      "to": 60,
+      "type": "prerequisite"
+    },
+    {
+      "from": 140,
+      "to": 129,
+      "type": "prerequisite"
+    },
+    {
+      "from": 141,
+      "to": 128,
+      "type": "prerequisite"
+    },
+    {
+      "from": 142,
+      "to": 136,
+      "type": "prerequisite"
+    },
+    {
+      "from": 143,
+      "to": 5,
+      "type": "prerequisite"
+    },
+    {
+      "from": 143,
+      "to": 138,
+      "type": "prerequisite"
+    },
+    {
+      "from": 144,
+      "to": 143,
+      "type": "prerequisite"
+    },
+    {
+      "from": 144,
+      "to": 145,
+      "type": "prerequisite"
+    },
+    {
+      "from": 145,
+      "to": 143,
+      "type": "prerequisite"
+    },
+    {
+      "from": 146,
+      "to": 144,
+      "type": "prerequisite"
+    },
+    {
+      "from": 147,
+      "to": 146,
+      "type": "prerequisite"
+    },
+    {
+      "from": 148,
+      "to": 143,
+      "type": "prerequisite"
+    },
+    {
+      "from": 148,
+      "to": 144,
+      "type": "prerequisite"
+    },
+    {
+      "from": 149,
+      "to": 143,
+      "type": "prerequisite"
+    },
+    {
+      "from": 150,
+      "to": 143,
+      "type": "prerequisite"
+    },
+    {
+      "from": 150,
+      "to": 145,
+      "type": "prerequisite"
+    },
+    {
+      "from": 151,
+      "to": 152,
+      "type": "prerequisite"
+    },
+    {
+      "from": 151,
+      "to": 154,
+      "type": "prerequisite"
+    },
+    {
+      "from": 151,
+      "to": 155,
+      "type": "prerequisite"
+    },
+    {
+      "from": 152,
+      "to": 1,
+      "type": "prerequisite"
+    },
+    {
+      "from": 153,
+      "to": 151,
+      "type": "prerequisite"
+    },
+    {
+      "from": 156,
+      "to": 151,
+      "type": "prerequisite"
+    },
+    {
+      "from": 157,
+      "to": 156,
+      "type": "prerequisite"
+    },
+    {
+      "from": 157,
+      "to": 107,
+      "type": "prerequisite"
+    },
+    {
+      "from": 158,
+      "to": 156,
+      "type": "prerequisite"
+    },
+    {
+      "from": 159,
+      "to": 156,
+      "type": "prerequisite"
+    },
+    {
+      "from": 160,
+      "to": 153,
+      "type": "prerequisite"
+    },
+    {
+      "from": 161,
+      "to": 153,
+      "type": "prerequisite"
+    },
+    {
+      "from": 161,
+      "to": 156,
+      "type": "prerequisite"
+    },
+    {
+      "from": 162,
+      "to": 153,
+      "type": "prerequisite"
+    },
+    {
+      "from": 162,
+      "to": 156,
+      "type": "prerequisite"
+    },
+    {
+      "from": 163,
+      "to": 160,
+      "type": "prerequisite"
+    },
+    {
+      "from": 163,
+      "to": 161,
+      "type": "prerequisite"
+    },
+    {
+      "from": 163,
+      "to": 162,
+      "type": "prerequisite"
+    },
+    {
+      "from": 164,
+      "to": 163,
+      "type": "prerequisite"
+    },
+    {
+      "from": 164,
+      "to": 154,
+      "type": "prerequisite"
+    },
+    {
+      "from": 164,
+      "to": 155,
+      "type": "prerequisite"
+    },
+    {
+      "from": 165,
+      "to": 164,
+      "type": "prerequisite"
+    },
+    {
+      "from": 165,
+      "to": 166,
+      "type": "prerequisite"
+    },
+    {
+      "from": 165,
+      "to": 78,
+      "type": "prerequisite"
+    },
+    {
+      "from": 167,
+      "to": 165,
+      "type": "prerequisite"
+    },
+    {
+      "from": 167,
+      "to": 60,
+      "type": "prerequisite"
+    },
+    {
+      "from": 168,
+      "to": 165,
+      "type": "prerequisite"
+    },
+    {
+      "from": 168,
+      "to": 80,
+      "type": "prerequisite"
+    },
+    {
+      "from": 169,
+      "to": 165,
+      "type": "prerequisite"
+    },
+    {
+      "from": 169,
+      "to": 80,
+      "type": "prerequisite"
+    },
+    {
+      "from": 170,
+      "to": 167,
+      "type": "prerequisite"
+    },
+    {
+      "from": 170,
+      "to": 162,
+      "type": "prerequisite"
+    },
+    {
+      "from": 171,
+      "to": 167,
+      "type": "prerequisite"
+    },
+    {
+      "from": 171,
+      "to": 161,
+      "type": "prerequisite"
+    },
+    {
+      "from": 171,
+      "to": 170,
+      "type": "prerequisite"
+    },
+    {
+      "from": 172,
+      "to": 80,
+      "type": "prerequisite"
+    },
+    {
+      "from": 172,
+      "to": 84,
+      "type": "prerequisite"
+    },
+    {
+      "from": 172,
+      "to": 85,
+      "type": "prerequisite"
+    },
+    {
+      "from": 173,
+      "to": 174,
+      "type": "prerequisite"
+    },
+    {
+      "from": 174,
+      "to": 164,
+      "type": "prerequisite"
+    },
+    {
+      "from": 174,
+      "to": 165,
+      "type": "prerequisite"
+    },
+    {
+      "from": 174,
+      "to": 80,
+      "type": "prerequisite"
+    },
+    {
+      "from": 175,
+      "to": 60,
+      "type": "prerequisite"
+    },
+    {
+      "from": 175,
+      "to": 87,
+      "type": "prerequisite"
+    },
+    {
+      "from": 176,
+      "to": 163,
+      "type": "prerequisite"
+    },
+    {
+      "from": 176,
+      "to": 51,
+      "type": "prerequisite"
+    },
+    {
+      "from": 177,
+      "to": 176,
+      "type": "prerequisite"
+    },
+    {
+      "from": 178,
+      "to": 177,
+      "type": "prerequisite"
+    },
+    {
+      "from": 179,
+      "to": 178,
+      "type": "prerequisite"
+    },
+    {
+      "from": 180,
+      "to": 177,
+      "type": "prerequisite"
+    },
+    {
+      "from": 181,
+      "to": 177,
+      "type": "prerequisite"
+    },
+    {
+      "from": 182,
+      "to": 177,
+      "type": "prerequisite"
+    },
+    {
+      "from": 182,
+      "to": 178,
+      "type": "prerequisite"
+    },
+    {
+      "from": 183,
+      "to": 176,
+      "type": "prerequisite"
+    },
+    {
+      "from": 184,
+      "to": 183,
+      "type": "prerequisite"
+    },
+    {
+      "from": 185,
+      "to": 184,
+      "type": "prerequisite"
+    },
+    {
+      "from": 185,
+      "to": 163,
+      "type": "prerequisite"
+    },
+    {
+      "from": 186,
+      "to": 176,
+      "type": "prerequisite"
+    },
+    {
+      "from": 186,
+      "to": 184,
+      "type": "prerequisite"
+    },
+    {
+      "from": 186,
+      "to": 185,
+      "type": "prerequisite"
+    },
+    {
+      "from": 187,
+      "to": 186,
+      "type": "is_part_of"
+    },
+    {
+      "from": 188,
+      "to": 186,
+      "type": "prerequisite"
+    },
+    {
+      "from": 188,
+      "to": 112,
+      "type": "prerequisite"
+    },
+    {
+      "from": 189,
+      "to": 186,
+      "type": "prerequisite"
+    },
+    {
+      "from": 190,
+      "to": 186,
+      "type": "prerequisite"
+    },
+    {
+      "from": 191,
+      "to": 163,
+      "type": "prerequisite"
+    },
+    {
+      "from": 191,
+      "to": 192,
+      "type": "prerequisite"
+    },
+    {
+      "from": 192,
+      "to": 26,
+      "type": "prerequisite"
+    },
+    {
+      "from": 193,
+      "to": 191,
+      "type": "prerequisite"
+    },
+    {
+      "from": 194,
+      "to": 191,
+      "type": "prerequisite"
+    },
+    {
+      "from": 194,
+      "to": 193,
+      "type": "prerequisite"
+    },
+    {
+      "from": 195,
+      "to": 93,
+      "type": "prerequisite"
+    },
+    {
+      "from": 195,
+      "to": 161,
+      "type": "prerequisite"
+    },
+    {
+      "from": 196,
+      "to": 197,
+      "type": "prerequisite"
+    },
+    {
+      "from": 197,
+      "to": 2,
+      "type": "prerequisite"
+    },
+    {
+      "from": 197,
+      "to": 21,
+      "type": "prerequisite"
+    },
+    {
+      "from": 197,
+      "to": 39,
+      "type": "prerequisite"
+    },
+    {
+      "from": 197,
+      "to": 87,
+      "type": "prerequisite"
+    },
+    {
+      "from": 197,
+      "to": 126,
+      "type": "prerequisite"
+    },
+    {
+      "from": 198,
+      "to": 99,
+      "type": "prerequisite"
+    },
+    {
+      "from": 198,
+      "to": 80,
+      "type": "prerequisite"
+    },
+    {
+      "from": 198,
+      "to": 135,
+      "type": "prerequisite"
+    },
+    {
+      "from": 199,
+      "to": 5,
+      "type": "prerequisite"
+    },
+    {
+      "from": 199,
+      "to": 49,
+      "type": "prerequisite"
+    },
+    {
+      "from": 199,
+      "to": 71,
+      "type": "prerequisite"
+    },
+    {
+      "from": 200,
+      "to": 199,
+      "type": "prerequisite"
+    },
+    {
+      "from": 200,
+      "to": 49,
+      "type": "prerequisite"
+    },
+    {
+      "from": 4,
+      "to": 5,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 4,
+      "to": 6,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 5,
+      "to": 6,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 52,
+      "to": 105,
+      "type": "related_to"
+    },
+    {
+      "from": 81,
+      "to": 82,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 81,
+      "to": 83,
+      "type": "related_to"
+    },
+    {
+      "from": 82,
+      "to": 83,
+      "type": "related_to"
+    },
+    {
+      "from": 93,
+      "to": 94,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 96,
+      "to": 97,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 62,
+      "to": 63,
+      "type": "related_to"
+    },
+    {
+      "from": 62,
+      "to": 64,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 120,
+      "to": 121,
+      "type": "related_to"
+    },
+    {
+      "from": 120,
+      "to": 122,
+      "type": "related_to"
+    },
+    {
+      "from": 121,
+      "to": 122,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 116,
+      "to": 117,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 118,
+      "to": 119,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 127,
+      "to": 136,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 136,
+      "to": 143,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 157,
+      "to": 158,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 157,
+      "to": 159,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 158,
+      "to": 159,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 176,
+      "to": 191,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 163,
+      "to": 176,
+      "type": "related_to"
+    },
+    {
+      "from": 163,
+      "to": 191,
+      "type": "related_to"
+    },
+    {
+      "from": 43,
+      "to": 44,
+      "type": "related_to"
+    },
+    {
+      "from": 43,
+      "to": 45,
+      "type": "related_to"
+    },
+    {
+      "from": 44,
+      "to": 45,
+      "type": "related_to"
+    },
+    {
+      "from": 11,
+      "to": 12,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 28,
+      "to": 29,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 52,
+      "to": 127,
+      "type": "related_to"
+    },
+    {
+      "from": 105,
+      "to": 127,
+      "type": "related_to"
+    },
+    {
+      "from": 160,
+      "to": 161,
+      "type": "related_to"
+    },
+    {
+      "from": 161,
+      "to": 162,
+      "type": "related_to"
+    },
+    {
+      "from": 177,
+      "to": 183,
+      "type": "contrasts_with"
+    },
+    {
+      "from": 191,
+      "to": 194,
+      "type": "related_to"
+    }
+  ]
+}

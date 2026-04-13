@@ -1,0 +1,201 @@
+ConceptID,ConceptLabel,Dependencies,TaxonomyID
+1,Artificial Intelligence,,FOUND
+2,Machine Learning,1,FOUND
+3,Deep Learning,2,FOUND
+4,Supervised Learning,2,FOUND
+5,Unsupervised Learning,2,FOUND
+6,Reinforcement Learning,2,FOUND
+7,Turing Test,1,FOUND
+8,Dartmouth Conference,1,FOUND
+9,AI History,7|8,FOUND
+10,Expert Systems,9,FOUND
+11,Computer Vision,1,FOUND
+12,Natural Language Processing,1,FOUND
+13,Business Intelligence,1,FOUND
+14,Python Programming,,TOOL
+15,Jupyter Notebook,14,TOOL
+16,NumPy,14,TOOL
+17,Pandas,14,TOOL
+18,Matplotlib,14,TOOL
+19,PyTorch,14|16,TOOL
+20,Scikit-learn,14|16,TOOL
+21,Data Acquisition,2,DACQ
+22,Data Annotation,21,DACQ
+23,Data Exploration,21,DACQ
+24,Data Cleaning,21,DPRE
+25,Feature Engineering,23|24,DPRE
+26,Dataset,21,DACQ
+27,Benchmark Dataset,26,DACQ
+28,MNIST Dataset,27,DACQ
+29,ImageNet Dataset,27,DACQ
+30,Synthetic Data,26,DACQ
+31,Data Augmentation,26|30,DACQ
+32,Data Integration,21,DACQ
+33,Exploratory Data Analysis,23|17|18,DPRE
+34,Data Errors,24,DPRE
+35,Outlier Detection,34,DPRE
+36,Rule-based Detection,34,DPRE
+37,Pattern-based Detection,34,DPRE
+38,Missing Values,34,DPRE
+39,Data Preprocessing,24|25,DPRE
+40,Feature Selection,25|47,DPRE
+41,Data Normalization,39,DPRE
+42,Data Splitting,26,DPRE
+43,Training Set,42,DPRE
+44,Validation Set,42,DPRE
+45,Test Set,42,DPRE
+46,Label,4,DPRE
+47,Feature,21,DPRE
+48,Feature Vector,47|16,DPRE
+49,Dimensionality,48,DPRE
+50,Tabular Data,26,DACQ
+51,Image Data,26,DACQ
+52,Linear Regression,58|60,LREG
+53,Regression,4,LREG
+54,Dependent Variable,53,LREG
+55,Independent Variable,53,LREG
+56,Slope,52,LREG
+57,Intercept,52,LREG
+58,Linear Model,53|54|55,LREG
+59,Objective Function,60,OPTM
+60,Loss Function,2,OPTM
+61,Squared Loss,60,LREG
+62,Mean Squared Error,61,EVAL
+63,Root Mean Squared Error,62,EVAL
+64,Mean Absolute Error,60,EVAL
+65,R-Squared,66|67|68,EVAL
+66,Sum of Squares Error,61,EVAL
+67,Sum of Squares Regression,61,EVAL
+68,Sum of Squares Total,61,EVAL
+69,Residual,52|61,LREG
+70,Normal Equation,52|74,LREG
+71,Matrix Representation,16,MATH
+72,Matrix Multiplication,71,MATH
+73,Matrix Transpose,71,MATH
+74,Matrix Inverse,71,MATH
+75,Predicted Value,52,LREG
+76,Bias Term,52,LREG
+77,Parameter Vector,52|71,LREG
+78,Gradient,59|79,OPTM
+79,Gradient Descent,59,OPTM
+80,Learning Rate,79,OPTM
+81,Batch Gradient Descent,79,OPTM
+82,Stochastic Gradient Descent,79,OPTM
+83,Mini-batch Gradient Descent,81|82,OPTM
+84,Convergence,79|80,OPTM
+85,Divergence,79|80,OPTM
+86,Parameter Update Rule,79|78,OPTM
+87,Optimization,59|79,OPTM
+88,Cost Function,60,OPTM
+89,Maximum Likelihood,90|92,MATH
+90,Gaussian Distribution,91,MATH
+91,Probability Distribution,,MATH
+92,Log-likelihood,91,MATH
+93,Overfitting,43|44|101,EVAL
+94,Underfitting,93|100,EVAL
+95,Regularization,93|60,OPTM
+96,L1 Regularization,95,OPTM
+97,L2 Regularization,95,OPTM
+98,Early Stopping,93|44,OPTM
+99,Cross-validation,42|93,EVAL
+100,Model Complexity,2,EVAL
+101,Generalization,43|45,EVAL
+102,Training Error,43|60,EVAL
+103,Validation Error,44|60,EVAL
+104,Bias-Variance Tradeoff,93|94,EVAL
+105,Logistic Regression,52|107|106,CLSF
+106,Binary Classification,4|46,CLSF
+107,Sigmoid Function,156,CLSF
+108,Decision Boundary,105,CLSF
+109,Cross Entropy Loss,105|60,CLSF
+110,Bernoulli Distribution,91,MATH
+111,Softmax Function,112|91,CLSF
+112,Multiple Classification,106,CLSF
+113,One-hot Encoding,112,CLSF
+114,Classification Threshold,106|121,EVAL
+115,Confusion Matrix,106|46,EVAL
+116,True Positive,115,EVAL
+117,True Negative,115,EVAL
+118,False Positive,115,EVAL
+119,False Negative,115,EVAL
+120,Accuracy,116|117|118|119,EVAL
+121,Precision,116|118,EVAL
+122,Recall,116|119,EVAL
+123,F1 Score,121|122,EVAL
+124,ROC Curve,115|114,EVAL
+125,AUC,124,EVAL
+126,Evaluation Metric,120|123|125,EVAL
+127,K-Nearest Neighbor,4|129,CLSF
+128,Distance Metric,48,CLSF
+129,Euclidean Distance,128,CLSF
+130,L1 Distance,128,CLSF
+131,Majority Voting,127,CLSF
+132,Nonparametric Method,127,CLSF
+133,Similarity Function,128,CLSF
+134,Weighted KNN,127|133,CLSF
+135,K Value Selection,127,CLSF
+136,K-Means Clustering,5|137|140,CLST
+137,Centroid,48,CLST
+138,Cluster,5,CLST
+139,Clustering Objective,136|60,CLST
+140,Euclidean Distance Metric,129,CLST
+141,Cosine Similarity,128,CLST
+142,K-Means Workflow,136,CLST
+143,DBSCAN,5|138,CLST
+144,Core Object,143|145,CLST
+145,Epsilon Neighborhood,143,CLST
+146,Density Reachable,144,CLST
+147,Density Connected,146,CLST
+148,Boundary Point,143|144,CLST
+149,Noise Point,143,CLST
+150,DBSCAN Parameters,143|145,CLST
+151,Perceptron,152|154|155,NEUR
+152,Neuron,1,NEUR
+153,Artificial Neural Network,151,NEUR
+154,Weight,,NEUR
+155,Bias,,NEUR
+156,Activation Function,151,NEUR
+157,Sigmoid Activation,156|107,NEUR
+158,Tanh Activation,156,NEUR
+159,ReLU Activation,156,NEUR
+160,Input Layer,153,NEUR
+161,Hidden Layer,153|156,NEUR
+162,Output Layer,153|156,NEUR
+163,Fully Connected Network,160|161|162,NEUR
+164,Forward Pass,163|154|155,NEUR
+165,Backpropagation,164|166|78,NEUR
+166,Chain Rule,,NEUR
+167,Error Signal,165|60,NEUR
+168,Weight Update,165|80,NEUR
+169,Bias Update,165|80,NEUR
+170,Output Layer Error,167|162,NEUR
+171,Hidden Layer Error,167|161|170,NEUR
+172,Learning Rate Selection,80|84|85,OPTM
+173,Epoch,174,NEUR
+174,Training Loop,164|165|80,NEUR
+175,Loss Landscape,60|87,OPTM
+176,Convolutional Neural Network,163|51,DEEP
+177,Convolution Operation,176,DEEP
+178,Filter,177,DEEP
+179,Kernel Size,178,DEEP
+180,Stride,177,DEEP
+181,Padding,177,DEEP
+182,Feature Map,177|178,DEEP
+183,Max Pooling,176,DEEP
+184,Pooling Layer,183,DEEP
+185,Flatten Layer,184|163,DEEP
+186,CNN Architecture,176|184|185,DEEP
+187,LeNet-5,186,DEEP
+188,Image Classification,186|112,DEEP
+189,Object Detection,186,DEEP
+190,Image Segmentation,186,DEEP
+191,Recurrent Neural Network,163|192,DEEP
+192,Sequence Data,26,DEEP
+193,Hidden State,191,DEEP
+194,Long Short-Term Memory,191|193,DEEP
+195,Dropout,93|161,NEUR
+196,Model Deployment,197,DEEP
+197,ML Workflow,2|21|39|87|126,DEEP
+198,Hyperparameter Tuning,99|80|135,EVAL
+199,Principal Component Analysis,5|49|71,DEEP
+200,Dimensionality Reduction,199|49,DEEP

@@ -1,0 +1,19 @@
+{
+  "title": "Tabular vs Image Data Comparison",
+  "description": "Step-through side-by-side p5.js MicroSim showing raw structure, feature extraction, and algorithm choices for tabular vs image data.",
+  "subject": "Data Acquisition",
+  "topic": "Tabular Data vs Image Data",
+  "bloom_level": "Understand",
+  "bloom_verb": "compare",
+  "library": "p5.js",
+  "sim_id": "tabular-vs-image-data",
+  "chapter": "03-data-acquisition",
+  "iframe_height": 502,
+  "controls": [
+    {"type": "button", "label": "Previous / Next", "description": "Step through 3 comparison stages"},
+    {"type": "checkbox", "label": "Show pixel values", "description": "Toggle numerical overlay on pixel grid"}
+  ],
+  "author": "AI Systems Course",
+  "date": "2026-04-13",
+  "language": "en"
+}

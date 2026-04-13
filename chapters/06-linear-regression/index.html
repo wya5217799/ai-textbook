@@ -1,0 +1,4841 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="第一个完整的机器学习算法，涵盖模型构建、损失度量与正规方程">
+      
+      
+      
+        <link rel="canonical" href="https://wya5217799.github.io/ai-textbook/chapters/06-linear-regression/">
+      
+      
+        <link rel="prev" href="../05-math-foundations/references/">
+      
+      
+        <link rel="next" href="quiz/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>线性回归 - Artificial Intelligence System - Intelligent Textbook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../css/quiz.css">
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linear-regression" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Artificial Intelligence System - Intelligent Textbook" class="md-header__button md-logo" aria-label="Artificial Intelligence System - Intelligent Textbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Artificial Intelligence System - Intelligent Textbook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              线性回归
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Artificial Intelligence System - Intelligent Textbook" class="md-nav__button md-logo" aria-label="Artificial Intelligence System - Intelligent Textbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Artificial Intelligence System - Intelligent Textbook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../01-intro-to-ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction to Artificial Intelligence
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Introduction to Artificial Intelligence
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-to-ai/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-to-ai/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../02-python-tools/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Python Programming Tools for AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Python Programming Tools for AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-tools/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-tools/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../03-data-acquisition/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Data Acquisition and Exploration
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Data Acquisition and Exploration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-data-acquisition/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-data-acquisition/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../04-data-preprocessing/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Data Preprocessing and Feature Engineering
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Data Preprocessing and Feature Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-data-preprocessing/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-data-preprocessing/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../05-math-foundations/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Mathematical Foundations for Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5. Mathematical Foundations for Machine Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-math-foundations/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-math-foundations/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Linear Regression
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    6. Linear Regression
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../07-optimization-gradient-descent/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Optimization and Gradient Descent
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    7. Optimization and Gradient Descent
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-optimization-gradient-descent/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-optimization-gradient-descent/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../08-model-evaluation-regression/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Model Evaluation for Regression
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    8. Model Evaluation for Regression
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-model-evaluation-regression/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-model-evaluation-regression/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../09-neural-network-foundations/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Neural Network Foundations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    9. Neural Network Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neural-network-foundations/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neural-network-foundations/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../10-classification-logistic-regression/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Classification and Logistic Regression
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_11" id="__nav_3_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    10. Classification and Logistic Regression
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-classification-logistic-regression/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-classification-logistic-regression/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../11-classification-evaluation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Classification Evaluation Metrics
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_12" id="__nav_3_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    11. Classification Evaluation Metrics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-classification-evaluation/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-classification-evaluation/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_13" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../12-k-nearest-neighbor/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. K-Nearest Neighbor Algorithm
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_13" id="__nav_3_13_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    12. K-Nearest Neighbor Algorithm
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-k-nearest-neighbor/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-k-nearest-neighbor/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_14" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../13-clustering-unsupervised-learning/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Clustering and Unsupervised Learning Algorithms
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_14" id="__nav_3_14_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    13. Clustering and Unsupervised Learning Algorithms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-clustering-unsupervised-learning/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-clustering-unsupervised-learning/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_15" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../14-backpropagation-training/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Training Neural Networks with Backpropagation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_15" id="__nav_3_15_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    14. Training Neural Networks with Backpropagation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-backpropagation-training/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-backpropagation-training/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../15-convolutional-neural-networks/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Convolutional Neural Networks
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_16" id="__nav_3_16_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    15. Convolutional Neural Networks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-convolutional-neural-networks/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-convolutional-neural-networks/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_17" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../16-rnn-ml-workflow/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Recurrent Neural Networks and the ML Workflow
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_17" id="__nav_3_17_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_17">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    16. Recurrent Neural Networks and the ML Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-rnn-ml-workflow/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-rnn-ml-workflow/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../learning-graph/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Learning Graph
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learning-graph/course-description-assessment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description Assessment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learning-graph/concept-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concept Enumeration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learning-graph/quality-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Quality Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learning-graph/concept-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concept Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learning-graph/taxonomy-distribution-report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Taxonomy Distribution Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learning-graph/quiz-generation-report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz Generation Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MicroSims
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../sims/graph-viewer/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Tools
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Learning Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/ai-concept-classifier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Concept Classifier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/course-chapter-dependency-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Chapter Dependency Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../sims/ai-landscape-overview/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 - Introduction to AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 1 - Introduction to AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/ai-history-timeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI History Timeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/ai-concept-hierarchy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Concept Hierarchy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/learning-paradigms-comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Paradigms Comparison
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../sims/python-ai-toolkit-stack/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 - Python Programming Tools
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 2 - Python Programming Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/jupyter-notebook-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jupyter Notebook Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/numpy-array-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NumPy Array Operations Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/matplotlib-plot-gallery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matplotlib Plot Gallery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/sklearn-vs-pytorch-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scikit-learn vs PyTorch Decision Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../sims/eda-workflow-dashboard/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 - Data Acquisition and Exploration
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 3 - Data Acquisition and Exploration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/tabular-vs-image-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabular vs Image Data Comparison
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/benchmark-dataset-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmark Dataset Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../sims/gaussian-distribution-explorer/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5 - Mathematical Foundations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 5 - Mathematical Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/matrix-representation-ml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matrix Representation in ML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/matrix-operations-step-through/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matrix Operations Step-Through
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../sims/slope-intercept-explorer/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6 - Linear Regression
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 6 - Linear Regression
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/normal-equation-step-through/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normal Equation Step-Through
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/sums-of-squares-decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sums of Squares Decomposition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../sims/gradient-descent-2d-surface/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7 - Optimization and Gradient Descent
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 7 - Optimization and Gradient Descent
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/learning-rate-effect-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Rate Effect Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/gd-variants-comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GD Variants Comparison
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../sims/model-complexity-fit/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8 - Model Evaluation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 8 - Model Evaluation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/overfitting-underfitting-visual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overfitting vs Underfitting Visual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/loss-function-comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loss Function Comparison
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/regularization-effect-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Regularization Effect Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/k-fold-cross-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    K-Fold Cross-Validation Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../sims/image-augmentation-gallery/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 - Convolutional Neural Networks
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 15 - Convolutional Neural Networks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../feature-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概述
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        涵盖的概念
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        先修知识
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        什么是 Regression（回归）？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本构成：变量与线性模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本构成：变量与线性模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependent-variable-independent-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependent Variable 与 Independent Variable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linear-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linear Model（线性模型）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slope-intercept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slope（斜率）与 Intercept（截距）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameter Vector（参数向量）与矩阵表述
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        线性回归：寻找最优参数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性回归：寻找最优参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#squared-loss-mean-squared-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Squared Loss 与 Mean Squared Error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#residuals-predicted-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Residuals（残差）与 Predicted Values（预测值）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sums-of-squares-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        平方和分解（Sums of Squares Decomposition）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r-squared" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R-Squared（决定系数）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        其他误差指标
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normal-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Normal Equation（正规方程）：解析求解线性回归
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        综合应用：完整示例
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="linear-regression">线性回归（Linear Regression）<a class="headerlink" href="#linear-regression" title="Permanent link">&para;</a></h1>
+<h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本章将 linear regression（线性回归）作为课程中第一个完整的机器学习算法进行讲解。学生将学习如何用 dependent variable（因变量）和 independent variable（自变量）来构建回归问题、建立线性模型，并使用 mean squared error（均方误差）、root mean squared error（均方根误差）、mean absolute error（平均绝对误差）和 R-squared 等指标评估模型性能。本章涵盖通过 normal equation（正规方程）求得解析解，以及通过残差（residuals）、平方和（sums of squares）和预测值（predicted values）进行几何解读。学完本章后，学生将能够从零开始实现并评估线性回归模型。</p>
+<h2 id="_2">涵盖的概念<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>本章涵盖学习图中以下 20 个概念：</p>
+<ol>
+<li>Regression（回归）</li>
+<li>Dependent Variable（因变量）</li>
+<li>Independent Variable（自变量）</li>
+<li>Linear Model（线性模型）</li>
+<li>Linear Regression（线性回归）</li>
+<li>Slope（斜率）</li>
+<li>Intercept（截距）</li>
+<li>Squared Loss（平方损失）</li>
+<li>Mean Squared Error（均方误差）</li>
+<li>Root Mean Squared Error（均方根误差）</li>
+<li>Mean Absolute Error（平均绝对误差）</li>
+<li>R-Squared（决定系数）</li>
+<li>Sum of Squares Error（误差平方和）</li>
+<li>Sum of Squares Regression（回归平方和）</li>
+<li>Sum of Squares Total（总平方和）</li>
+<li>Residual（残差）</li>
+<li>Normal Equation（正规方程）</li>
+<li>Predicted Value（预测值）</li>
+<li>Bias Term（偏置项）</li>
+<li>Parameter Vector（参数向量）</li>
+</ol>
+<h2 id="_3">先修知识<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>本章建立在以下章节概念的基础上：</p>
+<ul>
+<li><a href="../01-intro-to-ai/">第 1 章：人工智能导论</a></li>
+<li><a href="../04-data-preprocessing/">第 4 章：数据预处理与特征工程</a></li>
+<li><a href="../05-math-foundations/">第 5 章：机器学习的数学基础</a></li>
+</ul>
+<hr />
+<h2 id="regression">什么是 Regression（回归）？<a class="headerlink" href="#regression" title="Permanent link">&para;</a></h2>
+<p><strong>Regression（回归）</strong>是一种监督学习任务，目标是从一个或多个输入特征预测连续的数值输出。与分类（classification）不同——分类的输出是离散类别——回归产生的值可以在连续范围内取任意数。预测明天的气温、估算房价或预测季度营收，都是回归问题。</p>
+<p>"regression"一词在历史上源于 Francis Galton 爵士 19 世纪 80 年代的研究：他观察到一代人中的极端值在下一代往往会"回归"到平均水平。如今，这个术语简单地指从数据中预测连续值。</p>
+<h2 id="_4">基本构成：变量与线性模型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="dependent-variable-independent-variable">Dependent Variable 与 Independent Variable<a class="headerlink" href="#dependent-variable-independent-variable" title="Permanent link">&para;</a></h3>
+<p>在回归问题中，两类变量扮演着不同的角色：</p>
+<ul>
+<li><strong>Dependent variable（因变量）</strong>（也称目标变量、响应变量或输出变量，通常记作 <span class="arithmatex">\(y\)</span>）是我们想要预测的量，它"依赖于"输入特征。</li>
+<li><strong>Independent variable（自变量）</strong>（也称特征、预测变量或输入变量，通常记作 <span class="arithmatex">\(x\)</span>）是我们观测并用于预测的量。</li>
+</ul>
+<p>例如，若要根据学习时长预测学生的期末考试成绩，则考试成绩是 dependent variable，学习时长是 independent variable。当只有一个 independent variable 时，称为<strong>simple regression（简单回归）</strong>；有多个 independent variable 时，称为<strong>multiple regression（多元回归）</strong>。</p>
+<h3 id="linear-model">Linear Model（线性模型）<a class="headerlink" href="#linear-model" title="Permanent link">&para;</a></h3>
+<p><strong>Linear model（线性模型）</strong>假设 dependent variable 是 independent variable 的加权求和加上一个常数项。这是机器学习中最简单的参数化模型，尽管简单，却对许多实际问题效果出色。</p>
+<p>对于单个特征，线性模型采用熟悉的直线方程：</p>
+<h4 id="simple-linear-regression">Simple Linear Regression（简单线性回归）方程<a class="headerlink" href="#simple-linear-regression" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(\hat{y} = \theta_1 x + \theta_0\)</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(\hat{y}\)</span> 是预测值</li>
+<li><span class="arithmatex">\(x\)</span> 是 independent variable（特征）</li>
+<li><span class="arithmatex">\(\theta_1\)</span> 是斜率（权重）</li>
+<li><span class="arithmatex">\(\theta_0\)</span> 是截距（bias term）</li>
+</ul>
+<p>对于多个特征，模型推广为：</p>
+<h4 id="multiple-linear-regression">Multiple Linear Regression（多元线性回归）方程<a class="headerlink" href="#multiple-linear-regression" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(\hat{y} = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \cdots + \theta_n x_n\)</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(x_1, x_2, \ldots, x_n\)</span> 是 <span class="arithmatex">\(n\)</span> 个 independent variable</li>
+<li><span class="arithmatex">\(\theta_0, \theta_1, \ldots, \theta_n\)</span> 是模型参数</li>
+</ul>
+<h3 id="slope-intercept">Slope（斜率）与 Intercept（截距）<a class="headerlink" href="#slope-intercept" title="Permanent link">&para;</a></h3>
+<p><strong>Slope（斜率）</strong>（简单回归中的 <span class="arithmatex">\(\theta_1\)</span>）量化变化率：<span class="arithmatex">\(x\)</span> 每增加一个单位，预测的 <span class="arithmatex">\(\hat{y}\)</span> 改变 <span class="arithmatex">\(\theta_1\)</span> 个单位。正斜率表示预测值随特征增大而增加；负斜率表示预测值随特征增大而减小。</p>
+<p><strong>Intercept（截距）</strong>（<span class="arithmatex">\(\theta_0\)</span>，也称<strong>bias term（偏置项）</strong>）是所有特征均为零时的预测值。它使整条回归线上移或下移。在许多实际应用中，截距没有有意义的物理解释（"零学习时长"究竟意味着什么？），但它在数学上对于模型良好拟合数据是必要的。</p>
+<h4 id="slope-intercept_1">图示：Slope 与 Intercept 探索器<a class="headerlink" href="#slope-intercept_1" title="Permanent link">&para;</a></h4>
+<iframe src="../../sims/slope-intercept-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Slope and Intercept Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> slope-intercept-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: demonstrate
+Learning Objective: Demonstrate how adjusting the slope and intercept of a linear model changes the regression line and its fit to data points.</p>
+<p>Purpose: Interactive visualization where students manipulate slope and intercept sliders and observe the regression line moving relative to a fixed set of data points. Residuals are drawn as vertical lines from each point to the line, and the total squared error updates in real time.</p>
+<p>Interactive controls:
+- Slider: Slope (<span class="arithmatex">\(\theta_1\)</span>), range -3 to 3, default 1
+- Slider: Intercept (<span class="arithmatex">\(\theta_0\)</span>), range -5 to 5, default 0
+- "Show Residuals" toggle button
+- Display: Current equation <span class="arithmatex">\(\hat{y} = \theta_1 x + \theta_0\)</span> with values
+- Display: Total squared error <span class="arithmatex">\(\sum(y_i - \hat{y}_i)^2\)</span></p>
+<p>Visual elements:
+- Scatter plot of 15 data points (generated from a known linear relationship plus noise)
+- Regression line in blue that updates with slider changes
+- Red vertical dashed lines showing residuals when toggled on
+- MSE value displayed prominently</p>
+<p>Instructional Rationale: Direct manipulation of slope and intercept with immediate visual feedback and error tracking supports the Apply/demonstrate objective, allowing students to develop intuition for how parameters affect fit quality.</p>
+<p>The visual elements must have a responsive design that must respond to window resize events.</p>
+<p>Implementation: p5.js with slider controls and real-time rendering</p>
+</details>
+<h3 id="parameter-vector">Parameter Vector（参数向量）与矩阵表述<a class="headerlink" href="#parameter-vector" title="Permanent link">&para;</a></h3>
+<p>使用第 5 章中的矩阵记号，我们可以紧凑地表达线性模型。定义<strong>parameter vector（参数向量）</strong> <span class="arithmatex">\(\theta\)</span> 为包含所有模型参数的列向量：</p>
+<h4 id="parameter-vector_1">Parameter Vector<a class="headerlink" href="#parameter-vector_1" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(\theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_n \end{bmatrix}\)</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(\theta_0\)</span> 是 bias term（截距）</li>
+<li><span class="arithmatex">\(\theta_1, \ldots, \theta_n\)</span> 是各特征的权重</li>
+</ul>
+<p>通过在特征矩阵 <span class="arithmatex">\(X\)</span> 前面添加一列 1（以处理截距），所有 <span class="arithmatex">\(m\)</span> 个训练样本的预测可以简化为一次矩阵乘法：</p>
+<h4 id="_5">线性回归的矩阵形式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(\hat{y} = X\theta\)</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(X\)</span> 是 <span class="arithmatex">\(m \times (n+1)\)</span> 的设计矩阵（design matrix，首列为全 1）</li>
+<li><span class="arithmatex">\(\theta\)</span> 是 <span class="arithmatex">\((n+1) \times 1\)</span> 的 parameter vector</li>
+<li><span class="arithmatex">\(\hat{y}\)</span> 是 <span class="arithmatex">\(m \times 1\)</span> 的预测向量</li>
+</ul>
+<p>这种紧凑记法不仅在数学上优雅，而且直接对应高效的 NumPy 代码：<code>y_hat = X @ theta</code>。</p>
+<h2 id="_6">线性回归：寻找最优参数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p><strong>Linear regression（线性回归）</strong>是寻找能最好拟合训练数据的 parameter vector <span class="arithmatex">\(\theta\)</span> 的算法。但"最好拟合"意味着什么？我们需要一个定量标准，而这个标准就是 loss function。</p>
+<h3 id="squared-loss-mean-squared-error">Squared Loss 与 Mean Squared Error<a class="headerlink" href="#squared-loss-mean-squared-error" title="Permanent link">&para;</a></h3>
+<p>单个预测的<strong>squared loss（平方损失）</strong>是实际值与预测值之差的平方：</p>
+<h4 id="squared-loss">Squared Loss<a class="headerlink" href="#squared-loss" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(L(y_i, \hat{y}_i) = (y_i - \hat{y}_i)^2\)</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(y_i\)</span> 是样本 <span class="arithmatex">\(i\)</span> 的实际值</li>
+<li><span class="arithmatex">\(\hat{y}_i\)</span> 是样本 <span class="arithmatex">\(i\)</span> 的预测值</li>
+</ul>
+<p>平方有两个作用：使所有误差为正（正负误差不会相互抵消），并对大误差的惩罚比小误差更重。</p>
+<p><strong>Mean Squared Error（均方误差，MSE）</strong>对整个训练集的 squared loss 取平均：</p>
+<h4 id="mean-squared-error">Mean Squared Error<a class="headerlink" href="#mean-squared-error" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(MSE = \frac{1}{m}\sum_{i=1}^{m}(y_i - \hat{y}_i)^2\)</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(m\)</span> 是训练样本数</li>
+</ul>
+<p>MSE 是线性回归中最常用的 cost function。在误差服从 Gaussian 分布的假设下，最小化 MSE 等价于最大化 log-likelihood（如第 5 章所示）。</p>
+<h3 id="residuals-predicted-values">Residuals（残差）与 Predicted Values（预测值）<a class="headerlink" href="#residuals-predicted-values" title="Permanent link">&para;</a></h3>
+<p><strong>Residual（残差）</strong>是观测值与模型预测值之差：</p>
+<h4 id="residual">Residual 定义<a class="headerlink" href="#residual" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(e_i = y_i - \hat{y}_i\)</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(e_i\)</span> 是样本 <span class="arithmatex">\(i\)</span> 的残差</li>
+<li><span class="arithmatex">\(y_i\)</span> 是观测（实际）值</li>
+<li><span class="arithmatex">\(\hat{y}_i\)</span> 是模型的<strong>predicted value（预测值）</strong></li>
+</ul>
+<p>残差是重要的诊断工具。若模型拟合良好，残差应较小，随机分散在零附近，且不呈现系统性规律。若残差显示出规律（如随预测值增大而增大），这表明线性模型遗漏了数据中的某些结构。</p>
+<h3 id="sums-of-squares-decomposition">平方和分解（Sums of Squares Decomposition）<a class="headerlink" href="#sums-of-squares-decomposition" title="Permanent link">&para;</a></h3>
+<p>为了理解回归模型在多大程度上解释了数据的变异性，我们使用平方和将总变异性分解为两个分量。</p>
+<h4 id="sum-of-squares-totalsst">Sum of Squares Total（总平方和，SST）<a class="headerlink" href="#sum-of-squares-totalsst" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(SST = \sum_{i=1}^{m}(y_i - \bar{y})^2\)</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(\bar{y}\)</span> 是所有观测值的均值</li>
+</ul>
+<p>SST 衡量 dependent variable 的总变异性，回答：实际值围绕均值有多分散？</p>
+<h4 id="sum-of-squares-errorsse">Sum of Squares Error（误差平方和，SSE）<a class="headerlink" href="#sum-of-squares-errorsse" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(SSE = \sum_{i=1}^{m}(y_i - \hat{y}_i)^2\)</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(\hat{y}_i\)</span> 是模型对样本 <span class="arithmatex">\(i\)</span> 的预测值</li>
+</ul>
+<p>SSE 衡量模型未能解释的变异性——即残差变异性。</p>
+<h4 id="sum-of-squares-regressionssr">Sum of Squares Regression（回归平方和，SSR）<a class="headerlink" href="#sum-of-squares-regressionssr" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(SSR = \sum_{i=1}^{m}(\hat{y}_i - \bar{y})^2\)</span></p>
+<p>SSR 衡量模型能够解释的变异性——即预测值偏离均值的程度。</p>
+<p>连接这三个量的基本恒等式为：</p>
+<p><span class="arithmatex">\(SST = SSR + SSE\)</span></p>
+<p>这种分解将总变异性划分为"已解释"（SSR）和"未解释"（SSE）两个部分。</p>
+<h4 id="sums-of-squares">图示：Sums of Squares 分解<a class="headerlink" href="#sums-of-squares" title="Permanent link">&para;</a></h4>
+<iframe src="../../sims/sums-of-squares-decomposition/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Sums of Squares Decomposition</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> sums-of-squares-decomposition<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: differentiate
+Learning Objective: Differentiate between Sum of Squares Total, Sum of Squares Error, and Sum of Squares Regression by visualizing how each measures a different component of variability.</p>
+<p>Purpose: Interactive scatter plot with a regression line showing the geometric meaning of SST, SSE, and SSR for each data point.</p>
+<p>Data Visibility Requirements:
+Stage 1: Show scatter plot with regression line and horizontal mean line. For a selected data point, draw the three segments: total deviation (point to mean), predicted deviation (predicted to mean), and residual (point to predicted).
+Stage 2: Show numerical values: <span class="arithmatex">\(y_i - \bar{y}\)</span>, <span class="arithmatex">\(\hat{y}_i - \bar{y}\)</span>, and <span class="arithmatex">\(y_i - \hat{y}_i\)</span> for the selected point.
+Stage 3: Show running sums SST, SSR, SSE across all points with a stacked bar chart on the right.</p>
+<p>Interactive controls:
+- Click any data point to select it and show its decomposition
+- Toggle buttons to highlight SST (blue), SSR (green), or SSE (red) across all points
+- Display: Numerical SST, SSR, SSE, and the identity SST = SSR + SSE</p>
+<p>Visual elements:
+- 12 data points on a scatter plot
+- Blue regression line
+- Gray horizontal line at mean <span class="arithmatex">\(\bar{y}\)</span>
+- Color-coded vertical segments for each decomposition component
+- Side panel showing stacked bar chart of SSR and SSE (summing to SST)</p>
+<p>Instructional Rationale: Visual geometric decomposition with clickable selection supports the Analyze/differentiate objective by letting students see exactly how each sum of squares measures a different portion of the total variability for each data point.</p>
+<p>The visual elements must have a responsive design that must respond to window resize events.</p>
+<p>Implementation: p5.js with interactive point selection</p>
+</details>
+<h3 id="r-squared">R-Squared（决定系数）<a class="headerlink" href="#r-squared" title="Permanent link">&para;</a></h3>
+<p><strong>R-Squared（<span class="arithmatex">\(R^2\)</span>，决定系数）</strong>是评估回归模型拟合优度最广泛使用的指标。它表示模型解释的 dependent variable 总变异性的比例。</p>
+<h4 id="r-squared_1">R-Squared 公式<a class="headerlink" href="#r-squared_1" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(R^2 = \frac{SSR}{SST} = 1 - \frac{SSE}{SST}\)</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(R^2\)</span> 的范围为 0 到 1（对于包含截距的模型）</li>
+<li><span class="arithmatex">\(R^2 = 1\)</span> 表示模型解释了所有变异性（完美拟合）</li>
+<li><span class="arithmatex">\(R^2 = 0\)</span> 表示模型没有解释任何变异性（不优于预测均值）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(R^2\)</span> 值</th>
+<th>解读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.90 -- 1.00</td>
+<td>优秀拟合</td>
+</tr>
+<tr>
+<td>0.70 -- 0.89</td>
+<td>良好拟合</td>
+</tr>
+<tr>
+<td>0.50 -- 0.69</td>
+<td>中等拟合</td>
+</tr>
+<tr>
+<td>0.00 -- 0.49</td>
+<td>较差拟合</td>
+</tr>
+</tbody>
+</table>
+<p>虽然 R-squared 直观且被广泛使用，但它有一个已知的局限性：随着更多特征加入模型，<span class="arithmatex">\(R^2\)</span> 总是增大（或保持不变），即使这些特征无关紧要。Adjusted R-squared（调整 <span class="arithmatex">\(R^2\)</span>）通过惩罚参数数量来解决这个问题，但本章不详细介绍。</p>
+<h3 id="_7">其他误差指标<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>除 MSE 和 R-squared 外，实践中还常用两种误差指标。</p>
+<h4 id="root-mean-squared-error">Root Mean Squared Error（均方根误差）<a class="headerlink" href="#root-mean-squared-error" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(RMSE = \sqrt{\frac{1}{m}\sum_{i=1}^{m}(y_i - \hat{y}_i)^2}\)</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(RMSE\)</span> 与 dependent variable 的单位相同，比 MSE 更易解读</li>
+</ul>
+<p>RMSE 就是 MSE 的平方根。它的优势在于可解读性：若预测的是房价（单位：美元），RMSE 告诉我们典型误差是多少美元，而 MSE 给出的误差单位是"美元的平方"。</p>
+<h4 id="mean-absolute-error">Mean Absolute Error（平均绝对误差）<a class="headerlink" href="#mean-absolute-error" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(MAE = \frac{1}{m}\sum_{i=1}^{m}|y_i - \hat{y}_i|\)</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(|y_i - \hat{y}_i|\)</span> 是残差的绝对值</li>
+</ul>
+<p>MAE 对异常值（outliers）比 MSE 更鲁棒，因为它不对误差平方。每个数据点按其误差大小等比例贡献。</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>公式</th>
+<th>单位</th>
+<th>对异常值的敏感度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MSE</td>
+<td><span class="arithmatex">\(\frac{1}{m}\sum(y_i-\hat{y}_i)^2\)</span></td>
+<td>平方</td>
+<td>高</td>
+</tr>
+<tr>
+<td>RMSE</td>
+<td><span class="arithmatex">\(\sqrt{MSE}\)</span></td>
+<td>与 <span class="arithmatex">\(y\)</span> 相同</td>
+<td>高</td>
+</tr>
+<tr>
+<td>MAE</td>
+<td>$\frac{1}{m}\sum</td>
+<td>y_i-\hat{y}_i</td>
+<td>$</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(R^2\)</span></td>
+<td><span class="arithmatex">\(1 - SSE/SST\)</span></td>
+<td>无量纲</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+<h2 id="normal-equation">Normal Equation（正规方程）：解析求解线性回归<a class="headerlink" href="#normal-equation" title="Permanent link">&para;</a></h2>
+<p>对于线性回归，存在一个闭式解（closed-form solution），可以直接计算最优 parameter vector，无需迭代。这个解称为<strong>normal equation（正规方程）</strong>。</p>
+<p>从最小化 MSE（或等价地最小化 SSE）的目标出发，对 <span class="arithmatex">\(\theta\)</span> 求 cost function 的导数，令其等于零并求解，结果为：</p>
+<h4 id="normal-equation_1">Normal Equation<a class="headerlink" href="#normal-equation_1" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(\theta = (X^T X)^{-1} X^T y\)</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(X\)</span> 是 <span class="arithmatex">\(m \times (n+1)\)</span> 的设计矩阵（design matrix）</li>
+<li><span class="arithmatex">\(X^T\)</span> 是 <span class="arithmatex">\(X\)</span> 的转置</li>
+<li><span class="arithmatex">\((X^T X)^{-1}\)</span> 是 Gram 矩阵的逆</li>
+<li><span class="arithmatex">\(y\)</span> 是 <span class="arithmatex">\(m \times 1\)</span> 的实际值向量</li>
+</ul>
+<p>在 NumPy 中，计算方式为：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">X</span><span class="p">)</span> <span class="o">@</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span>
+</span></code></pre></div>
+<p>或者使用数值更稳定的方法：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">rcond</span><span class="o">=</span><span class="kc">None</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></code></pre></div>
+<p>Normal equation 有其实际局限性。计算矩阵逆 <span class="arithmatex">\((X^T X)^{-1}\)</span> 的时间复杂度为 <span class="arithmatex">\(O(n^3)\)</span>，其中 <span class="arithmatex">\(n\)</span> 是特征数量。对于具有数百万特征的数据集，这会变得极其缓慢。在这种情况下，优先选择 gradient descent（梯度下降，第 7 章）等迭代方法。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>时间复杂度</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal equation</td>
+<td><span class="arithmatex">\(O(n^3)\)</span></td>
+<td>小到中等特征数（<span class="arithmatex">\(n &lt; 10,000\)</span>）</td>
+</tr>
+<tr>
+<td>Gradient descent</td>
+<td>每次迭代 <span class="arithmatex">\(O(mn)\)</span></td>
+<td>特征数大或数据集大</td>
+</tr>
+</tbody>
+</table>
+<h4 id="normal-equation_2">图示：Normal Equation 逐步演示<a class="headerlink" href="#normal-equation_2" title="Permanent link">&para;</a></h4>
+<iframe src="../../sims/normal-equation-step-through/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Normal Equation Step-Through</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> normal-equation-step-through<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: execute
+Learning Objective: Execute the normal equation computation step by step on a small dataset to obtain the optimal parameter vector for linear regression.</p>
+<p>Purpose: Guided step-through that demonstrates the normal equation on a tiny dataset (4 data points, 1 feature), showing each matrix operation with concrete numbers.</p>
+<p>Data Visibility Requirements:
+Stage 1: Show raw data table: 4 (x, y) pairs. Show the design matrix X (with column of ones).
+Stage 2: Compute <span class="arithmatex">\(X^T\)</span> and display it.
+Stage 3: Compute <span class="arithmatex">\(X^T X\)</span> with element-by-element calculation shown.
+Stage 4: Compute <span class="arithmatex">\((X^T X)^{-1}\)</span> using the 2x2 inverse formula.
+Stage 5: Compute <span class="arithmatex">\(X^T y\)</span> with element-by-element calculation.
+Stage 6: Compute <span class="arithmatex">\(\theta = (X^T X)^{-1} X^T y\)</span> and display the final slope and intercept.
+Stage 7: Plot the resulting regression line on the data points.</p>
+<p>Interactive controls:
+- "Next Step" and "Previous Step" buttons
+- Highlighted cells showing which values are being computed at each stage
+- "Randomize Data" button to try different datasets</p>
+<p>Instructional Rationale: Worked example with concrete numbers at each matrix operation stage supports the Apply/execute objective by making the abstract formula into a tangible sequence of arithmetic steps that students can follow and verify.</p>
+<p>The visual elements must have a responsive design that must respond to window resize events.</p>
+<p>Implementation: p5.js with staged computation display</p>
+</details>
+<h2 id="_8">综合应用：完整示例<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>总结线性回归的工作流程，以根据学习时长预测学生考试成绩为例，步骤如下：</p>
+<ol>
+<li><strong>收集数据</strong>：收集过去学生的（学习时长, 成绩）数据对</li>
+<li><strong>建立模型</strong>：<span class="arithmatex">\(\hat{y} = \theta_1 x + \theta_0\)</span>，其中 <span class="arithmatex">\(x\)</span> 是学习时长，<span class="arithmatex">\(\hat{y}\)</span> 是预测成绩</li>
+<li><strong>构建设计矩阵</strong>：在特征向量前添加一列 1</li>
+<li><strong>计算参数</strong>：应用 normal equation <span class="arithmatex">\(\theta = (X^T X)^{-1} X^T y\)</span></li>
+<li><strong>进行预测</strong>：对于学习了 7 小时的新学生，计算 <span class="arithmatex">\(\hat{y} = \theta_1 \cdot 7 + \theta_0\)</span></li>
+<li><strong>评估性能</strong>：在留出的测试集上计算 MSE、RMSE、MAE 和 <span class="arithmatex">\(R^2\)</span></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Python 实现</p>
+<p>在实践中，可以使用 <code>sklearn.linear_model.LinearRegression</code> 一行代码实现。但理解 normal equation 和 loss function 背后的数学，能为你调试模型、选择合适指标以及理解后续章节中更复杂的算法奠定基础。</p>
+</div>
+<h2 id="_9">关键要点<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>本章将 linear regression 作为课程中第一个完整指定的机器学习算法进行了介绍：</p>
+<ul>
+<li><strong>Regression</strong> 预测连续值。<strong>Dependent variable</strong> 是目标，<strong>independent variable</strong> 是特征。</li>
+<li><strong>Linear model</strong> 假设特征的加权和加上一个 <strong>bias term（intercept）</strong>。权重是<strong>斜率（slopes）</strong>，所有参数构成<strong>parameter vector</strong>。</li>
+<li><strong>Squared loss</strong> 对误差进行二次方惩罚。在数据集上取平均后得到<strong>Mean Squared Error</strong>。<strong>RMSE</strong> 和 <strong>MAE</strong> 提供对异常值敏感度不同的替代误差度量。</li>
+<li><strong>Residuals</strong> 是实际值与<strong>predicted values</strong> 之差。<strong>平方和分解</strong>（SST = SSR + SSE）将变异性划分为已解释和未解释两部分。</li>
+<li><strong>R-Squared</strong> 衡量模型解释的变异性比例，范围从 0（无解释能力）到 1（完美拟合）。</li>
+<li><strong>Normal equation</strong> 通过矩阵运算提供最优参数的闭式解，对于中等规模的问题效率很高。</li>
+</ul>
+<details class="question">
+<summary>自测：你能回答这些问题吗？</summary>
+<ol>
+<li>Simple regression 与 multiple regression 有什么区别？</li>
+<li>为什么 squared loss 对大误差的惩罚比 absolute loss 更重？</li>
+<li>如果 SSE 非常接近 SST，这说明模型的什么情况？</li>
+<li>对于线性回归，何时会优先选择 gradient descent 而非 normal equation？</li>
+<li>若房价模型的 MAE 为 10，从实际意义上这意味着什么？</li>
+</ol>
+</details>
+<p><a href="references/">See Annotated References</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../05-math-foundations/references/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Annotated References">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Annotated References
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="quiz/" class="md-footer__link md-footer__link--next" aria-label="Next: Quiz">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Quiz
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "search.suggest", "search.highlight", "search.share", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../javascripts/quiz.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

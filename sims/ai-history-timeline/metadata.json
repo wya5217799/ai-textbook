@@ -1,0 +1,19 @@
+{
+  "title": "AI History Timeline",
+  "description": "Interactive vis-timeline showing 12 major AI milestones from 1950 to 2025, color-coded by era with click-to-expand detail panel.",
+  "subject": "Artificial Intelligence",
+  "topic": "History of AI",
+  "bloom_level": "Remember",
+  "bloom_verb": "recall",
+  "library": "vis-timeline",
+  "sim_id": "ai-history-timeline",
+  "chapter": "01-intro-to-ai",
+  "iframe_height": 540,
+  "controls": [
+    {"type": "click", "description": "Click events to see descriptions in detail panel"},
+    {"type": "scroll/drag", "description": "Zoom and pan timeline"}
+  ],
+  "author": "AI Systems Course",
+  "date": "2026-04-13",
+  "language": "en"
+}

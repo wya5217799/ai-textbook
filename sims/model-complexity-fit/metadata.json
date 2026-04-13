@@ -1,0 +1,22 @@
+{
+  "title": "Model Complexity vs. Fit Quality",
+  "description": "Interactive polynomial curve fitter demonstrating underfitting, good fit, and overfitting on noisy quadratic data. Students adjust degree 1-15 and observe training MSE and fit quality.",
+  "creator": "Dan McCreary",
+  "date": "2026-04-13",
+  "subject": ["Machine Learning", "Model Complexity", "Overfitting", "Underfitting", "Polynomial Regression"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "contributor": ["Claude Code"],
+  "identifier": "model-complexity-fit",
+  "publisher": "AI Systems Textbook",
+  "educationalLevel": "Undergraduate",
+  "learningResourceType": "simulation",
+  "audience": "Students, Educators",
+  "version": "1.0.0",
+  "bloomLevel": ["Understand"],
+  "concepts": ["Model Complexity", "Overfitting", "Underfitting", "Polynomial Degree", "Bias-Variance Tradeoff", "MSE"],
+  "prerequisites": ["Basic understanding of functions and graphs", "Concept of training data"],
+  "library": "p5.js"
+}

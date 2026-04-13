@@ -1,0 +1,19 @@
+{
+  "title": "Matplotlib Plot Gallery",
+  "description": "Interactive 2x3 gallery of 6 Matplotlib plot types with mini rendered charts, hover tooltips and click-to-expand use-case details.",
+  "subject": "Python for AI",
+  "topic": "Matplotlib Visualization",
+  "bloom_level": "Remember",
+  "bloom_verb": "identify",
+  "library": "p5.js",
+  "sim_id": "matplotlib-plot-gallery",
+  "chapter": "02-python-tools",
+  "iframe_height": 492,
+  "controls": [
+    {"type": "hover", "description": "Hover panels to see use-case tooltip"},
+    {"type": "click", "description": "Click to expand detail panel with function name and use cases"}
+  ],
+  "author": "AI Systems Course",
+  "date": "2026-04-13",
+  "language": "en"
+}

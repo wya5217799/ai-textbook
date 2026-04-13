@@ -1,0 +1,19 @@
+{
+  "title": "Jupyter Notebook Workflow",
+  "description": "Interactive two-column flowchart of the 9-step ML workflow in Jupyter Notebook, with hover code snippets and color-coded cell types.",
+  "subject": "Python for AI",
+  "topic": "Jupyter Notebook and ML Project Workflow",
+  "bloom_level": "Apply",
+  "bloom_verb": "demonstrate",
+  "library": "p5.js",
+  "sim_id": "jupyter-notebook-workflow",
+  "chapter": "02-python-tools",
+  "iframe_height": 512,
+  "controls": [
+    {"type": "hover", "description": "Hover step cards to see example code in detail panel"},
+    {"type": "click", "description": "Click to pin detail panel open"}
+  ],
+  "author": "AI Systems Course",
+  "date": "2026-04-13",
+  "language": "en"
+}

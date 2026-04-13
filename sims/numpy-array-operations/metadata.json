@@ -1,0 +1,21 @@
+{
+  "title": "NumPy Array Operations Explorer",
+  "description": "Step-through p5.js MicroSim tracing 5 NumPy operations cell-by-cell on concrete 2x2 arrays with formula display.",
+  "subject": "Python for AI",
+  "topic": "NumPy Array Operations",
+  "bloom_level": "Apply",
+  "bloom_verb": "demonstrate",
+  "library": "p5.js",
+  "sim_id": "numpy-array-operations",
+  "chapter": "02-python-tools",
+  "iframe_height": 502,
+  "controls": [
+    {"type": "select", "label": "Operation", "description": "Choose operation: add, multiply, matmul, transpose, broadcasting"},
+    {"type": "button", "label": "Step", "description": "Advance one computation step"},
+    {"type": "button", "label": "Show All", "description": "Display complete result immediately"},
+    {"type": "button", "label": "Reset", "description": "Clear result and restart"}
+  ],
+  "author": "AI Systems Course",
+  "date": "2026-04-13",
+  "language": "en"
+}

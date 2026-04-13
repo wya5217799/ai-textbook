@@ -1,0 +1,84 @@
+/* ============================================================
+   Extra CSS for Artificial Intelligence System Textbook
+   Includes: iframe support, custom prompt admonition styles
+   ============================================================ */
+
+/* --- Responsive iframes --- */
+.iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Tall iframe (for simulations that need more vertical space) */
+.iframe-container-tall {
+  padding-bottom: 75%;
+}
+
+/* --- Custom Prompt Admonition --- */
+.md-typeset .admonition.prompt,
+.md-typeset details.prompt {
+  border-color: #7c4dff;
+}
+
+.md-typeset .prompt > .admonition-title,
+.md-typeset .prompt > summary {
+  background-color: rgba(124, 77, 255, 0.1);
+}
+
+.md-typeset .prompt > .admonition-title::before,
+.md-typeset .prompt > summary::before {
+  background-color: #7c4dff;
+  -webkit-mask-image: var(--md-admonition-icon--prompt);
+  mask-image: var(--md-admonition-icon--prompt);
+}
+
+:root {
+  --md-admonition-icon--prompt: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>');
+}
+
+/* Copy button styling for prompt admonitions */
+.admonition-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  background: rgba(0,0,0,0.1);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.admonition-copy-btn:hover {
+  background: rgba(0,0,0,0.2);
+}
+
+.admonition.prompt {
+  position: relative;
+}
+
+/* --- Cover image on home page --- */
+.cover-image {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  margin: 1rem auto 2rem;
+  display: block;
+}

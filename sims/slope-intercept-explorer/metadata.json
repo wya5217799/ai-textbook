@@ -1,0 +1,22 @@
+{
+  "title": "Slope and Intercept Explorer",
+  "description": "Interactive linear regression explorer where students manipulate slope and intercept sliders, observe residual lines, and minimize SSE to find the best-fitting line.",
+  "creator": "Dan McCreary",
+  "date": "2026-04-13",
+  "subject": ["Linear Regression", "Slope", "Intercept", "Residuals", "SSE"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "contributor": ["Claude Code"],
+  "identifier": "slope-intercept-explorer",
+  "publisher": "AI Systems Textbook",
+  "educationalLevel": "Undergraduate",
+  "learningResourceType": "simulation",
+  "audience": "Students, Educators",
+  "version": "1.0.0",
+  "bloomLevel": ["Apply"],
+  "concepts": ["Linear Regression", "Slope", "Intercept", "Residuals", "SSE", "Loss Function"],
+  "prerequisites": ["Basic algebra", "Understanding of coordinate systems"],
+  "library": "p5.js"
+}

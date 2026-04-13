@@ -1,0 +1,14 @@
+{
+  "FOUND": "Foundation Concepts",
+  "TOOL": "Programming Tools",
+  "DACQ": "Data Acquisition",
+  "DPRE": "Data Preprocessing",
+  "MATH": "Linear Algebra and Math",
+  "LREG": "Linear Regression",
+  "OPTM": "Optimization",
+  "EVAL": "Model Evaluation",
+  "CLSF": "Classification",
+  "CLST": "Clustering",
+  "NEUR": "Neural Networks",
+  "DEEP": "Deep Learning Architectures"
+}

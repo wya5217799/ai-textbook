@@ -1,0 +1,22 @@
+{
+  "title": "K-Fold Cross-Validation Process",
+  "description": "Interactive step-through of k-fold cross-validation with fold rotation grid, per-fold error bars, and running CV score average. Students control the number of folds (3-10) and step rate.",
+  "creator": "Dan McCreary",
+  "date": "2026-04-13",
+  "subject": ["Machine Learning", "Cross-Validation", "Model Evaluation", "Generalization"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "contributor": ["Claude Code"],
+  "identifier": "k-fold-cross-validation",
+  "publisher": "AI Systems Textbook",
+  "educationalLevel": "Undergraduate",
+  "learningResourceType": "simulation",
+  "audience": "Students, Educators",
+  "version": "1.0.0",
+  "bloomLevel": ["Understand"],
+  "concepts": ["K-Fold Cross-Validation", "Training Set", "Validation Set", "CV Score", "Generalization", "Fold"],
+  "prerequisites": ["Basic regression", "Training vs validation split concept"],
+  "library": "p5.js"
+}
